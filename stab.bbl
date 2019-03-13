@@ -1,0 +1,43 @@
+\begin{thebibliography}{5}
+\newcommand{\enquote}[1]{``#1''}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
+  \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\Url}\fi
+
+\bibitem[{Allmaras and Johnson(2012)}]{allmaras2012modifications}
+Allmaras, S.~R., and Johnson, F.~T., \enquote{Modifications and clarifications
+  for the implementation of the Spalart-Allmaras turbulence model,}
+  \emph{Seventh international conference on computational fluid dynamics
+  (ICCFD7)}, 2012, pp. 1--11.
+
+\bibitem[{Langer(2014)}]{langer2014agglomeration}
+Langer, S., \enquote{Agglomeration multigrid methods with implicit
+  {R}unge--{K}utta smoothers applied to aerodynamic simulations on unstructured
+  grids,} \emph{Journal of Computational Physics}, Vol. 277, 2014, pp. 72--100.
+
+\bibitem[{Hasco{\"e}t and Pascual(2013)}]{Tapenade}
+Hasco{\"e}t, L., and Pascual, V., \enquote{The {T}apenade {A}utomatic
+  {D}ifferentiation tool: {P}rinciples, {M}odel, and {S}pecification,}
+  \emph{{ACM} {T}ransactions {O}n {M}athematical {S}oftware}, Vol.~39, No.~3,
+  2013.
+
+\bibitem[{Gebremedhin et~al.(2013)Gebremedhin, Nguyen, Patwary, and
+  Pothen}]{gebremedhin2013colpack}
+Gebremedhin, A.~H., Nguyen, D., Patwary, M. M.~A., and Pothen, A.,
+  \enquote{ColPack: Software for graph coloring and related problems in
+  scientific computing,} \emph{ACM Transactions on Mathematical Software
+  (TOMS)}, Vol.~40, No.~1, 2013, p.~1.
+
+\bibitem[{Cantwell et~al.(2015)Cantwell, Moxey, Comerford, Bolis, Rocco,
+  Mengaldo, De~Grazia, Yakovlev, Lombard, Ekelschot
+  et~al.}]{cantwell2015nektar++}
+Cantwell, C.~D., Moxey, D., Comerford, A., Bolis, A., Rocco, G., Mengaldo, G.,
+  De~Grazia, D., Yakovlev, S., Lombard, J.-E., Ekelschot, D., et~al.,
+  \enquote{Nektar++: An open-source spectral/hp element framework,}
+  \emph{Computer Physics Communications}, Vol. 192, 2015, pp. 205--219.
+
+\end{thebibliography}

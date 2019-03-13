@@ -1,0 +1,67 @@
+This is BibTeX, Version 0.99d (TeX Live 2018)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: stab.aux
+The style file: new-aiaa.bst
+Database file #1: xu.bib
+You're missing a field name---line 688 of file xu.bib
+ : 
+ : %  title={Aerodynamic Shape Optimization of the {CRM} Configuration Including Buffet-Onset Conditions},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 954 of file xu.bib
+ : 
+ : @article{samareh2001survey,
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Repeated entry---line 1269 of file xu.bib
+ : @inproceedings{allmaras2012modifications
+ :                                         ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 1417 of file xu.bib
+ : @article{langer2014agglomeration
+ :                                 ,
+I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for "123"
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+You've used 5 entries,
+            3319 wiz_defined-function locations,
+            724 strings with 6846 characters,
+and the built_in function-call counts, 3157 in all, are:
+= -- 213
+> -- 128
+< -- 13
++ -- 52
+- -- 41
+* -- 259
+:= -- 444
+add.period$ -- 10
+call.type$ -- 5
+change.case$ -- 20
+chr.to.int$ -- 6
+cite$ -- 5
+duplicate$ -- 274
+empty$ -- 247
+format.name$ -- 57
+if$ -- 631
+int.to.chr$ -- 1
+int.to.str$ -- 6
+missing$ -- 54
+newline$ -- 25
+num.names$ -- 15
+pop$ -- 100
+preamble$ -- 1
+purify$ -- 20
+quote$ -- 0
+skip$ -- 92
+stack$ -- 0
+substring$ -- 145
+swap$ -- 168
+text.length$ -- 10
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 30
+warning$ -- 0
+while$ -- 21
+width$ -- 0
+write$ -- 64
+(There were 4 error messages)
