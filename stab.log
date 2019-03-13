@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.2.11)  13 MAR 2019 09:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.2.11)  13 MAR 2019 10:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1492,11 +1492,11 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/bx/n' in size <10> not available
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
 (Font)              scaled to size 10.0pt on input line 28.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 12.0pt on input line 60.
+(Font)              scaled to size 12.0pt on input line 61.
 LaTeX Font Info:    Font shape `T1/ntxtlf/bx/n' in size <12> not available
-(Font)              Font shape `T1/ntxtlf/b/n' tried instead on input line 60.
+(Font)              Font shape `T1/ntxtlf/b/n' tried instead on input line 61.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 12.0pt on input line 60.
+(Font)              scaled to size 12.0pt on input line 61.
  (./stab.bbl
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 9.0pt on input line 1.
@@ -1506,13 +1506,17 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
 [1
 
 {/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-[2])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 252.
- [3]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 252.
+[2]
+Overfull \vbox (49.04417pt too high) has occurred while \output is active []
+
+
+[3])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 259.
+ [4]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 259.
  (./stab.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 252.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 252.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 259.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 259.
 
 
 Package rerunfilecheck Warning: File `stab.out' has changed.
@@ -1520,26 +1524,26 @@ Package rerunfilecheck Warning: File `stab.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `stab.out':
-(rerunfilecheck)             Before: 6FF9837DAF3727ADF0F8F3FC6B5480E3;1111
-(rerunfilecheck)             After:  D8BDE96B7EEC537B8EB694D2E36DC081;1597.
+(rerunfilecheck)             Before: BAA0B7AABAA2F204EEEBBD65716423A0;1978
+(rerunfilecheck)             After:  DA33F38D09AF1FC92BB57211097E018D;1978.
  ) 
 Here is how much of TeX's memory you used:
- 25002 strings out of 492649
- 462533 string characters out of 6129622
- 560005 words of memory out of 5000000
- 28502 multiletter control sequences out of 15000+600000
+ 25019 strings out of 492649
+ 462825 string characters out of 6129622
+ 559107 words of memory out of 5000000
+ 28514 multiletter control sequences out of 15000+600000
  604900 words of font info for 111 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,8n,94p,10366b,892s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,8n,94p,10366b,890s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}{/us
 r/local/texlive/2018/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc}</usr/local/
 texlive/2018/texmf-dist/fonts/type1/public/tex-gyre/qtmb.pfb></usr/local/texliv
 e/2018/texmf-dist/fonts/type1/public/tex-gyre/qtmr.pfb></usr/local/texlive/2018
 /texmf-dist/fonts/type1/public/tex-gyre/qtmri.pfb>
-Output written on stab.pdf (3 pages, 92246 bytes).
+Output written on stab.pdf (4 pages, 92459 bytes).
 PDF statistics:
- 115 PDF objects out of 1000 (max. 8388607)
- 105 compressed objects within 2 object streams
- 30 named destinations out of 1000 (max. 500000)
- 30841 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 154 PDF objects out of 1000 (max. 8388607)
+ 143 compressed objects within 2 object streams
+ 35 named destinations out of 1000 (max. 500000)
+ 30921 words of extra memory for PDF output out of 35830 (max. 10000000)
 
