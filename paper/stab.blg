@@ -1,0 +1,59 @@
+This is BibTeX, Version 0.99d (TeX Live 2018)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: stab.aux
+The style file: new-aiaa.bst
+Database file #1: xu.bib
+You're missing a field name---line 694 of file xu.bib
+ : 
+ : %  title={Aerodynamic Shape Optimization of the {CRM} Configuration Including Buffet-Onset Conditions},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 960 of file xu.bib
+ : 
+ : @article{samareh2001survey,
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Warning--empty journal in strazisar1989laser
+You've used 1 entry,
+            3319 wiz_defined-function locations,
+            694 strings with 5812 characters,
+and the built_in function-call counts, 526 in all, are:
+= -- 29
+> -- 26
+< -- 0
++ -- 10
+- -- 9
+* -- 45
+:= -- 86
+add.period$ -- 2
+call.type$ -- 1
+change.case$ -- 4
+chr.to.int$ -- 2
+cite$ -- 2
+duplicate$ -- 43
+empty$ -- 38
+format.name$ -- 11
+if$ -- 92
+int.to.chr$ -- 1
+int.to.str$ -- 2
+missing$ -- 9
+newline$ -- 13
+num.names$ -- 3
+pop$ -- 24
+preamble$ -- 1
+purify$ -- 4
+quote$ -- 0
+skip$ -- 12
+stack$ -- 0
+substring$ -- 12
+swap$ -- 18
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 6
+warning$ -- 1
+while$ -- 2
+width$ -- 0
+write$ -- 18
+(There were 2 error messages)
