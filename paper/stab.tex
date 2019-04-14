@@ -198,7 +198,64 @@ accurately predict the stall line in the early design stage.
 %taken to handle the periodic boundary condition
 %when simulating flows in a single passage.
 
-\section{Stability analysis}
+\section{Global linear stability analysis}
+For a nonlinear dynamic system, e.g., the discretised NS equation, using
+the method of lines,
+the governing equation is
+\begin{equation}
+\dfrac{d\uu}{dt}=-\R(\uu)
+\end{equation}
+where $\uu$ is the time-varying flow variable and $\R(\uu)$ is the nonlinear
+residual representating the spatial discretization.
+Assuming a steady state solution $\uu_0$ (equilibrium point of the dynamic system)
+exists, and the time-varying flwo variable can be decomposed as the
+steady and the unsteady part 
+\begin{equation}
+\uu:=\uu_0 + \tilde \uu
+\end{equation}
+and the governing equation becomes
+\begin{equation}
+\dfrac{d \tilde \uu}{dt}=A \tilde \uu
+\end{equation}
+where $A$ is the negative Jacobian $A:=-\df{\R}{\uu}$.
+
+In order to use the eigen model decomposition approach, suppose
+the system matrix has right eigenvectors $\{\vv_i, \vv_2, ..., \vv_N\}$,
+which forms the matrix $V$ as its colum vectors. Matrix $A$ can then
+be factorized as 
+\begin{equation}
+A=V\Lambda V^{-1}
+\end{equation}
+where the diagonal matrix $\Lambda$ has the eigenvalues on the matrix $A$
+as its diagonal elements.
+Decomposing the unsteady part $\tilde \uu$ in the eigen modal space,
+it can be expressed as a linear combination of all eigenvectors with
+coordinates $\eta$
+\begin{equation}
+\tilde \uu = V \eta
+\end{equation}
+Substituting the $\tilde \uu$ in the governing equation using the eigen modal
+decomposition, it becomes
+\begin{equation}
+\dfrac{d \eta}{dt}= \Lambda \eta
+\end{equation}
+Different from the original coupled system, all variables are decoupled now and it
+can be written as
+\begin{equation}
+\dfrac{d \eta_i}{dt}= \lambda_i \eta_i  ~~~\forall i
+\end{equation}
+For the linear system to be stable, the sufficient and necessary condition is
+that all eigenvalues has a negative real part, i.e., real$(\lambda_i), \forall i$.
+
+\subsection{Numerical implementation}
+In practice, performing the global linear stability analysis as described above
+is a standard procedure involving three steps:
+\begin{itemize}
+	\item Find an equilirium point (converging to steady state solution);
+	\item Linearize the nonlinear residual and form the Jacobian matrix;
+	\item Calculate the eigenvalue with the largest real part.
+\end{itemize}
+
 \subsection{Time-domain unsteady approach}
 \subsection{Eigenvalue approach}
 \section{Eigenvalue analysis for large sparse matrices}
@@ -292,9 +349,41 @@ respectively.
 	\label{fig:cyl-re40-re55-uns}
 \end{figure}
 
-
-
 \subsubsection{Eigenvalue analysis}
+An eigenvalue analysis is performed for the steady state solution calculated
+in NutsCFD. After converging the steady state solver to machine error ($tol=10^{-14}$),
+the exact Jacobian matrix based on the 2nd-order spatial accuracy is calculated and
+output to file. The sparse matrix is read into Matlab and eigs is used to compute
+a subset of the eigenvalues, with the aim of finding the (hopefully one) unstable mode.
+To minimize the computational effort, 10 eigenvalues/vectors are computed for
+matrices with different shifts of $0$, $i$, $2i$, $3i$, $4i$, $5i$. All the eigenvalues,
+60 in total and with some duplicated, are plotted in Fig.~\ref{fig:cyl-re55-eigen-vs-uns}.
+It can be seen that there is one eigenvalue that is on the right side of the imaginary axis,
+indicating there is one unstable mode. In the meantime, from the time-domain simulation,
+one can extract from the lift-coefficient signal that the flow is linearly growing with a
+growth rate of 0.123 and oscillating with a circular frequency of $4.94 rad/s$. This
+mode is plotted along with the spectrum and it can be seen that this mode also overlaps
+with the unstable eigenvalue from the eigenanalysis. 
+
+\begin{figure}[htb]
+	\centering   
+	\includegraphics[width=0.9\textwidth]{pic/uns-vs-eigen.png}	
+	\caption{Eigenspectrum from the steady state eigenvalue analysis
+		compared with the linearly destabiling unsteady simulation for $Re=55$.}
+	\label{fig:cyl-re55-eigen-vs-uns}
+\end{figure}
+
+The eigenanalysis not only generates the eigenvalues but also the eigenvectors
+associated with each eigenvalue. For the unstable mode, the real part of the
+density, x/y momentum and energy component of the unstable eigenvector
+is shown in Fig.\ref{fig:cyl-re55-eigenmode}.
+\begin{figure}[htb]
+	\centering   
+	\includegraphics[width=0.9\textwidth]{pic/eigenmode-real.png}	
+	\caption{Real part of the density, x/y momentum, energy components
+		of the unstable eigenmode for $Re=55$.}
+	\label{fig:cyl-re55-eigenmode}
+\end{figure}
 
 %
 %We use the NutsCFD to compute the steady state laminar flow around the
@@ -334,6 +423,37 @@ ratio is 0.375 at the leading edge (TC = 0.6\% span) and 0.478
 at the trailing edge (TC = 0.75\% span). The design rotational
 speed is 16,043 RPM, and the tip leading edge speed is 429 m/s
 with a tip relative Mach number of 1.38.
+
+\subsection{performance curve}
+
+
+\begin{figure}[htb]
+	\centering   
+	\includegraphics[width=0.9\textwidth]{pic/rotor67-performance.png}
+	\caption{Q3D performance for rotor67 at 50\% blade height with either
+		single passage or whole annulus (22 passages).}
+	\label{fig:r67-performance}
+\end{figure}
+
+
+\begin{figure}[htb]
+	\centering   
+	\includegraphics[width=0.45\textwidth]{pic/pressure-1passage.jpeg}
+	\includegraphics[width=0.45\textwidth]{pic/sa-1passage.jpeg}\\    \includegraphics[width=0.45\textwidth]{pic/pressure-22passage.jpeg}
+	\includegraphics[width=0.45\textwidth]{pic/sa-22passage.jpeg}
+	\caption{Q3D performance for rotor67 at 50\% blade height with either
+		single passage or whole annulus (22 passages).}
+	\label{fig:r67-flow}
+\end{figure}
+
+
+\begin{figure}[htb]
+	\centering   
+	\includegraphics[width=\textwidth]{pic/rotor67-modes.png}
+	\caption{18kpa eigenvalue.}
+	\label{fig:r67-eigen-18kpa}
+\end{figure}
+
 
 \section{Conclusion}
 \label{conclusion}

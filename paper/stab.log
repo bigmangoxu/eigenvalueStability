@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.2.11)  6 APR 2019 12:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.2.11)  14 APR 2019 19:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1497,66 +1497,126 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/bx/n' in size <12> not available
 (Font)              Font shape `T1/ntxtlf/b/n' tried instead on input line 61.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
 (Font)              scaled to size 12.0pt on input line 61.
+LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
+(Font)              scaled to size 10.0pt on input line 206.
+LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
+(Font)              scaled to size 7.3pt on input line 206.
+LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
+(Font)              scaled to size 5.5pt on input line 206.
  [1
 
 {/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-<pic/cylinder-std.png, id=70, 523.7166pt x 255.8358pt>
+LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
+(Font)              scaled to size 10.0pt on input line 254.
+ [2]
+<pic/cylinder-std.png, id=98, 523.7166pt x 255.8358pt>
 File: pic/cylinder-std.png Graphic file (type png)
 <use pic/cylinder-std.png>
-Package pdftex.def Info: pic/cylinder-std.png  used on input line 232.
+Package pdftex.def Info: pic/cylinder-std.png  used on input line 289.
 (pdftex.def)             Requested size: 352.31625pt x 172.11566pt.
-<pic/cylinder-std-compare.png, id=73, 522.753pt x 255.8358pt>
+<pic/cylinder-std-compare.png, id=101, 522.753pt x 255.8358pt>
 File: pic/cylinder-std-compare.png Graphic file (type png)
 <use pic/cylinder-std-compare.png>
-Package pdftex.def Info: pic/cylinder-std-compare.png  used on input line 243.
+Package pdftex.def Info: pic/cylinder-std-compare.png  used on input line 300.
 (pdftex.def)             Requested size: 352.31625pt x 172.42406pt.
- [2] [3 <./pic/cylinder-std.png> <./pic/cylinder-std-compare.png>]
-<pic/cl-linear.jpg, id=95, 745.78625pt x 800.9925pt>
+ [3 <./pic/cylinder-std.png>]
+<pic/cl-linear.jpg, id=112, 745.78625pt x 800.9925pt>
 File: pic/cl-linear.jpg Graphic file (type jpg)
 <use pic/cl-linear.jpg>
-Package pdftex.def Info: pic/cl-linear.jpg  used on input line 290.
+Package pdftex.def Info: pic/cl-linear.jpg  used on input line 347.
 (pdftex.def)             Requested size: 230.18253pt x 247.21733pt.
-<pic/cl-log.jpg, id=96, 745.78625pt x 800.9925pt>
+<pic/cl-log.jpg, id=113, 745.78625pt x 800.9925pt>
 File: pic/cl-log.jpg Graphic file (type jpg)
 <use pic/cl-log.jpg>
-Package pdftex.def Info: pic/cl-log.jpg  used on input line 290.
+Package pdftex.def Info: pic/cl-log.jpg  used on input line 347.
 (pdftex.def)             Requested size: 230.18253pt x 247.21733pt.
- (./stab.bbl
+ [4 <./pic/cylinder-std-compare.png>]
+<pic/uns-vs-eigen.png, id=121, 719.3274pt x 332.9238pt>
+File: pic/uns-vs-eigen.png Graphic file (type png)
+<use pic/uns-vs-eigen.png>
+Package pdftex.def Info: pic/uns-vs-eigen.png  used on input line 370.
+(pdftex.def)             Requested size: 422.77664pt x 195.6715pt.
+<pic/eigenmode-real.png, id=123, 1027.6794pt x 255.8358pt>
+File: pic/eigenmode-real.png Graphic file (type png)
+<use pic/eigenmode-real.png>
+Package pdftex.def Info: pic/eigenmode-real.png  used on input line 382.
+(pdftex.def)             Requested size: 422.77664pt x 105.2486pt.
+ [5 <./pic/cl-linear.jpg> <./pic/cl-log.jpg>]
+<pic/rotor67-performance.png, id=132, 889.8846pt x 416.2752pt>
+File: pic/rotor67-performance.png Graphic file (type png)
+<use pic/rotor67-performance.png>
+Package pdftex.def Info: pic/rotor67-performance.png  used on input line 432.
+(pdftex.def)             Requested size: 422.77664pt x 197.76453pt.
+<pic/pressure-1passage.jpeg, id=133, 2021.5525pt x 1371.1225pt>
+File: pic/pressure-1passage.jpeg Graphic file (type jpg)
+<use pic/pressure-1passage.jpeg>
+Package pdftex.def Info: pic/pressure-1passage.jpeg  used on input line 441.
+(pdftex.def)             Requested size: 211.38832pt x 143.35492pt.
+<pic/sa-1passage.jpeg, id=134, 2021.5525pt x 1371.1225pt>
+File: pic/sa-1passage.jpeg Graphic file (type jpg)
+<use pic/sa-1passage.jpeg>
+Package pdftex.def Info: pic/sa-1passage.jpeg  used on input line 442.
+(pdftex.def)             Requested size: 211.38832pt x 143.35492pt.
+<pic/pressure-22passage.jpeg, id=135, 2021.5525pt x 1371.1225pt>
+File: pic/pressure-22passage.jpeg Graphic file (type jpg)
+<use pic/pressure-22passage.jpeg>
+Package pdftex.def Info: pic/pressure-22passage.jpeg  used on input line 442.
+(pdftex.def)             Requested size: 211.38832pt x 143.35492pt.
+<pic/sa-22passage.jpeg, id=136, 2021.5525pt x 1371.1225pt>
+File: pic/sa-22passage.jpeg Graphic file (type jpg)
+<use pic/sa-22passage.jpeg>
+Package pdftex.def Info: pic/sa-22passage.jpeg  used on input line 443.
+(pdftex.def)             Requested size: 211.38832pt x 143.35492pt.
+<pic/rotor67-modes.png, id=137, 519.8622pt x 739.563pt>
+File: pic/rotor67-modes.png Graphic file (type png)
+<use pic/rotor67-modes.png>
+Package pdftex.def Info: pic/rotor67-modes.png  used on input line 452.
+(pdftex.def)             Requested size: 469.75502pt x 668.29764pt.
+
+
+LaTeX Warning: Float too large for page by 39.86763pt on input line 455.
+
+(./stab.bbl
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 9.0pt on input line 1.
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 345.
- [4 <./pic/cl-linear.jpg> <./pic/cl-log.jpg>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 345.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 465.
+ [6 <./pic/uns-vs-eigen.png> <./pic/eigenmode-real.png>] [7 <./pic/rotor67-perf
+ormance.png> <./pic/pressure-1passage.jpeg> <./pic/sa-1passage.jpeg> <./pic/pre
+ssure-22passage.jpeg> <./pic/sa-22passage.jpeg>] [8 <./pic/rotor67-modes.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 465.
  (./stab.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 345.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 345.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 465.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 465.
 Package rerunfilecheck Info: File `stab.out' has not changed.
-(rerunfilecheck)             Checksum: 14D7C895AB5C00477493D971AF28D251;1019.
+(rerunfilecheck)             Checksum: C08502EE7B6AA405E9353E55DC465E66;1174.
  ) 
 Here is how much of TeX's memory you used:
- 25069 strings out of 492649
- 463472 string characters out of 6129622
- 561224 words of memory out of 5000000
- 28511 multiletter control sequences out of 15000+600000
- 611247 words of font info for 149 fonts, out of 8000000 for 9000
+ 25152 strings out of 492649
+ 465193 string characters out of 6129622
+ 560831 words of memory out of 5000000
+ 28560 multiletter control sequences out of 15000+600000
+ 614386 words of font info for 157 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,8n,94p,10366b,759s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,8n,94p,10366b,761s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc}{/u
 sr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/local/texliv
 e/2018/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}{/usr/local/texlive/2018
 /texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc}</usr/local/texlive/2018/texmf-d
-ist/fonts/type1/public/tex-gyre/qtmb.pfb></usr/local/texlive/2018/texmf-dist/fo
-nts/type1/public/tex-gyre/qtmr.pfb></usr/local/texlive/2018/texmf-dist/fonts/ty
-pe1/public/tex-gyre/qtmri.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/p
-ublic/newtx/rntxmi.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/t
-xfonts/rtxmi.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/txfonts
-/rtxr.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/newtx/txsys.pf
-b></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on stab.pdf (4 pages, 504057 bytes).
+ist/fonts/type1/public/newtx/ntxsyralt.pfb></usr/local/texlive/2018/texmf-dist/
+fonts/type1/public/tex-gyre/qtmb.pfb></usr/local/texlive/2018/texmf-dist/fonts/
+type1/public/tex-gyre/qtmr.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/
+public/tex-gyre/qtmri.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/publi
+c/newtx/rntxmi.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/newtx
+/rntxmi7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/txfonts/rtx
+mi.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb>
+</usr/local/texlive/2018/texmf-dist/fonts/type1/public/txfonts/txmia.pfb></usr/
+local/texlive/2018/texmf-dist/fonts/type1/public/newtx/txsys.pfb></usr/local/te
+xlive/2018/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on stab.pdf (8 pages, 1983855 bytes).
 PDF statistics:
- 143 PDF objects out of 1000 (max. 8388607)
- 121 compressed objects within 2 object streams
- 23 named destinations out of 1000 (max. 500000)
- 28805 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 214 PDF objects out of 1000 (max. 8388607)
+ 173 compressed objects within 2 object streams
+ 41 named destinations out of 1000 (max. 500000)
+ 30909 words of extra memory for PDF output out of 35830 (max. 10000000)
 
