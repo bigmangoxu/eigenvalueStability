@@ -58,6 +58,36 @@ accurately predict the stall line in the early design stage.
 %$\partial \Omega_r$& boundary of $\Omega_r$
 %\end{longtable*}}
 
+\section{{\color{red}Todo list}}
+
+\begin{itemize}
+	\item  {\color{red} Investigate the fouriour spectrum
+		of the circumferential signal of the eigenvectors and
+		interpret the various frequency components.}
+	\item {\color{red} Investigate the influence of the axial
+		location where the circumferential signal is taken.}
+	\item {\color{red} Label relevant eigenmodes with NDs.}
+	\item {\color{red} Compare unstable modes with URANS.}
+\end{itemize}
+
+
+\section{Introduction}
+Rotating stall and rotating instability has been studied extensively
+both experimentally and numerically. However, previous numerical
+investigations mainly focused on using time-dependent unsteady
+flow analysis using a fraction of the annulus. Flow physics for
+the destablization mechanism has been investigated in depth
+but little insight has been gained. Eigenvalue analysis is a powerful
+yet inexpensive tool to probe the flow near the critical condition,
+revealing rich flow physics with cost comparable to a steady state
+analysis. In this work, we demonstrate that using eigenvalue analysis
+based on a whole-annulus steady state solution, the linear stablity
+demarcation point can be pinpointed with the cost of a few steady
+state analysis, and a full-annulus time-accurate unsteady calculation
+can thus be avoid. This methodology enables a quick parameter
+study to investigate the various rotating flow instability phenomenon
+such as rotating stall and rotating instability.
+
 \section{The nonlinear flow solver}
 %The nonlinear flow solver used in this work is NutsCFD, an unstructured
 %finite volume Reynolds-averaged Navier--Stokes solver capable of dealing
@@ -197,6 +227,9 @@ accurately predict the stall line in the early design stage.
 %is the Newton--Krylov (NK) method. Special care is
 %taken to handle the periodic boundary condition
 %when simulating flows in a single passage.
+
+\subsection{Temporal discretization}
+
 
 \section{Global linear stability analysis}
 For a nonlinear dynamic system, e.g., the discretised NS equation, using
@@ -410,7 +443,7 @@ is shown in Fig.\ref{fig:cyl-re55-eigenmode}.
 %\subsubsection{Unsteady calculation}
 %\subsubsection{Eigenvalue analysis}
 
-\subsection{Rotating stall for an axial compressor  (NASA Rotor 67)}
+\subsection{Transonic flow for a single blade (quasi-3D analysis)}
 NutsCFD is used to analyze the performance of the first
 stage rotor (NASA Rotor 67) of a two stage transonic fan
 designed and tested at the NASA Glenn center~\cite{strazisar1989laser}.
@@ -424,8 +457,22 @@ at the trailing edge (TC = 0.75\% span). The design rotational
 speed is 16,043 RPM, and the tip leading edge speed is 429 m/s
 with a tip relative Mach number of 1.38.
 
-\subsection{performance curve}
-
+\subsection{Compressor performance characteristics}
+Steady state analysis is performed for both
+the single-passage and whole-annulus
+configurations. In order to obtain the steady state
+solutions for the whole annulus, which presumably
+is identical for each blade passage, we first compute
+the steady state solution for one passage with
+rotatioal periodicity, and then copy the solution
+to the whoe annulus using rotational transformation.
+The pressure ratio and efficiency are shown in Fig.~\ref{fig:r67-performance}
+which is produced by incrementally raising the back pressure
+from the inlet total condition. It can be seen that there is small
+difference (mainly efficiency) between the single-passae and
+whole-annulus results, which is due to the minor discrepancy
+of the spatial discretization at the periodic boundaries for single
+passage calculation.
 
 \begin{figure}[htb]
 	\centering   
@@ -435,25 +482,66 @@ with a tip relative Mach number of 1.38.
 	\label{fig:r67-performance}
 \end{figure}
 
+The flow solution using either single passage or whole annulus
+is shown in Fig.~\ref{fig:r67-flow}, which visually shows that
+the solutions are not distinguishable.
 
 \begin{figure}[htb]
 	\centering   
 	\includegraphics[width=0.45\textwidth]{pic/pressure-1passage.jpeg}
 	\includegraphics[width=0.45\textwidth]{pic/sa-1passage.jpeg}\\    \includegraphics[width=0.45\textwidth]{pic/pressure-22passage.jpeg}
 	\includegraphics[width=0.45\textwidth]{pic/sa-22passage.jpeg}
-	\caption{Q3D performance for rotor67 at 50\% blade height with either
-		single passage or whole annulus (22 passages).}
+	\caption{Pressure (left) and SA variable (right) contours for
+	single passage (top) and whole annulus (bottom) calculations.}
 	\label{fig:r67-flow}
+\end{figure}
+
+\subsection{Eigenvalue analysis}
+
+For each whole-annulus steady state solution, an eigenvalue analysis
+is performed using the Jacobian matrix output from the NutsCFD solver
+once the steady state calculation has fully converged.
+Since the rotational speed for the rotor is 16,043 RPM, the Jacobian
+matrix is scaled by a factor of $1/(2\pi \times 16,043 / 60)\approx 1/1680$,
+so that all frequencies involved in this computation is reduced by the
+rotor angular frequency. This is done due to the pre-knowledge that
+rotating stall cells move with speed of the same order of magnitude.
+
+Shown in Fig.~\ref{fig:r67-eigen-18kpa} is a subset of the eigenvalues
+that are near the imaginary axis, which presumally are most likely to
+be unstable. The eigs function in Matlab is used with various
+imaginery shifts to compute interior eigenvalues. The ones that
+are suspecious of crossing the imaginery axis are shown. A zoomed
+view of the eigenvalues reveals that there are a total of five that
+have positive real parts, i.e., unstable. The pressure component
+of the eigenvector corresponding to the 3rd eigenvalue is
+visualized to the right of Fig.~\ref{fig:r67-eigen-18kpa}. The
+circumferential synchronized shock oscillation can be easily spotted.
+Eigenvectors of other unstable mode are similar, except with different
+circumferential variation, which can further be attributed to different
+nodal diameters, which varies from 5 to 9, continuously, from eigenvalues
+1 to 5.
+
+
+
+\begin{figure}[htb]
+	\centering   
+	\includegraphics[width=\textwidth]{pic/rotor67-2d-eigenvalue-18kpa.png}
+	\caption{18kpa eigenvalue.}
+	\label{fig:r67-eigen-18kpa}
 \end{figure}
 
 
 \begin{figure}[htb]
 	\centering   
-	\includegraphics[width=\textwidth]{pic/rotor67-modes.png}
+	\includegraphics[width=.5\textwidth]{pic/eigenvalue-14-18kpa.png}
 	\caption{18kpa eigenvalue.}
-	\label{fig:r67-eigen-18kpa}
+	\label{fig:r67-eigen-14-18kpa}
 \end{figure}
 
+
+
+Nodal diamater for different eigenmodes?
 
 \section{Conclusion}
 \label{conclusion}
