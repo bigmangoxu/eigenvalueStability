@@ -3,57 +3,69 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: stab.aux
 The style file: new-aiaa.bst
 Database file #1: xu.bib
-You're missing a field name---line 694 of file xu.bib
+You're missing a field name---line 727 of file xu.bib
  : 
  : %  title={Aerodynamic Shape Optimization of the {CRM} Configuration Including Buffet-Onset Conditions},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 960 of file xu.bib
+I was expecting a `,' or a `}'---line 993 of file xu.bib
  : 
  : @article{samareh2001survey,
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
+Repeated entry---line 1308 of file xu.bib
+ : @inproceedings{allmaras2012modifications
+ :                                         ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 1456 of file xu.bib
+ : @article{langer2014agglomeration
+ :                                 ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 1644 of file xu.bib
+ : @article{saad1986gmres
+ :                       ,
+I'm skipping whatever remains of this entry
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Warning--empty journal in strazisar1989laser
-You've used 1 entry,
+You've used 9 entries,
             3319 wiz_defined-function locations,
-            694 strings with 5812 characters,
-and the built_in function-call counts, 526 in all, are:
-= -- 29
-> -- 26
-< -- 0
-+ -- 10
-- -- 9
-* -- 45
-:= -- 86
-add.period$ -- 2
-call.type$ -- 1
-change.case$ -- 4
-chr.to.int$ -- 2
-cite$ -- 2
-duplicate$ -- 43
-empty$ -- 38
-format.name$ -- 11
-if$ -- 92
+            747 strings with 7295 characters,
+and the built_in function-call counts, 5409 in all, are:
+= -- 414
+> -- 154
+< -- 22
++ -- 64
+- -- 47
+* -- 429
+:= -- 721
+add.period$ -- 17
+call.type$ -- 9
+change.case$ -- 36
+chr.to.int$ -- 10
+cite$ -- 10
+duplicate$ -- 471
+empty$ -- 447
+format.name$ -- 75
+if$ -- 1114
 int.to.chr$ -- 1
-int.to.str$ -- 2
-missing$ -- 9
-newline$ -- 13
-num.names$ -- 3
-pop$ -- 24
+int.to.str$ -- 10
+missing$ -- 84
+newline$ -- 37
+num.names$ -- 27
+pop$ -- 173
 preamble$ -- 1
-purify$ -- 4
+purify$ -- 36
 quote$ -- 0
-skip$ -- 12
+skip$ -- 188
 stack$ -- 0
-substring$ -- 12
-swap$ -- 18
-text.length$ -- 0
+substring$ -- 313
+swap$ -- 285
+text.length$ -- 17
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 6
+type$ -- 52
 warning$ -- 1
-while$ -- 2
+while$ -- 39
 width$ -- 0
-write$ -- 18
-(There were 2 error messages)
+write$ -- 105
+(There were 5 error messages)

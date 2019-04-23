@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{9}
 \newcommand{\enquote}[1]{``#1''}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
@@ -7,6 +7,48 @@
   \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
   \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
   \urlstyle{rm}\Url}\fi
+
+\bibitem[{Allmaras and Johnson(2012)}]{allmaras2012modifications}
+Allmaras, S.~R., and Johnson, F.~T., \enquote{Modifications and clarifications
+  for the implementation of the Spalart-Allmaras turbulence model,}
+  \emph{Seventh international conference on computational fluid dynamics
+  (ICCFD7)}, 2012, pp. 1--11.
+
+\bibitem[{Langer(2014)}]{langer2014agglomeration}
+Langer, S., \enquote{Agglomeration multigrid methods with implicit
+  {R}unge--{K}utta smoothers applied to aerodynamic simulations on unstructured
+  grids,} \emph{Journal of Computational Physics}, Vol. 277, 2014, pp. 72--100.
+
+\bibitem[{Sorensen(1992)}]{sorensen1992implicit}
+Sorensen, D.~C., \enquote{Implicit application of polynomial filters in a
+  k-step Arnoldi method,} \emph{SIAM journal on matrix analysis and
+  applications}, Vol.~13, No.~1, 1992, pp. 357--385.
+
+\bibitem[{Lehoucq et~al.(1998)Lehoucq, Sorensen, and Yang}]{lehoucq1998arpack}
+Lehoucq, R.~B., Sorensen, D.~C., and Yang, C., \emph{ARPACK users' guide:
+  solution of large-scale eigenvalue problems with implicitly restarted Arnoldi
+  methods}, Vol.~6, SIAM, 1998.
+
+\bibitem[{Parks et~al.(2006)Parks, de~Sturler, Mackey, Johnson, and
+  Maiti}]{parks2006recycling}
+Parks, M., de~Sturler, E., Mackey, G., Johnson, D., and Maiti, S.,
+  \enquote{Recycling {K}rylov subspaces for sequences of linear systems,}
+  \emph{SIAM Journal on Scientific Computing}, Vol.~28, No.~5, 2006, pp.
+  1651--1674.
+
+\bibitem[{Saad and Schultz(1986)}]{saad1986gmres}
+Saad, Y., and Schultz, M.~H., \enquote{GMRES: A generalized minimal residual
+  algorithm for solving nonsymmetric linear systems,} \emph{SIAM Journal on
+  scientific and statistical computing}, Vol.~7, No.~3, 1986, pp. 856--869.
+
+\bibitem[{Xu et~al.(2016)Xu, Timme, and Badcock}]{xu2016enabling}
+Xu, S., Timme, S., and Badcock, K., \enquote{Enabling off-design linearised
+  aerodynamics analysis using {K}rylov subspace recycling technique,}
+  \emph{Computers \& Fluids}, Vol. 140, 2016, pp. 385--396.
+
+\bibitem[{Xu and Timme(2017)}]{xu2017robust}
+Xu, S., and Timme, S., \enquote{Robust and efficient adjoint solver for complex
+  flow conditions,} \emph{Computers \& Fluids}, Vol. 148, 2017, pp. 26--38.
 
 \bibitem[{Strazisar et~al.(1989)Strazisar, Wood, Hathaway, and
   Suder}]{strazisar1989laser}
