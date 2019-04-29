@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.2.11)  23 APR 2019 08:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.2.11)  29 APR 2019 12:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1207,14 +1207,14 @@ Package: tabularx 2016/02/03 v2.11b `tabularx' package (DPC)
 \TX@ftn=\toks34
 )
 (./math-abbrev.tex)
-LaTeX Font Info:    Try loading font information for T1+ntxtlf on input line 24
+LaTeX Font Info:    Try loading font information for T1+ntxtlf on input line 33
 .
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/newtx/t1ntxtlf.fd
 File: t1ntxtlf.fd 2015/01/17 v1.0 font definition file for T1/ntx/tlf
 )
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 10.0pt on input line 24.
+(Font)              scaled to size 10.0pt on input line 33.
  (./stab.aux
 
 LaTeX Warning: Label `fig:r67-eigenvector-18kpa' multiply defined.
@@ -1222,55 +1222,55 @@ LaTeX Warning: Label `fig:r67-eigenvector-18kpa' multiply defined.
 )
 \openout1 = `stab.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 24.
-LaTeX Font Info:    Try loading font information for OML+ntxmi on input line 24
+LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 33.
+LaTeX Font Info:    Try loading font information for OML+ntxmi on input line 33
 .
  (/usr/local/texlive/2018/texmf-dist/tex/latex/newtx/omlntxmi.fd
 File: omlntxmi.fd 2015/08/25 Fontinst v1.933 font definitions for OML/ntxmi.
 )
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for U/ntxexa/m/n on input line 24.
-LaTeX Font Info:    Try loading font information for U+ntxexa on input line 24.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for U/ntxexa/m/n on input line 33.
+LaTeX Font Info:    Try loading font information for U+ntxexa on input line 33.
 
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/newtx/untxexa.fd
 File: untxexa.fd 2012/04/16 Fontinst v1.933 font definitions for U/ntxexa.
 )
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 24.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 24.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 33.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 33.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for LMS/ntxsy/m/n on input line 24.
-LaTeX Font Info:    Try loading font information for LMS+ntxsy on input line 24
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for LMS/ntxsy/m/n on input line 33.
+LaTeX Font Info:    Try loading font information for LMS+ntxsy on input line 33
 .
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/newtx/lmsntxsy.fd
 File: lmsntxsy.fd 2016/07/02 Fontinst v1.933 font definitions for LMS/ntxsy.
 )
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for LMX/ntxexx/m/n on input line 24.
-LaTeX Font Info:    Try loading font information for LMX+ntxexx on input line 2
-4.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for LMX/ntxexx/m/n on input line 33.
+LaTeX Font Info:    Try loading font information for LMX+ntxexx on input line 3
+3.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/newtx/lmxntxexx.fd
 File: lmxntxexx.fd 2016/07/03 Fontinst v1.933 font definitions for LMX/ntxexx.
 )
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Info: Redefining \microtypecontext on input line 24.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Info: Redefining \microtypecontext on input line 33.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -1330,7 +1330,7 @@ Package: ltcaption 2013/06/09 v1.4-94 longtable captions (AR)
 )
 Package caption Info: End \AtBeginDocument code.
 \AtBeginShipoutBox=\box62
-Package hyperref Info: Link coloring OFF on input line 24.
+Package hyperref Info: Link coloring OFF on input line 33.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -1340,9 +1340,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count325
 )
-LaTeX Info: Redefining \ref on input line 24.
-LaTeX Info: Redefining \pageref on input line 24.
-LaTeX Info: Redefining \nameref on input line 24.
+LaTeX Info: Redefining \ref on input line 33.
+LaTeX Info: Redefining \pageref on input line 33.
+LaTeX Info: Redefining \nameref on input line 33.
 
 (./stab.out) (./stab.out)
 \@outlinefile=\write3
@@ -1382,7 +1382,7 @@ e
 .................................................
 . chemgreek info: "mapping-activated"
 . 
-. Activating mapping `newtx' on line 24.
+. Activating mapping `newtx' on line 33.
 .................................................
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/translator/translator-basic-dicti
@@ -1392,273 +1392,230 @@ Dictionary: translator-basic-dictionary, Language: English
 (/usr/local/texlive/2018/texmf-dist/tex/latex/siunitx/siunitx-abbreviations.cfg
 File: siunitx-abbreviations.cfg 2017/11/26 v2.7k siunitx: Abbreviated units
 )
-LaTeX Font Info:    Try loading font information for OT1+ntxtlf on input line 2
-4.
+LaTeX Font Info:    Try loading font information for OT1+ntxtlf on input line 3
+3.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/newtx/ot1ntxtlf.fd
 File: ot1ntxtlf.fd 2015/01/17 v1.0 font definition file for OT1/ntx/tlf
 )
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 10.0pt on input line 24.
+(Font)              scaled to size 10.0pt on input line 33.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 7.3pt on input line 24.
+(Font)              scaled to size 7.3pt on input line 33.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 5.5pt on input line 24.
-LaTeX Font Info:    Try loading font information for U+ntxmia on input line 24.
+(Font)              scaled to size 5.5pt on input line 33.
+LaTeX Font Info:    Try loading font information for U+ntxmia on input line 33.
 
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/newtx/untxmia.fd
 File: untxmia.fd 2016/01/31 Fontinst v1.933 font definitions for U/ntxmia.
 )
-LaTeX Font Info:    Try loading font information for U+ntxsym on input line 24.
+LaTeX Font Info:    Try loading font information for U+ntxsym on input line 33.
 
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/newtx/untxsym.fd
 File: untxsym.fd 2015/03/20 Fontinst v1.933 font definitions for U/ntxsym.
 )
-LaTeX Font Info:    Try loading font information for U+ntxsyc on input line 24.
+LaTeX Font Info:    Try loading font information for U+ntxsyc on input line 33.
 
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/newtx/untxsyc.fd
 File: untxsyc.fd 2012/04/12 Fontinst v1.933 font definitions for U/ntxsyc.
 )
-LaTeX Font Info:    Try loading font information for T1+qhv on input line 24.
+LaTeX Font Info:    Try loading font information for T1+qhv on input line 33.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/tex-gyre/t1qhv.fd
 File: t1qhv.fd 2009/09/25 v1.2 font definition file for T1/qhv
 )
 LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 24.
+(Font)              scaled to size 8.99994pt on input line 33.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `qhv' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
-(Font)              scaled to size 6.56995pt on input line 24.
+(Font)              scaled to size 6.56995pt on input line 33.
 LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
-(Font)              scaled to size 4.94997pt on input line 24.
-LaTeX Font Info:    Try loading font information for T1+ntxtt on input line 24.
+(Font)              scaled to size 4.94997pt on input line 33.
+LaTeX Font Info:    Try loading font information for T1+ntxtt on input line 33.
 
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/newtx/t1ntxtt.fd
 File: t1ntxtt.fd 2012/04/20 v3.1
 )
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
-(Font)              scaled to size 10.0pt on input line 24.
+(Font)              scaled to size 10.0pt on input line 33.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `ntxtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
-(Font)              scaled to size 7.3pt on input line 24.
+(Font)              scaled to size 7.3pt on input line 33.
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
-(Font)              scaled to size 5.5pt on input line 24.
+(Font)              scaled to size 5.5pt on input line 33.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 17.28pt on input line 26.
+(Font)              scaled to size 17.28pt on input line 35.
 LaTeX Font Info:    Font shape `T1/ntxtlf/bx/n' in size <17.28> not available
-(Font)              Font shape `T1/ntxtlf/b/n' tried instead on input line 26.
+(Font)              Font shape `T1/ntxtlf/b/n' tried instead on input line 35.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 17.28pt on input line 26.
+(Font)              scaled to size 17.28pt on input line 35.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 7.3pt on input line 26.
-LaTeX Font Info:    Try loading font information for TS1+ntxtlf on input line 2
-6.
+(Font)              scaled to size 7.3pt on input line 35.
+LaTeX Font Info:    Try loading font information for TS1+ntxtlf on input line 3
+5.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/newtx/ts1ntxtlf.fd
 File: ts1ntxtlf.fd 2015/01/18 v1.0 fd file for TS1/ntxtlf
 )
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 7.3pt on input line 26.
+(Font)              scaled to size 7.3pt on input line 35.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.0pt on input line 26.
+(Font)              scaled to size 8.0pt on input line 35.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.0pt on input line 26.
+(Font)              scaled to size 8.0pt on input line 35.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 6.2pt on input line 26.
+(Font)              scaled to size 6.2pt on input line 35.
 LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
-(Font)              scaled to size 7.19995pt on input line 26.
+(Font)              scaled to size 7.19995pt on input line 35.
 LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
-(Font)              scaled to size 5.57996pt on input line 26.
+(Font)              scaled to size 5.57996pt on input line 35.
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
-(Font)              scaled to size 8.0pt on input line 26.
+(Font)              scaled to size 8.0pt on input line 35.
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
-(Font)              scaled to size 6.2pt on input line 26.
+(Font)              scaled to size 6.2pt on input line 35.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 6.2pt on input line 26.
+(Font)              scaled to size 6.2pt on input line 35.
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 6.2pt on input line 26.
+(Font)              scaled to size 6.2pt on input line 35.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 10.0pt on input line 26.
+(Font)              scaled to size 10.0pt on input line 35.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 7.3pt on input line 26.
+(Font)              scaled to size 7.3pt on input line 35.
 LaTeX Font Info:    Font shape `T1/ntxtlf/bx/n' in size <10> not available
-(Font)              Font shape `T1/ntxtlf/b/n' tried instead on input line 27.
+(Font)              Font shape `T1/ntxtlf/b/n' tried instead on input line 36.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 10.0pt on input line 27.
+(Font)              scaled to size 10.0pt on input line 36.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 12.0pt on input line 62.
+(Font)              scaled to size 12.0pt on input line 115.
 LaTeX Font Info:    Font shape `T1/ntxtlf/bx/n' in size <12> not available
-(Font)              Font shape `T1/ntxtlf/b/n' tried instead on input line 62.
+(Font)              Font shape `T1/ntxtlf/b/n' tried instead on input line 115.
+
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 12.0pt on input line 62.
+(Font)              scaled to size 12.0pt on input line 115.
+ [1
 
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\color' on input line 62.
-
-LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 10.0pt on input line 65.
-[1
-
-{/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+{/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
 LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
-(Font)              scaled to size 10.0pt on input line 118.
+(Font)              scaled to size 10.0pt on input line 230.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
-(Font)              scaled to size 7.3pt on input line 118.
+(Font)              scaled to size 7.3pt on input line 230.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
-(Font)              scaled to size 5.5pt on input line 118.
+(Font)              scaled to size 5.5pt on input line 230.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 5.5pt on input line 144.
-
-[2] [3] [4] [5]
-<pic/cylinder-std.png, id=134, 523.7166pt x 255.8358pt>
+(Font)              scaled to size 5.5pt on input line 256.
+ [3] [4]
+[5] [6]
+<pic/cylinder-std.png, id=174, 523.7166pt x 255.8358pt>
 File: pic/cylinder-std.png Graphic file (type png)
 <use pic/cylinder-std.png>
-Package pdftex.def Info: pic/cylinder-std.png  used on input line 355.
-(pdftex.def)             Requested size: 352.31625pt x 172.11566pt.
-<pic/cylinder-std-compare.png, id=137, 522.753pt x 255.8358pt>
+Package pdftex.def Info: pic/cylinder-std.png  used on input line 470.
+(pdftex.def)             Requested size: 234.8775pt x 114.73857pt.
+<pic/cylinder-std-compare.png, id=177, 522.753pt x 255.8358pt>
 File: pic/cylinder-std-compare.png Graphic file (type png)
 <use pic/cylinder-std-compare.png>
-Package pdftex.def Info: pic/cylinder-std-compare.png  used on input line 366.
-(pdftex.def)             Requested size: 352.31625pt x 172.42406pt.
- [6 <./pic/cylinder-std.png>]
-<pic/cl-linear.jpg, id=148, 745.78625pt x 800.9925pt>
+Package pdftex.def Info: pic/cylinder-std-compare.png  used on input line 481.
+(pdftex.def)             Requested size: 234.8775pt x 114.94937pt.
+ [7 <./pic/cylinder-std.png>]
+<pic/cl-linear.jpg, id=191, 745.78625pt x 800.9925pt>
 File: pic/cl-linear.jpg Graphic file (type jpg)
 <use pic/cl-linear.jpg>
-Package pdftex.def Info: pic/cl-linear.jpg  used on input line 402.
-(pdftex.def)             Requested size: 230.18253pt x 247.21733pt.
-<pic/cl-log.jpg, id=149, 745.78625pt x 800.9925pt>
+Package pdftex.def Info: pic/cl-linear.jpg  used on input line 518.
+(pdftex.def)             Requested size: 140.92793pt x 151.35904pt.
+<pic/cl-log.jpg, id=192, 745.78625pt x 800.9925pt>
 File: pic/cl-log.jpg Graphic file (type jpg)
 <use pic/cl-log.jpg>
-Package pdftex.def Info: pic/cl-log.jpg  used on input line 402.
-(pdftex.def)             Requested size: 230.18253pt x 247.21733pt.
-<pic/uns-vs-eigen.png, id=151, 719.3274pt x 332.9238pt>
+Package pdftex.def Info: pic/cl-log.jpg  used on input line 519.
+(pdftex.def)             Requested size: 140.92793pt x 151.35904pt.
+ [8 <./pic/cylinder-std-compare.png> <./pic/cl-linear.jpg> <./pic/cl-log.jpg>]
+<pic/uns-vs-eigen.png, id=200, 719.3274pt x 332.9238pt>
 File: pic/uns-vs-eigen.png Graphic file (type png)
 <use pic/uns-vs-eigen.png>
-Package pdftex.def Info: pic/uns-vs-eigen.png  used on input line 425.
-(pdftex.def)             Requested size: 422.77664pt x 195.6715pt.
- [7 <./pic/cylinder-std-compare.png>]
-<pic/eigenmode-real.png, id=161, 1027.6794pt x 255.8358pt>
+Package pdftex.def Info: pic/uns-vs-eigen.png  used on input line 543.
+(pdftex.def)             Requested size: 281.85587pt x 130.44936pt.
+<pic/eigenmode-real.png, id=202, 1027.6794pt x 255.8358pt>
 File: pic/eigenmode-real.png Graphic file (type png)
 <use pic/eigenmode-real.png>
-Package pdftex.def Info: pic/eigenmode-real.png  used on input line 437.
-(pdftex.def)             Requested size: 460.35791pt x 114.60585pt.
- [8 <./pic/cl-linear.jpg> <./pic/cl-log.jpg>]
-<pic/rotor67-performance.png, id=170, 889.8846pt x 438.438pt>
+Package pdftex.def Info: pic/eigenmode-real.png  used on input line 557.
+(pdftex.def)             Requested size: 422.77664pt x 105.2486pt.
+<pic/cylinder-bifurcation.png, id=203, 799.788pt x 379.1766pt>
+File: pic/cylinder-bifurcation.png Graphic file (type png)
+<use pic/cylinder-bifurcation.png>
+Package pdftex.def Info: pic/cylinder-bifurcation.png  used on input line 566.
+(pdftex.def)             Requested size: 328.82707pt x 155.89156pt.
+ [9 <./pic/uns-vs-eigen.png> <./pic/eigenmode-real.png>] [10 <./pic/cylinder-bi
+furcation.png>]
+<pic/rotor67-performance.png, id=226, 889.8846pt x 438.438pt>
 File: pic/rotor67-performance.png Graphic file (type png)
 <use pic/rotor67-performance.png>
-Package pdftex.def Info: pic/rotor67-performance.png  used on input line 510.
-(pdftex.def)             Requested size: 422.77664pt x 208.29366pt.
-<pic/pressure-1passage.jpeg, id=172, 2021.5525pt x 1371.1225pt>
-File: pic/pressure-1passage.jpeg Graphic file (type jpg)
-<use pic/pressure-1passage.jpeg>
-Package pdftex.def Info: pic/pressure-1passage.jpeg  used on input line 522.
-(pdftex.def)             Requested size: 211.38832pt x 143.35492pt.
-<pic/sa-1passage.jpeg, id=173, 2021.5525pt x 1371.1225pt>
-File: pic/sa-1passage.jpeg Graphic file (type jpg)
-<use pic/sa-1passage.jpeg>
-Package pdftex.def Info: pic/sa-1passage.jpeg  used on input line 523.
-(pdftex.def)             Requested size: 211.38832pt x 143.35492pt.
-<pic/pressure-22passage.jpeg, id=174, 2021.5525pt x 1371.1225pt>
+Package pdftex.def Info: pic/rotor67-performance.png  used on input line 633.
+(pdftex.def)             Requested size: 281.85587pt x 138.86467pt.
+<pic/pressure-22passage.jpeg, id=227, 2021.5525pt x 1371.1225pt>
 File: pic/pressure-22passage.jpeg Graphic file (type jpg)
 <use pic/pressure-22passage.jpeg>
-Package pdftex.def Info: pic/pressure-22passage.jpeg  used on input line 523.
-(pdftex.def)             Requested size: 211.38832pt x 143.35492pt.
-<pic/sa-22passage.jpeg, id=175, 2021.5525pt x 1371.1225pt>
+Package pdftex.def Info: pic/pressure-22passage.jpeg  used on input line 645.
+(pdftex.def)             Requested size: 164.41711pt x 111.51222pt.
+<pic/sa-22passage.jpeg, id=228, 2021.5525pt x 1371.1225pt>
 File: pic/sa-22passage.jpeg Graphic file (type jpg)
 <use pic/sa-22passage.jpeg>
-Package pdftex.def Info: pic/sa-22passage.jpeg  used on input line 524.
-(pdftex.def)             Requested size: 211.38832pt x 143.35492pt.
- [9 <./pic/uns-vs-eigen.png> <./pic/eigenmode-real.png>]
-
-LaTeX Warning: Reference `fig:r67-eigen-18kpa' on page 10 undefined on input li
-ne 541.
-
-<pic/rotor67-2d-eigenvalue-18kpa.png, id=186, 724.6272pt x 361.35pt>
-File: pic/rotor67-2d-eigenvalue-18kpa.png Graphic file (type png)
-<use pic/rotor67-2d-eigenvalue-18kpa.png>
-Package pdftex.def Info: pic/rotor67-2d-eigenvalue-18kpa.png  used on input lin
-e 561.
-(pdftex.def)             Requested size: 422.77664pt x 210.82373pt.
-
-LaTeX Warning: Reference `data-circumferential' on page 10 undefined on input l
-ine 573.
-
-<pic/mode-with-nd5.png, id=189, 1203.0546pt x 416.2752pt>
+Package pdftex.def Info: pic/sa-22passage.jpeg  used on input line 646.
+(pdftex.def)             Requested size: 164.41711pt x 111.51222pt.
+<pic/rotor67-18kpa-spectrum.png, id=230, 745.3446pt x 363.2772pt>
+File: pic/rotor67-18kpa-spectrum.png Graphic file (type png)
+<use pic/rotor67-18kpa-spectrum.png>
+Package pdftex.def Info: pic/rotor67-18kpa-spectrum.png  used on input line 683
+.
+(pdftex.def)             Requested size: 328.82707pt x 160.27483pt.
+ [11 <./pic/rotor67-performance.png> <./pic/pressure-22passage.jpeg> <./pic/sa-
+22passage.jpeg>]
+<pic/mode-with-nd5.png, id=241, 1203.0546pt x 416.2752pt>
 File: pic/mode-with-nd5.png Graphic file (type png)
 <use pic/mode-with-nd5.png>
-Package pdftex.def Info: pic/mode-with-nd5.png  used on input line 578.
-(pdftex.def)             Requested size: 422.77664pt x 146.28922pt.
-<pic/mode1-nd1.jpg, id=190, 598.48593pt x 614.295pt>
-File: pic/mode1-nd1.jpg Graphic file (type jpg)
-<use pic/mode1-nd1.jpg>
-Package pdftex.def Info: pic/mode1-nd1.jpg  used on input line 586.
-(pdftex.def)             Requested size: 93.94957pt x 96.4239pt.
-<pic/mode2-nd2.jpg, id=191, 598.48593pt x 621.07031pt>
-File: pic/mode2-nd2.jpg Graphic file (type jpg)
-<use pic/mode2-nd2.jpg>
-Package pdftex.def Info: pic/mode2-nd2.jpg  used on input line 587.
-(pdftex.def)             Requested size: 93.94957pt x 97.4874pt.
-<pic/mode3-nd3.jpg, id=192, 571.38469pt x 600.74437pt>
-File: pic/mode3-nd3.jpg Graphic file (type jpg)
-<use pic/mode3-nd3.jpg>
-Package pdftex.def Info: pic/mode3-nd3.jpg  used on input line 588.
-(pdftex.def)             Requested size: 93.94957pt x 98.7702pt.
-<pic/mode11-nd11.jpg, id=193, 603.75563pt x 615.80063pt>
-File: pic/mode11-nd11.jpg Graphic file (type jpg)
-<use pic/mode11-nd11.jpg>
-Package pdftex.def Info: pic/mode11-nd11.jpg  used on input line 589.
-(pdftex.def)             Requested size: 93.94957pt x 95.82396pt.
-[10 <./pic/rotor67-performance.png>]
+Package pdftex.def Info: pic/mode-with-nd5.png  used on input line 701.
+(pdftex.def)             Requested size: 281.85587pt x 97.52614pt.
+ [12 <./pic/rotor67-18kpa-spectrum.png> <./pic/mode-with-nd5.png>]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 5.0pt on input line 613.
-<pic/speed-vs-nd.jpg, id=201, 694.595pt x 484.81125pt>
+(Font)              scaled to size 5.0pt on input line 745.
+<pic/speed-vs-nd.jpg, id=252, 694.595pt x 484.81125pt>
 File: pic/speed-vs-nd.jpg Graphic file (type jpg)
 <use pic/speed-vs-nd.jpg>
-Package pdftex.def Info: pic/speed-vs-nd.jpg  used on input line 613.
-(pdftex.def)             Requested size: 281.85587pt x 196.73215pt.
- (./stab.bbl
+Package pdftex.def Info: pic/speed-vs-nd.jpg  used on input line 745.
+(pdftex.def)             Requested size: 187.89914pt x 131.1449pt.
+ [13 <./pic/speed-vs-nd.jpg>] (./stab.bbl
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 9.0pt on input line 1.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 9.0pt on input line 15.
- [11 <./pic/pressure-1passage.jpeg> <./pic/sa-1passage.jpeg> <./pic/pressure-22
-passage.jpeg> <./pic/sa-22passage.jpeg>] [12 <./pic/rotor67-2d-eigenvalue-18kpa
-.png> <./pic/mode-with-nd5.png>])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 646.
- [13 <./pic/mode1-nd1.jpg> <./pic/mode2-nd2.jpg> <./pic/mode3-nd3.jpg> <./pic/m
-ode11-nd11.jpg> <./pic/speed-vs-nd.jpg>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 646.
+(Font)              scaled to size 9.0pt on input line 13.
+ [14] [15])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 816.
+ [16]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 816.
  (./stab.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 646.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 646.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 816.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 816.
 Package rerunfilecheck Info: File `stab.out' has not changed.
-(rerunfilecheck)             Checksum: 121C5DA2A69E360ADC3DF753EF151EC3;1331.
-
-
-LaTeX Warning: There were undefined references.
+(rerunfilecheck)             Checksum: 5133A96D59FE71032F289E42FF10262E;1363.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 25354 strings out of 492649
- 469122 string characters out of 6129622
- 561862 words of memory out of 5000000
- 28667 multiletter control sequences out of 15000+600000
- 639368 words of font info for 222 fonts, out of 8000000 for 9000
+ 25449 strings out of 492649
+ 471226 string characters out of 6129622
+ 564199 words of memory out of 5000000
+ 28711 multiletter control sequences out of 15000+600000
+ 640473 words of font info for 237 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,12n,94p,10366b,906s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,12n,94p,10366b,934s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc}{/u
 sr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/local/texliv
 e/2018/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}{/usr/local/texlive/2018
@@ -1677,10 +1634,10 @@ ive/2018/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2018
 /texmf-dist/fonts/type1/public/txfonts/txmia.pfb></usr/local/texlive/2018/texmf
 -dist/fonts/type1/public/newtx/txsys.pfb></usr/local/texlive/2018/texmf-dist/fo
 nts/type1/urw/times/utmri8a.pfb>
-Output written on stab.pdf (13 pages, 3074779 bytes).
+Output written on stab.pdf (16 pages, 2777066 bytes).
 PDF statistics:
- 294 PDF objects out of 1000 (max. 8388607)
- 232 compressed objects within 3 object streams
- 54 named destinations out of 1000 (max. 500000)
- 34027 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 350 PDF objects out of 1000 (max. 8388607)
+ 293 compressed objects within 3 object streams
+ 78 named destinations out of 1000 (max. 500000)
+ 33490 words of extra memory for PDF output out of 35830 (max. 10000000)
 
