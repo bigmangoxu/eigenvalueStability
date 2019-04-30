@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.2.11)  29 APR 2019 12:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.2.11)  29 APR 2019 22:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1541,11 +1541,11 @@ File: pic/uns-vs-eigen.png Graphic file (type png)
 <use pic/uns-vs-eigen.png>
 Package pdftex.def Info: pic/uns-vs-eigen.png  used on input line 543.
 (pdftex.def)             Requested size: 281.85587pt x 130.44936pt.
-<pic/eigenmode-real.png, id=202, 1027.6794pt x 255.8358pt>
+<pic/eigenmode-real.png, id=202, 223.5552pt x 115.1502pt>
 File: pic/eigenmode-real.png Graphic file (type png)
 <use pic/eigenmode-real.png>
 Package pdftex.def Info: pic/eigenmode-real.png  used on input line 557.
-(pdftex.def)             Requested size: 422.77664pt x 105.2486pt.
+(pdftex.def)             Requested size: 281.85587pt x 145.19368pt.
 <pic/cylinder-bifurcation.png, id=203, 799.788pt x 379.1766pt>
 File: pic/cylinder-bifurcation.png Graphic file (type png)
 <use pic/cylinder-bifurcation.png>
@@ -1568,14 +1568,14 @@ File: pic/sa-22passage.jpeg Graphic file (type jpg)
 <use pic/sa-22passage.jpeg>
 Package pdftex.def Info: pic/sa-22passage.jpeg  used on input line 646.
 (pdftex.def)             Requested size: 164.41711pt x 111.51222pt.
-<pic/rotor67-18kpa-spectrum.png, id=230, 745.3446pt x 363.2772pt>
+ [11 <./pic/rotor67-performance.png> <./pic/pressure-22passage.jpeg> <./pic/sa-
+22passage.jpeg>]
+<pic/rotor67-18kpa-spectrum.png, id=237, 745.3446pt x 363.2772pt>
 File: pic/rotor67-18kpa-spectrum.png Graphic file (type png)
 <use pic/rotor67-18kpa-spectrum.png>
 Package pdftex.def Info: pic/rotor67-18kpa-spectrum.png  used on input line 683
 .
 (pdftex.def)             Requested size: 328.82707pt x 160.27483pt.
- [11 <./pic/rotor67-performance.png> <./pic/pressure-22passage.jpeg> <./pic/sa-
-22passage.jpeg>]
 <pic/mode-with-nd5.png, id=241, 1203.0546pt x 416.2752pt>
 File: pic/mode-with-nd5.png Graphic file (type png)
 <use pic/mode-with-nd5.png>
@@ -1583,11 +1583,11 @@ Package pdftex.def Info: pic/mode-with-nd5.png  used on input line 701.
 (pdftex.def)             Requested size: 281.85587pt x 97.52614pt.
  [12 <./pic/rotor67-18kpa-spectrum.png> <./pic/mode-with-nd5.png>]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 5.0pt on input line 745.
-<pic/speed-vs-nd.jpg, id=252, 694.595pt x 484.81125pt>
+(Font)              scaled to size 5.0pt on input line 748.
+<pic/speed-vs-nd.jpg, id=251, 694.595pt x 484.81125pt>
 File: pic/speed-vs-nd.jpg Graphic file (type jpg)
 <use pic/speed-vs-nd.jpg>
-Package pdftex.def Info: pic/speed-vs-nd.jpg  used on input line 745.
+Package pdftex.def Info: pic/speed-vs-nd.jpg  used on input line 748.
 (pdftex.def)             Requested size: 187.89914pt x 131.1449pt.
  [13 <./pic/speed-vs-nd.jpg>] (./stab.bbl
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
@@ -1595,12 +1595,12 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
 (Font)              scaled to size 9.0pt on input line 13.
  [14] [15])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 816.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 818.
  [16]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 816.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 818.
  (./stab.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 816.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 816.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 818.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 818.
 Package rerunfilecheck Info: File `stab.out' has not changed.
 (rerunfilecheck)             Checksum: 5133A96D59FE71032F289E42FF10262E;1363.
 
@@ -1609,13 +1609,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 25449 strings out of 492649
- 471226 string characters out of 6129622
- 564199 words of memory out of 5000000
- 28711 multiletter control sequences out of 15000+600000
- 640473 words of font info for 237 fonts, out of 8000000 for 9000
+ 25445 strings out of 492649
+ 471163 string characters out of 6129622
+ 563914 words of memory out of 5000000
+ 28709 multiletter control sequences out of 15000+600000
+ 640387 words of font info for 236 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,12n,94p,10366b,934s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,12n,94p,10366b,930s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc}{/u
 sr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/local/texliv
 e/2018/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}{/usr/local/texlive/2018
@@ -1634,7 +1634,7 @@ ive/2018/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2018
 /texmf-dist/fonts/type1/public/txfonts/txmia.pfb></usr/local/texlive/2018/texmf
 -dist/fonts/type1/public/newtx/txsys.pfb></usr/local/texlive/2018/texmf-dist/fo
 nts/type1/urw/times/utmri8a.pfb>
-Output written on stab.pdf (16 pages, 2777066 bytes).
+Output written on stab.pdf (16 pages, 2640716 bytes).
 PDF statistics:
  350 PDF objects out of 1000 (max. 8388607)
  293 compressed objects within 3 object streams

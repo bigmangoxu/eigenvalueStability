@@ -27,7 +27,7 @@
 		buaa.edu.cn (Corresponding Author) }}
 \author[3]{Dakun Sun\footnote{Associate Professor, School of Energy and Power Engineering; Co-Innovation
 		Center for Advanced Aero-Engine; sundk@buaa.edu.cn}}
-\author[3]{Xiaofeng Sun\footnote{Professor, School of Energy and Power Engineering; Co-Innovation Center for Advanced Aero-Engine; sunxf@buaa.edu.cn}}
+%\author[3]{Xiaofeng Sun\footnote{Professor, School of Energy and Power Engineering; Co-Innovation Center for Advanced Aero-Engine; sunxf@buaa.edu.cn}}
 \author[2]{Dingxi Wang\footnote{Professor, School of Power and Engery; dingxi\_wang@nwpu.edu.cn }}
 
 \begin{document}
@@ -122,12 +122,12 @@ on building simple analytical models.
 Existing analytical models~\cite{emmons1955compressor,greitzer1986theory} have
 had their success in the early days but the accuracy and effectiveness of them
 is less than sastifactory when applied to realistic configurations and
-more detail is needed for quantitative prediction of the stall behavior.
+more details are needed for quantitative prediction of the stall behavior.
 
 Previous numerical investigations mainly focused on using time-dependent
 unsteady flow analysis using either a fraction or the whole of an annulus.
 A lot of insight into the flow physics for the destablization mechanism
-has been gained using such high fidelity simuations. Unsteasy simulations
+has been gained using such high fidelity simuations. Unsteady simulations
 are useful for both reproducing the fully destabilized unsteady flows as
 well as for studying the inception of such instability. Due to the high
 computatioal cost of unsteady simulation, it still remains largely as a
@@ -156,7 +156,7 @@ such as tip gap and the leading edge shape play a major role.
 This calls for a stability analysis method based on the three-dimensional
 Reynolds-averaged Navier-Stokes equations, which is regarded as
 the standard industrial tool for predicting steady and unsteady turbomachinery
-performance. In a way, existing stall model needs to be upgrated using the latest
+performance. In a way, existing stall model needs to be upgraded using the latest
 high-fidelity flow models. Again, either time-dependent simulations or
 steady-state-based eigenanalysis can be used to study the stability based
 on the high-fidelity models and each has its strength. Time-dependent
@@ -193,7 +193,7 @@ a common belief such the computatinal cost of such eigenanlysis is overwhelming
 and is thus impractical for real application. With the maturing of distributed
 computing, this is no longer the bottleneck and one can easily compute the
 relevant eigenvectors for cases with up to 10 million grid point, and the cost
-only increases linearly with a scalable algoritm. But here the focus shifts slightly
+only increases linearly with a scalable algorithm. But here the focus shifts slightly
 to the computational methods side from the flow physics . But as discussed
 in~\cite{day2016stall}, combinging the advancement by computational specialists
 and the expertise from the `stall fraternity' is the right way to advance the research
@@ -204,7 +204,7 @@ rotating flow instability, rotating stall in particular, and try to explore the
 underlying flow physics governing the pre- and in-stall behavior, with a
 computational cost that is affordable for industrial applications.
 
-The rest of this paper is organized as follows. First, the basic theories of the
+The rest of this paper is organized as follows. First, the basic algorithm of the
 nonlinear flow solver will be discussed in sec.~\ref{lable:sec1}. Fundemantals of 
 performing eigenanalysis based on RANS equations and relevant techniques
 are discussed in sec.~\ref{label:sec2}. Results for the application of eigenanalysis
@@ -554,7 +554,7 @@ here, these eigenvectors will be useful for constructing reduced-order-models,
 which can be used for rapid parameter study or fast time-domain responce.
 \begin{figure}[htb]
 	\centering   
-	\includegraphics[width=0.9\textwidth]{pic/eigenmode-real.png}	
+	\includegraphics[width=0.6\textwidth]{pic/eigenmode-real.png}	
 	\caption{Real part of the density, x/y momentum, energy components
 		of the unstable eigenmode for $Re=55$.}
 	\label{fig:cyl-re55-eigenmode}
@@ -700,7 +700,7 @@ to the highest eigenvalues.
 	\centering   
 	\includegraphics[width=.6\textwidth]{pic/mode-with-nd5.png}
 	\caption{Eigenvector 5 visualized using the real and imaginary parts
-		of the pressure.}
+		of energy component}
 	\label{fig:r67-eigenvector-18kpa}
 \end{figure}
 
@@ -730,15 +730,18 @@ with shaft angular frequency) is calculated as
 U_{cellRotating}= 1-\dfrac{\text{Imag}(\lambda)}{\omega_{shaft}} \dfrac{1}{ND}.
 \end{equation}
 Applying this formula to each of the 11 eigenmodes leads to the
-correlation between the nodal diameter and the perturbation rotating speed, as shown in Fig.~\ref{fig:r67-eigenvector-18kpa}.
+correlation between the nodal diameter and the perturbation rotating speed, as shown in Fig.~\ref{fig:r67-eigenvector-18kpa}. Note that we use the terminology 'cell rotating speed'
+to be consistent with the language used by experimentalists when they describe
+the rotating cells. In fact, what is meant in the current context is actually
+`rotating speed of the perturbation pattern'.
 Although it is well-known that the conclusions drawn from a global linear
-stability analysis can be represent the behavior of a saturated limit cycle
-which is highly nonlinear, it seems that the kinematics of the rotating perturbation,
-in terms of nodal diameter and the cell rotating speed, is qualitatively representative
-of those observed experimentally. However, questions such as which stall pattern
-should appear first (equivalently, which mode destabilizes first?), and how does the
-inlet distortion and blade-row interaction in multirow configuration affect this,
-remains to be found out.
+stability analysis can not represent the behavior of a saturated limit cycle
+which is highly nonlinear, it seems that the characteristics of the
+rotating perturbation,
+in terms of nodal diameter and rotating speed, is qualitatively representative
+of rotating cells observed experimentally. However, questions such as which eigenmode
+should destabilizes first, and how does the inlet distortion and blade-row interaction in
+multirow configuration affect the conclusion, remain to be answered.
 
 \begin{figure}[htb]
 	\centering   
@@ -771,27 +774,27 @@ vortex shedding. The frequency and linear growth ratio from the eigenanalysis
 agree well with time-dependent simulation during the linear growth regime.
 
 The same procedure is then applied to the a quasi-3d compressor rotor.
-Analysis shows the existance of a complete set of spatial modes that has
+Analysis shows the existance of a complete set of spatial modes that have
 different nodal diameters and
-rotating speed. These analysis results provide a solid foundation for the
-explanation of the various observed phenomenon in experiments on
+rotating speeds. These analysis results provide a solid foundation for the
+explanation of various observations in experiments regarding
 rotating flow instabilities. It is revealed that the multiple modes with
-different nodal diameters co-exist as the inherent property of the
-physical system and it can be hypothesized that the reason for the
-different observed stall cell patterns is some particular mode being
+different nodal diameters coexist, as the inherent property of the
+physical system, and it can be hypothesized that the reason for
+different observed stall cell patterns is due to one particular mode being
 excited to finite amplitute first by external disturbance.
-Further more, by processing the spatial mode and the imaginary
-part of the eigenvalues, the rotating cell moving speed can be
-calculated and are found to qualitatively agree with the various
-experimentally observed values.
+Further more, by processing the spatial modes and the imaginary
+part of the eigenvalues, rotating speeds of the perturbation patterns
+can be calculated and are found to qualitatively agree with the various
+experimentally observed values for rotating stall cells.
 
 The preliminary results presented in this paper represent our first
-attempt to using eigenanalysis based on RANS equations to study
-the rotating flow instability phenomenon in turbomachinery application.
+attempt to use eigenanalysis based on RANS equations to study
+the rotating flow instability phenomenon in turbomachinary flows.
 The results are promising in that it shows the eigenanalysis method
 is feasible for practical cases and the eigenvectors do capture some
-of the key featuers of the flow investigated. However, more in-depth
-study is need to investigate the bifurcation process for the quasi-3D
+of the key featuers of the flow instability investigated. However, more in-depth
+study is needed to investigate the bifurcation process for the quasi-3D
 case, and further investigation into three-dimensional cases will be
 carried out in our future work.
 
@@ -806,9 +809,8 @@ carried out in our future work.
 
 
 \section*{Acknowledgements}
-S.~Xu and D.~Wang are supported by the National Natural
+This work received support by the National Natural
 Science Foundation of China (Grant No.~51790512).
-C.~He, D.~Sun, and X.~Sun are supported by (xxx).
 
 
 \bibliography{xu}
