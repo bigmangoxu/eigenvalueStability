@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.2.11)  29 APR 2019 22:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.2.11)  1 MAY 2019 16:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1609,11 +1609,11 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 25445 strings out of 492649
- 471163 string characters out of 6129622
- 563914 words of memory out of 5000000
+ 25437 strings out of 492649
+ 470997 string characters out of 6129622
+ 563949 words of memory out of 5000000
  28709 multiletter control sequences out of 15000+600000
- 640387 words of font info for 236 fonts, out of 8000000 for 9000
+ 640109 words of font info for 232 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,12n,94p,10366b,930s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc}{/u
@@ -1634,7 +1634,7 @@ ive/2018/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2018
 /texmf-dist/fonts/type1/public/txfonts/txmia.pfb></usr/local/texlive/2018/texmf
 -dist/fonts/type1/public/newtx/txsys.pfb></usr/local/texlive/2018/texmf-dist/fo
 nts/type1/urw/times/utmri8a.pfb>
-Output written on stab.pdf (16 pages, 2640716 bytes).
+Output written on stab.pdf (16 pages, 2640781 bytes).
 PDF statistics:
  350 PDF objects out of 1000 (max. 8388607)
  293 compressed objects within 3 object streams

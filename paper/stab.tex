@@ -53,7 +53,7 @@ is analyzed based on the unstable modes identified. Interesting correlation
 between the rotating perturbation pattern and cell rotating speed is found,
 which resembles what is observed in experiments.
 This work is a first step towards the study of
-rotating flow instabilities turbomachines, such as rotating stall and rotating instability,
+rotating flow instabilities in turbomachines, such as rotating stall and rotating instability,
 and the preliminery results proved promising for future
 application to three-dimensional practical problems.
 	
@@ -127,7 +127,7 @@ more details are needed for quantitative prediction of the stall behavior.
 Previous numerical investigations mainly focused on using time-dependent
 unsteady flow analysis using either a fraction or the whole of an annulus.
 A lot of insight into the flow physics for the destablization mechanism
-has been gained using such high fidelity simuations. Unsteady simulations
+has been gained from such high fidelity simuations. Unsteady simulations
 are useful for both reproducing the fully destabilized unsteady flows as
 well as for studying the inception of such instability. Due to the high
 computatioal cost of unsteady simulation, it still remains largely as a
@@ -148,7 +148,7 @@ flow mechanism such as boundary-layer-shock-wave interaction becomes
 important. In addition, existing models seldom take into account the exact
 geometry of the blading, and instead, a simple correlation of the compressor
 characteristics is used. This is obviously not desirable as
-geometry details, such as the exact leading geometry, have great impact
+geometry details, such as the exact leading edge geometry, have great impact
 on the stall characteristics. This is particularly the case when more complex stall
 phenomenon are considered, such as spike stall, where geometry details
 such as tip gap and the leading edge shape play a major role.
@@ -161,7 +161,7 @@ high-fidelity flow models. Again, either time-dependent simulations or
 steady-state-based eigenanalysis can be used to study the stability based
 on the high-fidelity models and each has its strength. Time-dependent
 analysis is able to capture not only the incipent stall behavior but also the
-details of the transient process, but with a very high computational cost.
+details of the transient process, but at a very high computational cost.
 Eigenvalue analysis is a powerful yet inexpensive tool to probe the flow
 near the critical condition, but is still capable of revealing rich flow physics,
 with cost comparable to a few steady state analysis.
@@ -169,39 +169,39 @@ with cost comparable to a few steady state analysis.
 In this work, we demonstrate that using eigenanalysis based on a whole-annulus
 steady state solution, the linear stablity demarcation point can be pinpointed
 with the cost of a few steady state analysis, and a full-annulus time-accurate
-unsteady calculation can thus be avoid. This methodology enables quick parameter
-study to investigate the various rotating flow instability phenomenon
+unsteady calculation can thus be avoided. This methodology enables quick parametric
+study of the various rotating flow instability phenomenon
 such as rotating stall and rotating instability.
 
-The idea is performing such eigenanalysis is simple. The difficulty is in the detail.
+The idea of performing such eigenanalysis is simple. The difficulty is in the detail.
 One common misunderstanding is that an eigenanalysis for large cases is expensive.
 This is true only if we were to compute the full spectrum of a large sparse linear system
-using direct method~\cite{amestoy2000mumps}.
+using a direct method~\cite{amestoy2000mumps}.
 However, since a subset of the millions or even billions of eigenvalues are relevant regarding
 the linear stability, typically $\mathcal O(100)$, such eigenanalysis can be done at the cost of
 a few steady state analysis, using iterative eigenvalue calculation
 methods~\cite{sorensen1992implicit,lehoucq1998arpack}.
 
-In practics, such eigenanalysis is rarely done for large, complex cases of industry relevance.
+In practice, such eigenanalysis is rarely done for large, complex cases of industry relevance.
 The challenge is twofold. First,
 in order to perform eigenanalysis, a steady state flow solution should first be
 obtained, requiring the full convergence of the flow solver. While this is easily
-achievable at design condition, obtaining a fully converged solution for off-design
+achievable at design condition, obtaining a fully converged solution at off-design
 conditions remains a challange from the perspective of flow solver~\cite{xu2015stabilisation}.
 This is seldom discussed in literature, but widely felt in industry. Secondly, it is
-a common belief such the computatinal cost of such eigenanlysis is overwhelming
-and is thus impractical for real application. With the maturing of distributed
+a common belief that the  computatinal cost of such eigenanlysis is overwhelming
+and is thus impractical for real applications. With the maturing of distributed
 computing, this is no longer the bottleneck and one can easily compute the
 relevant eigenvectors for cases with up to 10 million grid point, and the cost
 only increases linearly with a scalable algorithm. But here the focus shifts slightly
-to the computational methods side from the flow physics . But as discussed
-in~\cite{day2016stall}, combinging the advancement by computational specialists
+to the computational methods side from the flow physics . As discussed
+in~\cite{day2016stall}, combining the advancement by computational specialists
 and the expertise from the `stall fraternity' is the right way to advance the research
 in compressor stall study and an effective way to harness better the benifit of
 using CFD. In this paper, we attempt to apply the latest development in large
 scale eigenanalysis computational method to the long-standing problem of
 rotating flow instability, rotating stall in particular, and try to explore the
-underlying flow physics governing the pre- and in-stall behavior, with a
+underlying flow physics governing the pre- and in-stall behavior, at a
 computational cost that is affordable for industrial applications.
 
 The rest of this paper is organized as follows. First, the basic algorithm of the
@@ -231,7 +231,7 @@ velocity of $\boldsymbol \omega$ is
 \begin{equation*}
 \dfrac{d}{dt}\int_{\Omega_r} \W dV
 +\oint_{\partial \Omega_r} (\F^r_c-\F_v)dS
-+\int_{\Omega_r}\F_\omega dS
++\int_{\Omega_r}\F_\omega dV
 =0,
 \label{governing}
 \end{equation*}
@@ -241,7 +241,7 @@ $\left[\rho,~\rho\uu,~\rho E\right]^T$.
 The absolute and relative convective fluxes,
 $\F_c$ and $\F^r_c$,
 the viscous flux $\F_v$,
-and the additional flux due
+and the additional source term due
 to rotation, $\F_\omega$,
 are defined as %follows
 \begin{equation*}
@@ -381,7 +381,7 @@ scaling to it. The governing equation of the dynamic system then becomes
 \end{equation*}
 
 Assuming a steady state solution $\uu_0$ (equilibrium point of the dynamic system)
-exists, and the time-varying flwo variable can be decomposed as the
+exists, and the time-varying flow variable can be decomposed into the
 steady and the unsteady part 
 \begin{equation*}
 \uu:=\uu_0 + \tilde \uu
@@ -450,10 +450,10 @@ laminar flow around a circular cylinder with the Reynolds number in
 the range between 40 and 100. The computational domain is a
 circular cylinder centered at the origin with a diameter of $D=10^{-5}$
 and the farfield is a circle with a diameter of $100D$. The left half of
-the outer circle is set to 'farfield' boundary condition with a incoming
+the outer circle is set to 'farfield' boundary condition with an incoming
 flow of Mach 0.2 in the x-direction, a static pressure of $101325~Pa$ and
 and a temperature of $288.15~K$.
-The right half ot he circle is set to 'pressure-outlet' boundary condition,
+The right half of the circle is set to 'pressure-outlet' boundary condition,
 with a constant pressure of $101325~Pa$.
 The computational domain is meshed with quadrilateral elements,
 with a total of 29600 grid points. The density is $1.225~kg/m^3$.
@@ -474,7 +474,7 @@ Mach number contour of the NutsCFD calculation is shown in Fig.~\ref{fig:cyl-re5
 
 To compare the Fluent and NutsCFD results quantitatively, the x-velocity
 behind the cylinder and the pressure coefficient along the cylinder
-surface are compared in Fig.~\ref{fig:cyl-re55-u-cp} and very good agreement
+surface are presented in Fig.~\ref{fig:cyl-re55-u-cp} and very good agreement
 can be found.
 \begin{figure}[htb]
 	\centering   
@@ -490,9 +490,9 @@ Experimental results show that the laminar flow around the cylinder
 becomes unsteady for Re above a critical value (around 47). To study
 this phenomenon, unsteady flows for $Re=55$ and $Re=40$
 are performed using NutsCFD. First, for both conditions, a steady
-state flow solution is obtained by converged the residual to machine error.
+state flow solution is obtained by converging the residual to machine error.
 Then, unsteady simulation is run with the steady state
-as initial condition for $Re=55$.
+as the initial condition for $Re=55$.
 A BDF2 second-order implicit dual-time-stepping
 method is used with the physical time step set to
 $10^{-8} sec$, that is, $0.01 ms$, and
@@ -523,9 +523,9 @@ respectively.
 
 \subsubsection{Eigenanalysis}
 Eigenanalysis is performed for the steady state solution calculated
-in NutsCFD. After converging the steady state solver to machine error ($tol=10^{-14}$),
+using NutsCFD. After converging the steady state solver to machine error ($tol=10^{-14}$),
 the exact Jacobian matrix based on the 2nd-order spatial accuracy is calculated and
-output to file. Arpack is used to computed a subset of the eigenvalues, with the aim of
+output to file. ARPACK is used to computed a subset of the eigenvalues, with the aim of
 finding the least stable mode.
 To minimize the computational effort, 10 eigenvalues/vectors
 are computed for matrices with different shifts of $0$, $i$, $2i$, $3i$, $4i$, $5i$. All the
@@ -551,7 +551,7 @@ associated with each eigenvalue. For the unstable mode, the real part of the
 density, x/y momentum and energy component of the unstable eigenvector
 is shown in Fig.\ref{fig:cyl-re55-eigenmode}. Although not further explored
 here, these eigenvectors will be useful for constructing reduced-order-models,
-which can be used for rapid parameter study or fast time-domain responce.
+which can be used for rapid parametric study or fast time-domain responce.
 \begin{figure}[htb]
 	\centering   
 	\includegraphics[width=0.6\textwidth]{pic/eigenmode-real.png}	
@@ -661,15 +661,15 @@ shaft angular frequency. This is done due to the pre-knowledge that
 rotating stall cells move with a speed of the same order of magnitude
 as the shaft speed.
 
-One the flow has fully converged, the left most point on the whole-annulus
+Once the flow has fully converged, the left most point on the whole-annulus
 performance curve is used for eigenanalysis.
 Shown in Fig.~\ref{fig:r67-eigenvalue-18kpa} is a subset of the eigenvalues
 that are near the imaginary axis, which presumally are most likely to
 be unstable. ARPACK is used with various imaginery shifts to compute
-interior eigenvalues. The ones that are suspecious of crossing the
+interior eigenvalues. The ones that are suspicious of crossing the
 imaginery axis are shown. A zoomed view of the eigenvalues reveals
 that there are a total of five that have positive real parts, i.e., unstable.
-A single-mode instability is not found for in case most likely because
+A single-mode instability is not found for the case most likely because
 the flow condition chosen is one that is deep into the linearly unstable
 region and a bifurcation point should be searched for at a higher flow-rate
 condition. Nevertheless, in the work, we restrict outselves to the analysis
@@ -685,7 +685,7 @@ be conducted in our future work.
 	\label{fig:r67-eigenvalue-18kpa}
 \end{figure}
 
-The unstable eigenvector with the smallest imaginary part (lowest point amont the
+The unstable eigenvector with the smallest imaginary part (lowest point among the
 five unstable eigenvalues) is visualized in Fig.~\ref{fig:r67-eigenvector-18kpa} with
 both the real and imaginary parts. The circumferential shock
 oscillation can be seen. To analyze the spatial modes, data along
@@ -746,7 +746,7 @@ multirow configuration affect the conclusion, remain to be answered.
 \begin{figure}[htb]
 	\centering   
 {\tiny }	\includegraphics[width=.4\textwidth]{pic/speed-vs-nd.jpg}
-	\caption{The cell rotating speed v.s. the number of cells (nodal diameter of the perturbation pattern).}
+	\caption{The cell rotating speed in the absolute frame of reference v.s. the number of cells (nodal diameter of the perturbation pattern).}
 	\label{fig:r67-eigenvector-18kpa}
 \end{figure}
 
