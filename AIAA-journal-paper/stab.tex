@@ -482,6 +482,242 @@ Jacobian matrix $A$ for the spatial discretization.
 	will decay and diminish.
 \end{enumerate}
 
+\subsection{Matrix structure for configurations with cyclic symmetry}
+\subsubsection{circulant matrix}
+Consider the simpliest case of a circulant matrix $B$
+\begin{equation*}
+B=circ(b_0,b_1,\dots,b_{M-1})
+=
+\left [
+\begin{array}{c c c c c c }
+b_0 & b_1 & b_2 &  \cdots & b_{M-2} & b_{M-1}\\
+b_{M-1} & b_0 & b_1 &  \cdots & b_{M-3} & b_{M-2}\\
+\vdots & \vdots & \vdots & \vdots & \vdots & \vdots \\
+b_1 & b_2 & b_3 &  \cdots & b_{M-1} & b_{0}
+\end{array}
+\right]
+\end{equation*}
+Due to the cyclic symmetry, it can be verified that matrix $B$ has
+$M$ eigenvalues and eigenvectors
+defined as
+\begin{equation*}
+\vv_j=
+[1 ,  \rho_j , \rho_j^2,  \dots ,  \rho_{j}^{M-1}]^T,~
+\lambda_j= \sum_{m=0}^{M-1} b_m \rho_j^m~i=0,1,2,\dots, M-1
+\end{equation*}
+Further more, it can be verified that all the eigenvectors are orthogonal to each other.
+\subsubsection{block-circulant matrix}
+A slightly more complex case is when each element in the circulant matrix
+is replaced at a block matrix, e.g., $b_m$ is now an $N\times N$ square matrix,
+resulting in a block-circulant matrix.
+
+Consider a vector $\w$ of the following form:
+\begin{equation*}
+\w =
+\left[
+\begin{array}{c}
+\vv \\
+\rho \vv \\
+\rho^2 \vv \\
+\vdots \\
+\rho^{n-1}\vv
+\end{array}
+\right]
+\end{equation*}
+where $\rho$ is any $M$-th root of 1 and $\vv$ is a vector of length $N$.
+
+In order for $\w$ to be the eigenvector of the block-circulant matrix $B$,
+the following equation has to be satisfied:
+\begin{equation*}
+B \w = \lambda \w
+\end{equation*}
+which can be expanded as follows
+\begin{equation*}
+\begin{array}{rcl}
+(b_0 + \rho b_1+ \rho^2 b_2 + \cdots + \rho ^{M-1}b_{M-1}) \vv& = & \lambda \vv\\
+(b_{M-1} + \rho b_0+ \rho^2 b_1 + \cdots + \rho ^{M-1}b_{M-2}) \vv& = & \lambda\rho  \vv\\
+(b_{M-2} + \rho b_{M-1}+ \rho^2 b_0 + \cdots + \rho ^{M-1}b_{M-3}) \vv& = & \lambda\rho^2  \vv\\
+\dots & = & \dots\\
+(b_1 + \rho b_2+ \rho^2 b_3 + \cdots + \rho ^{M-1}b_{0}) \vv& = & \lambda\rho^{M-1} \vv\\
+\end{array}
+\end{equation*}
+It can be seen that all rows are identical to the first row, different only by a scalar multiplication.
+$\lambda$ and $\vv$ can be found by solving the eigenvalue problem of the equation
+in the first row. There are $N$ $\vv$ for each $\rho$. When $\rho$ varies from $\rho_0$
+to $\rho_{M-1}$, a total of $N\times M$ $\vv$ can be found. The $(m,n)$-th of them is
+\begin{equation*}
+\w_{m,n}=
+\left[
+\begin{array}{c}
+\vv_{m,n} \\
+\rho_m \vv_{m,n} \\
+\rho_m^2 \vv_{m,n} \\
+\vdots \\
+\rho_m^{M-1}\vv_{m,n}
+\end{array}
+\right]
+\end{equation*}
+where $\vv_{m,n}$ is the $n$-th eigenvalue of 
+\begin{equation*}
+(b_0 + \rho b_1+ \rho^2 b_2 + \cdots + \rho^{M-1}b_{M-1}) \vv =  \lambda \vv
+\end{equation*}
+with $\rho=\rho_m$.
+
+
+\subsubsection{linearized discreted RANS equation in axisymmetric domain}
+The residual vector of the discreted RANS equation $\R$ is linearized with respect
+to the flow variable  $\U$ to arrive at the full Jacobian matrix $\df{\R}{\U}$, which describes the
+dynamic behavior of the system around the equilibrium point. It turns out that the fact that
+the computational domain has a cyclic symmetry can be exploited to reveal some
+characteristics of the eigenspace of the full Jacobian.
+
+To facilate the following discussion, it is assume that the computational mesh, and thus
+the spatial discretization, is cyclic symmetric with $M$-periodicity, with $M$ being the
+number of blades/passages in the entire annulus. Consequently, the full-annulus
+mesh can be divided into $M$ non-overlapping segments, each of which contains
+$N$ grid points. The grid points are ordered in such way that points $1+N\times m$ to  $N+N\times m,~m=0,1,2,\dots, M-1$ belongs to the $m$-th segment. In additional,
+the location of point $n+N\times m1$ (the $n$-th point in segment $m1$) is
+point $n+N\times m2$ (the $n$-th point in segment $m2$) rotated by an angle $(m2-m1)\times 2\pi /M$. The arrangement of the grid point is illustrated in the following figure.
+
+The entire Jacobian matrix then can be partitioned into the following block matrix
+\begin{equation}
+\df{\R}{\U}=
+\left[
+\begin{array}{ccccc}
+\df{\R_0}{\U_0} &\df{\R_0}{\U_1} & \df{\R_0}{\U_2} &\dots & \df{\R_0}{\U_{M-1}}\\   
+\df{\R_1}{\U_0} &\df{\R_1}{\U_1} & \df{\R_1}{\U_2} &\dots & \df{\R_1}{\U_{M-1}}\\   
+\vdots &\vdots& \vdots &\dots & \vdots\\   
+\df{\R_{M-1}}{\U_0} &\df{\R_{M-1}}{\U_1} & \df{\R_{M-1}}{\U_2} &\dots & \df{\R_{M-1}}{\U_{M-1}}
+\end{array}
+\right]
+\end{equation}
+where each block $\df{\R_{m_1}}{\U_{m_2}}, ~m_1,m_2=0,1,\dots, M-1$, is itself an $5N\times 5N$ matrix for Euler/laminar or $6N\times 6N$ matrix for turbulent flow modelled using a one-equation
+turbulence model. It can also be seen that each block is non-zero only when $m_1$ and
+$m_2$ either are identical or differ by 1. However, this property is not exploited in this subsection.
+
+
+By changing the frame of reference to different pitchwise position,
+it can be shown that the matrix can be rewritten as 
+\begin{equation}
+\df{\R}{\U}=
+\left[
+\begin{array}{ccccc}
+\df{\R_0}{\U_0} &\df{\R_0}{\U_1} & \df{\R_0}{\U_2} &\dots & \df{\R_0}{\U_{M-1}}\\   
+B\df{\R_0}{\U_{M-1}} B^{-1}&B\df{\R_0}{\U_0} B^{-1}&B \df{\R_0}{\U_1} B^{-1}&\dots &B \df{\R_0}{\U_{M-2}}B^{-1}\\   
+\vdots &\vdots& \vdots &\dots & \vdots\\   
+B^{M-1}\df{\R_{0}}{\U_1} B^{-(M-1)}&\df{\R_{0}}{\U_2}B^{-(M-1)} & \df{\R_{0}}{\U_3}B^{-(M-1)} &\dots & B^{M-1}\df{\R_{0}}{\U_{0}}B^{-(M-1)}
+\end{array}
+\right]
+\end{equation}
+
+Next, the following change of variable is used:
+\begin{equation*}
+\tilde \U_i = B^{-i} \U_i,~\tilde \R_i = B^{-i} \R_i,~i=0,1,2,\dots,M-1
+\end{equation*}
+The Jacobian then becomes
+%\begin{equation}
+\begin{align}
+\df{\R}{\U}
+&=
+\left[
+\begin{array}{cccc}
+\df{\tilde \R_0}{\tilde \U_0} &
+\df{\tilde \R_0}{\tilde \U_1} B^{-1}&
+\dots &
+ \df{\tilde \R_0}{\tilde \U_{M-1}}B^{-(M-1)}\\   
+B\df{\tilde \R_0}{\tilde \U_{M-1}} &
+B\df{\tilde \R_0}{\tilde \U_0} B^{-1}&
+\dots 
+&B \df{\tilde \R_0}{\tilde \U_{M-2}}B^{-(M-1)}\\   
+\vdots &\vdots &\dots & \vdots\\   
+B^{M-1}\df{\tilde \R_{0}}{\tilde \U_1} &
+B^{M-1}\df{\tilde \R_{0}}{\tilde \U_2}B^{-1} &
+\dots &
+ B^{M-1}\df{\tilde \R_{0}}{\tilde \U_{0}}B^{-(M-1)}
+\end{array}
+\right]\\
+&=
+\underbrace{
+\left[
+\begin{array}{cccc}
+I & 0  & \cdots & 0\\
+0 & B & \cdots  & 0\\
+\vdots&\vdots &\dots & \vdots\\
+0 &  0 & \cdots & B^{M-1}
+\end{array}
+\right]
+}_{ \mathcal {B}  }
+\underbrace{
+\left[
+\begin{array}{cccc}
+\df{\tilde \R_0}{\tilde \U_0}&
+\df{\tilde \R_0}{\tilde \U_1}&
+\dots &
+\df{\tilde \R_0}{\tilde \U_{M-1}}\\   
+\df{\tilde \R_0}{\tilde \U_{M-1}}&
+\df{\tilde \R_0}{\tilde \U_0}&
+\dots &
+\df{\tilde \R_0}{\tilde \U_{M-2}}\\   
+\vdots&
+\vdots&
+\dots &
+\vdots\\   
+\df{\tilde \R_{0}}{\tilde \U_1}&
+\df{\tilde \R_{0}}{\tilde \U_2}&
+\dots &
+\df{\tilde \R_{0}}{\tilde \U_0}
+\end{array}
+\right]
+}_{ \mathcal {A}  }
+\underbrace{
+\left[
+\begin{array}{cccc}
+I & 0 & \cdots & 0\\
+0 & B^{-1}  & \cdots  & 0\\
+\vdots&\vdots &\dots & \vdots\\
+0 & 0  & \cdots & B^{-(M-1)}
+\end{array}
+\right]
+}_{ \mathcal {B}^{-1}  }
+\\
+&= \mathcal {B}  \mathcal {A} \mathcal {B}^{-1}
+\end{align}
+%\end{equation}
+
+Therefore the Jacobian matrix can be reduced to a block-circulant
+matrix $\mathcal{A}$.
+As forementioned, matrix $\mathcal{A}$ has eigenvalues $\lambda$
+and eigenvectors $\w$. $\w$ is a compound vector formed by assemblying
+$\vv$ with scalor factor $\rho$. The eigenvector of $\df{\R}{\U}$ can be
+easily obtained by left multiplying the $\w$ with $\mathcal{B}$.
+Finally, the eigenvectors of the Jacobian matrix is
+
+\begin{equation*}
+\w_{m,n}=
+\left[
+\begin{array}{c}
+\vv_{m,n} \\
+\rho_m B \vv_{m,n} \\
+\rho_m^2  B^2\vv_{m,n} \\
+\vdots \\
+\rho_m^{M-1} B^{M-1}\vv_{m,n}
+\end{array}
+\right]
+\end{equation*}
+where $\vv_{m,n}$ is the $n$-th eigenvector of 
+\begin{equation*}
+\left(
+\df{\R_0}{\U_0}+ \rho \df{\R_0}{\U_1}+ \rho^2\df{\R_0}{\U_2}  + \cdots + \rho^{M-1} \df{\R_0}{\U_{M-1}}
+\right )
+ \vv =  \lambda \vv
+\end{equation*}
+with $\rho=\rho_m$.
+{\color{red} It can be seen that for a given $n$, the $M$ eigenvectors $\w_{0,n},\w_{1,n},\dots,\w_{M-1,n}$
+are modes with nodal diameters from $0$ to $M-1$, or $1-M/2$ to $M/2$,
+provided that $M$ is an even number.}
+
+
+
 \subsection{Numerical implementation of eigenanalysis}
 In theory, performing the global linear stability analysis as described above
 is a standard procedure involving three steps: (i) find an equilirium point $\uu_0$;
