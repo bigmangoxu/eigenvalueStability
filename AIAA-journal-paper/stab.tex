@@ -512,17 +512,27 @@ is replaced at a block matrix, e.g., $b_m$ is now an $N\times N$ square matrix,
 resulting in a block-circulant matrix.
 
 Consider a vector $\w$ of the following form:
+%\begin{equation*}
+%\w =
+%\left[
+%\begin{array}{c}
+%\vv \\
+%\rho \vv \\
+%\rho^2 \vv \\
+%\vdots \\
+%\rho^{n-1}\vv
+%\end{array}
+%\right]
+%\end{equation*}
 \begin{equation*}
 \w =
 \left[
-\begin{array}{c}
-\vv \\
-\rho \vv \\
-\rho^2 \vv \\
-\vdots \\
+\vv ,
+\rho \vv ,
+\rho^2 \vv ,
+\dots ,
 \rho^{n-1}\vv
-\end{array}
-\right]
+\right]^T
 \end{equation*}
 where $\rho$ is any $M$-th root of 1 and $\vv$ is a vector of length $N$.
 
@@ -538,24 +548,34 @@ which can be expanded as follows
 (b_{M-1} + \rho b_0+ \rho^2 b_1 + \cdots + \rho ^{M-1}b_{M-2}) \vv& = & \lambda\rho  \vv\\
 (b_{M-2} + \rho b_{M-1}+ \rho^2 b_0 + \cdots + \rho ^{M-1}b_{M-3}) \vv& = & \lambda\rho^2  \vv\\
 \dots & = & \dots\\
-(b_1 + \rho b_2+ \rho^2 b_3 + \cdots + \rho ^{M-1}b_{0}) \vv& = & \lambda\rho^{M-1} \vv\\
+(b_1 + \rho b_2+ \rho^2 b_3 + \cdots + \rho ^{M-1}b_{0}) \vv& = & \lambda\rho^{M-1} \vv.
 \end{array}
 \end{equation*}
 It can be seen that all rows are identical to the first row, different only by a scalar multiplication.
 $\lambda$ and $\vv$ can be found by solving the eigenvalue problem of the equation
 in the first row. There are $N$ $\vv$ for each $\rho$. When $\rho$ varies from $\rho_0$
 to $\rho_{M-1}$, a total of $N\times M$ $\vv$ can be found. The $(m,n)$-th of them is
+%\begin{equation*}
+%\w_{m,n}=
+%\left[
+%\begin{array}{c}
+%\vv_{m,n} \\
+%\rho_m \vv_{m,n} \\
+%\rho_m^2 \vv_{m,n} \\
+%\vdots \\
+%\rho_m^{M-1}\vv_{m,n}
+%\end{array}
+%\right]
+%\end{equation*}
 \begin{equation*}
 \w_{m,n}=
 \left[
-\begin{array}{c}
-\vv_{m,n} \\
-\rho_m \vv_{m,n} \\
-\rho_m^2 \vv_{m,n} \\
-\vdots \\
-\rho_m^{M-1}\vv_{m,n}
-\end{array}
-\right]
+\vv_{m,n} ,
+\rho_m \vv_{m,n} ,
+\rho_m^2 \vv_{m,n} ,
+\dots ,
+\rho_m^{M-1}\vv_{m,n},
+\right]^T
 \end{equation*}
 where $\vv_{m,n}$ is the $n$-th eigenvalue of 
 \begin{equation*}
@@ -684,26 +704,37 @@ I & 0 & \cdots & 0\\
 \end{align}
 %\end{equation}
 
-Therefore the Jacobian matrix can be reduced to a block-circulant
-matrix $\mathcal{A}$.
-As forementioned, matrix $\mathcal{A}$ has eigenvalues $\lambda$
-and eigenvectors $\w$. $\w$ is a compound vector formed by assemblying
+Therefore the Jacobian matrix is similar to a block-circulant matrix $\mathcal{A}$.
+As forementioned, matrix $\mathcal{A}$ has eigenvalues $\lambda$ and eigenvectors
+$\w$. $\w$ is a compound vector formed by assemblying
 $\vv$ with scalor factor $\rho$. The eigenvector of $\df{\R}{\U}$ can be
 easily obtained by left multiplying the $\w$ with $\mathcal{B}$.
 Finally, the eigenvectors of the Jacobian matrix is
 
+%\begin{equation*}
+%\w_{m,n}=
+%\left[
+%\begin{array}{c}
+%\vv_{m,n} \\
+%\rho_m B \vv_{m,n} \\
+%\rho_m^2  B^2\vv_{m,n} \\
+%\vdots \\
+%\rho_m^{M-1} B^{M-1}\vv_{m,n}
+%\end{array}
+%\right]
+%\end{equation*}
+
 \begin{equation*}
 \w_{m,n}=
 \left[
-\begin{array}{c}
-\vv_{m,n} \\
-\rho_m B \vv_{m,n} \\
-\rho_m^2  B^2\vv_{m,n} \\
-\vdots \\
+\vv_{m,n} ,
+\rho_m B \vv_{m,n} ,
+\rho_m^2  B^2\vv_{m,n} ,
+\dots ,
 \rho_m^{M-1} B^{M-1}\vv_{m,n}
-\end{array}
-\right]
+\right]^T
 \end{equation*}
+
 where $\vv_{m,n}$ is the $n$-th eigenvector of 
 \begin{equation*}
 \left(
@@ -907,19 +938,17 @@ The three-dimensional mesh has one cell in the radial direction
 and the subsequent analysis is thus a quasi-3D one.
 
 \subsubsection{Steady state calculation}
-Steady state analysis is first performed for the
-annular cascade.
-The pressure ratio and efficiency,
-produced by incrementally raising the back pressure,
- are shown in Fig.~\ref{fig:r67-performance}.
-The flow solution corresponding to the left and right most points
-onthe whole annulus performance curve is shown in Fig.~\ref{fig:r67-flow},
-which as the choked and near-stall conditions.
+Steady state analysis is first performed for an annular compressor cascade.
+The pressure ratio and efficiency against the mass flow normalized by the
+choked mass flow, produced by incrementally raising the back pressure,
+are shown in Fig.~\ref{fig:r67-performance}.
+The fully-converged steady state flow solution scorresponding to the
+lowest and highest back pressures are shown in Fig.~\ref{fig:r67-flow}.
 
 \begin{figure}[htb]
 	\centering   
-	\includegraphics[width=0.35\textwidth]{PyPlot/eigen-vs-timedomain/annular-cascade-pr.pdf}
-	\includegraphics[width=0.35\textwidth]{PyPlot/eigen-vs-timedomain/annular-cascade-eff.pdf}
+	\includegraphics[width=0.45\textwidth]{PyPlot/eigen-vs-timedomain/annular-cascade-pr.pdf}
+	\includegraphics[width=0.45\textwidth]{PyPlot/eigen-vs-timedomain/annular-cascade-eff.pdf}
 	\caption{}
 	\label{}
 \end{figure}
@@ -945,16 +974,23 @@ which as the choked and near-stall conditions.
 \end{figure}
 
 \subsubsection{Eigenanalysis}
-For the three left most conditions in Fig.~\ref{123},
-eigenanalysis is performed using the Jacobian matrix
-output from the NutsCFD solver.
-Since the rotational speed for the rotor is 16043 RPM, the Jacobian
-matrix is scaled by a factor of $1/(2\pi \times 16043 / 60)\approx 1/1680$,
-so that all frequencies involved in this computation is normalized by the
-shaft angular frequency. This is done due to the pre-knowledge that
-rotating stall cells move with a speed of the same order of magnitude
-as the shaft speed.
+Eigenvalue analysis is performed for all the steady state solutions along the
+speedline. Since only the 'relevant' eigenvalues are desired (relevant here
+means eigenvalues that are likely to across the imaginary axis, corresponding
+to the onset of Hopf-bifurcation), the knowledge that the rotating stall cells
+usually move along the circumferential direction with a speed that is on the
+same order of the rotating rotation speed, each element of the Jacobian
+matrix is therefore divided by a factor of $1/(2\pi \times 16043 / 60)\approx 1/1680$ (assuming
+the rotational speed of 16,043 RPM),
+so that the frequency information represented by the imaginery part of the
+eigenvalues found is in terms of engine order (EO).
 
+For each condition in Fig.~\ref{fig:r67-flow}, the relevant eigenvalues are computed
+by applying shifts of $\sigma= 0+0.5j, 0+1j, 0+1.5j and 0+2j$ to the Jacobian matrices and
+finding the 10 most interior eigenvalues of the shifted matrices.
+
+
+\subsubsection{Interpretation of the eigenanalysis results}
 
 Shown in Fig.~\ref{fig:r67-eigenvalue-18kpa} is a subset of the eigenvalues
 that are near the imaginary axis, which presumally are most likely to
