@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.2.11)  4 SEP 2019 09:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.2.11)  4 SEP 2019 10:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1520,14 +1520,14 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 5.5pt on input line 259.
  [3] [4]
 [5]
-<PyPlot/eigen-vs-timedomain/bdf1.png, id=200, 496.7358pt x 405.1938pt>
+<PyPlot/eigen-vs-timedomain/bdf1.png, id=204, 496.7358pt x 405.1938pt>
 File: PyPlot/eigen-vs-timedomain/bdf1.png Graphic file (type png)
 <use PyPlot/eigen-vs-timedomain/bdf1.png>
 Package pdftex.def Info: PyPlot/eigen-vs-timedomain/bdf1.png  used on input lin
 e 449.
 (pdftex.def)             Requested size: 201.05222pt x 163.99748pt.
  [6]
-<PyPlot/eigen-vs-timedomain/bdf2.png, id=209, 466.3824pt x 404.2302pt>
+<PyPlot/eigen-vs-timedomain/bdf2.png, id=213, 466.3824pt x 404.2302pt>
 File: PyPlot/eigen-vs-timedomain/bdf2.png Graphic file (type png)
 <use PyPlot/eigen-vs-timedomain/bdf2.png>
 Package pdftex.def Info: PyPlot/eigen-vs-timedomain/bdf2.png  used on input lin
@@ -1539,19 +1539,19 @@ png>] [8] [9] [10] [11]
 LaTeX Warning: Reference `fig:cyl-re55' on page 12 undefined on input line 797.
 
 
-<cylinder-mach-steady-re-40.png, id=251, 996.72375pt x 866.23625pt>
+<cylinder-mach-steady-re-40.png, id=255, 996.72375pt x 866.23625pt>
 File: cylinder-mach-steady-re-40.png Graphic file (type png)
 <use cylinder-mach-steady-re-40.png>
 Package pdftex.def Info: cylinder-mach-steady-re-40.png  used on input line 812
 .
 (pdftex.def)             Requested size: 140.92793pt x 122.47505pt.
-<cylinder-mach-steady-re-60.png, id=252, 996.72375pt x 866.23625pt>
+<cylinder-mach-steady-re-60.png, id=256, 996.72375pt x 866.23625pt>
 File: cylinder-mach-steady-re-60.png Graphic file (type png)
 <use cylinder-mach-steady-re-60.png>
 Package pdftex.def Info: cylinder-mach-steady-re-60.png  used on input line 812
 .
 (pdftex.def)             Requested size: 140.92793pt x 122.47505pt.
-<cylinder-mach-steady-re-100.png, id=253, 996.72375pt x 866.23625pt>
+<cylinder-mach-steady-re-100.png, id=257, 996.72375pt x 866.23625pt>
 File: cylinder-mach-steady-re-100.png Graphic file (type png)
 <use cylinder-mach-steady-re-100.png>
 Package pdftex.def Info: cylinder-mach-steady-re-100.png  used on input line 81
@@ -1562,25 +1562,25 @@ File: cylinder-mach-steady-re-40.png Graphic file (type png)
 Package pdftex.def Info: cylinder-mach-steady-re-40.png  used on input line 815
 .
 (pdftex.def)             Requested size: 140.92793pt x 122.47505pt.
-<cylinder-mach-unsteady-re-60.png, id=254, 996.72375pt x 866.23625pt>
+<cylinder-mach-unsteady-re-60.png, id=258, 996.72375pt x 866.23625pt>
 File: cylinder-mach-unsteady-re-60.png Graphic file (type png)
 <use cylinder-mach-unsteady-re-60.png>
 Package pdftex.def Info: cylinder-mach-unsteady-re-60.png  used on input line 8
 16.
 (pdftex.def)             Requested size: 140.92793pt x 122.47505pt.
-<cylinder-mach-unsteady-re-100.png, id=255, 996.72375pt x 866.23625pt>
+<cylinder-mach-unsteady-re-100.png, id=259, 996.72375pt x 866.23625pt>
 File: cylinder-mach-unsteady-re-100.png Graphic file (type png)
 <use cylinder-mach-unsteady-re-100.png>
 Package pdftex.def Info: cylinder-mach-unsteady-re-100.png  used on input line 
 817.
 (pdftex.def)             Requested size: 140.92793pt x 122.47505pt.
 [12]
-<pic/cl-linear.jpg, id=271, 745.78625pt x 800.9925pt>
+<pic/cl-linear.jpg, id=275, 745.78625pt x 800.9925pt>
 File: pic/cl-linear.jpg Graphic file (type jpg)
 <use pic/cl-linear.jpg>
 Package pdftex.def Info: pic/cl-linear.jpg  used on input line 853.
 (pdftex.def)             Requested size: 140.92793pt x 151.35904pt.
-<pic/cl-log.jpg, id=272, 745.78625pt x 800.9925pt>
+<pic/cl-log.jpg, id=276, 745.78625pt x 800.9925pt>
 File: pic/cl-log.jpg Graphic file (type jpg)
 <use pic/cl-log.jpg>
 Package pdftex.def Info: pic/cl-log.jpg  used on input line 854.
@@ -1589,17 +1589,17 @@ Package pdftex.def Info: pic/cl-log.jpg  used on input line 854.
 0.png (PNG copy)> <./cylinder-mach-steady-re-100.png (PNG copy)> <./cylinder-ma
 ch-unsteady-re-60.png (PNG copy)> <./cylinder-mach-unsteady-re-100.png (PNG cop
 y)> <./pic/cl-linear.jpg> <./pic/cl-log.jpg>]
-<pic/uns-vs-eigen.png, id=279, 719.3274pt x 332.9238pt>
+<pic/uns-vs-eigen.png, id=283, 719.3274pt x 332.9238pt>
 File: pic/uns-vs-eigen.png Graphic file (type png)
 <use pic/uns-vs-eigen.png>
 Package pdftex.def Info: pic/uns-vs-eigen.png  used on input line 878.
 (pdftex.def)             Requested size: 281.85587pt x 130.44936pt.
-<pic/eigenmode-real.png, id=281, 223.5552pt x 115.1502pt>
+<pic/eigenmode-real.png, id=285, 223.5552pt x 115.1502pt>
 File: pic/eigenmode-real.png Graphic file (type png)
 <use pic/eigenmode-real.png>
 Package pdftex.def Info: pic/eigenmode-real.png  used on input line 892.
 (pdftex.def)             Requested size: 281.85587pt x 145.19368pt.
-<pic/cylinder-bifurcation.png, id=282, 799.788pt x 379.1766pt>
+<pic/cylinder-bifurcation.png, id=286, 799.788pt x 379.1766pt>
 File: pic/cylinder-bifurcation.png Graphic file (type png)
 <use pic/cylinder-bifurcation.png>
 Package pdftex.def Info: pic/cylinder-bifurcation.png  used on input line 901.
@@ -1610,7 +1610,7 @@ LaTeX Warning: Reference `fig:r67-performance' on page 15 undefined on input li
 ne 944.
 
 [15 <./pic/cylinder-bifurcation.png>]
-<PyPlot/eigen-vs-timedomain/annular-cascade-pr.pdf, id=304, 289.08pt x 289.08pt
+<PyPlot/eigen-vs-timedomain/annular-cascade-pr.pdf, id=308, 289.08pt x 289.08pt
 >
 File: PyPlot/eigen-vs-timedomain/annular-cascade-pr.pdf Graphic file (type pdf)
 
@@ -1618,7 +1618,7 @@ File: PyPlot/eigen-vs-timedomain/annular-cascade-pr.pdf Graphic file (type pdf)
 Package pdftex.def Info: PyPlot/eigen-vs-timedomain/annular-cascade-pr.pdf  use
 d on input line 950.
 (pdftex.def)             Requested size: 211.38832pt x 211.38834pt.
-<PyPlot/eigen-vs-timedomain/annular-cascade-eff.pdf, id=305, 289.08pt x 289.08p
+<PyPlot/eigen-vs-timedomain/annular-cascade-eff.pdf, id=309, 289.08pt x 289.08p
 t>
 File: PyPlot/eigen-vs-timedomain/annular-cascade-eff.pdf Graphic file (type pdf
 )
@@ -1626,23 +1626,23 @@ File: PyPlot/eigen-vs-timedomain/annular-cascade-eff.pdf Graphic file (type pdf
 Package pdftex.def Info: PyPlot/eigen-vs-timedomain/annular-cascade-eff.pdf  us
 ed on input line 951.
 (pdftex.def)             Requested size: 211.38832pt x 211.38834pt.
-<rotor67-2d-rel-mach-0kpa.png, id=306, 996.72375pt x 866.23625pt>
+<rotor67-2d-rel-mach-0kpa.png, id=310, 996.72375pt x 866.23625pt>
 File: rotor67-2d-rel-mach-0kpa.png Graphic file (type png)
 <use rotor67-2d-rel-mach-0kpa.png>
 Package pdftex.def Info: rotor67-2d-rel-mach-0kpa.png  used on input line 960.
 (pdftex.def)             Requested size: 164.41711pt x 142.88316pt.
-<rotor67-2d-pres-0kpa.png, id=307, 996.72375pt x 866.23625pt>
+<rotor67-2d-pres-0kpa.png, id=311, 996.72375pt x 866.23625pt>
 File: rotor67-2d-pres-0kpa.png Graphic file (type png)
 <use rotor67-2d-pres-0kpa.png>
 Package pdftex.def Info: rotor67-2d-pres-0kpa.png  used on input line 961.
 (pdftex.def)             Requested size: 164.41711pt x 142.88316pt.
-<rotor67-2d-rel-mach-18d5kpa.png, id=308, 996.72375pt x 866.23625pt>
+<rotor67-2d-rel-mach-18d5kpa.png, id=312, 996.72375pt x 866.23625pt>
 File: rotor67-2d-rel-mach-18d5kpa.png Graphic file (type png)
 <use rotor67-2d-rel-mach-18d5kpa.png>
 Package pdftex.def Info: rotor67-2d-rel-mach-18d5kpa.png  used on input line 96
 9.
 (pdftex.def)             Requested size: 164.41711pt x 142.88316pt.
-<rotor67-2d-pres-18d5kpa.png, id=309, 996.72375pt x 866.23625pt>
+<rotor67-2d-pres-18d5kpa.png, id=313, 996.72375pt x 866.23625pt>
 File: rotor67-2d-pres-18d5kpa.png Graphic file (type png)
 <use rotor67-2d-pres-18d5kpa.png>
 Package pdftex.def Info: rotor67-2d-pres-18d5kpa.png  used on input line 970.
@@ -1654,13 +1654,13 @@ pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./PyPlot/eigen-vs-timedomain
 /annular-cascade-eff.pdf): PDF inclusion: multiple pdfs with page group include
 d in a single page
 >]
-<pic/rotor67-18kpa-spectrum.png, id=403, 745.3446pt x 363.2772pt>
+<pic/rotor67-18kpa-spectrum.png, id=407, 745.3446pt x 363.2772pt>
 File: pic/rotor67-18kpa-spectrum.png Graphic file (type png)
 <use pic/rotor67-18kpa-spectrum.png>
 Package pdftex.def Info: pic/rotor67-18kpa-spectrum.png  used on input line 101
 2.
 (pdftex.def)             Requested size: 328.82707pt x 160.27483pt.
-<pic/mode-with-nd5.png, id=407, 1203.0546pt x 416.2752pt>
+<pic/mode-with-nd5.png, id=411, 1203.0546pt x 416.2752pt>
 File: pic/mode-with-nd5.png Graphic file (type png)
 <use pic/mode-with-nd5.png>
 Package pdftex.def Info: pic/mode-with-nd5.png  used on input line 1031.
@@ -1670,7 +1670,7 @@ NG copy)> <./rotor67-2d-rel-mach-18d5kpa.png (PNG copy)> <./rotor67-2d-pres-18d
 5kpa.png (PNG copy)>]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 5.0pt on input line 1078.
-<pic/speed-vs-nd.jpg, id=414, 694.595pt x 484.81125pt>
+<pic/speed-vs-nd.jpg, id=418, 694.595pt x 484.81125pt>
 File: pic/speed-vs-nd.jpg Graphic file (type jpg)
 <use pic/speed-vs-nd.jpg>
 Package pdftex.def Info: pic/speed-vs-nd.jpg  used on input line 1078.
@@ -1681,7 +1681,7 @@ Package natbib Warning: Citation `Strazisar1989Laser' on page 18 undefined on i
 nput line 1091.
 
 [18 <./pic/rotor67-18kpa-spectrum.png> <./pic/mode-with-nd5.png>]
-<rotor67/rotor67-geo-mesh.png, id=424, 671.1474pt x 418.2024pt>
+<rotor67/rotor67-geo-mesh.png, id=428, 671.1474pt x 418.2024pt>
 File: rotor67/rotor67-geo-mesh.png Graphic file (type png)
 <use rotor67/rotor67-geo-mesh.png>
 Package pdftex.def Info: rotor67/rotor67-geo-mesh.png  used on input line 1104.
@@ -1697,12 +1697,12 @@ nput line 1130.
 Package natbib Warning: Citation `Arnone1994Viscous' on page 20 undefined on in
 put line 1142.
 
-<rotor67/conv/rotor67-pr.pdf, id=434, 289.08pt x 289.08pt>
+<rotor67/conv/rotor67-pr.pdf, id=437, 289.08pt x 289.08pt>
 File: rotor67/conv/rotor67-pr.pdf Graphic file (type pdf)
 <use rotor67/conv/rotor67-pr.pdf>
 Package pdftex.def Info: rotor67/conv/rotor67-pr.pdf  used on input line 1153.
 (pdftex.def)             Requested size: 140.92793pt x 140.92703pt.
-<rotor67/conv/rotor67-eff.pdf, id=435, 289.08pt x 289.08pt>
+<rotor67/conv/rotor67-eff.pdf, id=438, 289.08pt x 289.08pt>
 File: rotor67/conv/rotor67-eff.pdf Graphic file (type pdf)
 <use rotor67/conv/rotor67-eff.pdf>
 Package pdftex.def Info: rotor67/conv/rotor67-eff.pdf  used on input line 1155.
@@ -1736,15 +1736,9 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 1227.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1227.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1227.
 
+Package rerunfilecheck Info: File `stab.out' has not changed.
+(rerunfilecheck)             Checksum: E7A3A082A1A20709842F549CD59AC8D1;2325.
 
-
-Package rerunfilecheck Warning: File `stab.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `stab.out':
-(rerunfilecheck)             Before: B6D18BA51D8191F58F99F332A2824F74;2222
-(rerunfilecheck)             After:  E7A3A082A1A20709842F549CD59AC8D1;2325.
 
 LaTeX Warning: There were undefined references.
 
@@ -1753,10 +1747,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 25564 strings out of 492649
- 474317 string characters out of 6129622
- 577226 words of memory out of 5000000
- 28775 multiletter control sequences out of 15000+600000
+ 25565 strings out of 492649
+ 474338 string characters out of 6129622
+ 577256 words of memory out of 5000000
+ 28776 multiletter control sequences out of 15000+600000
  641540 words of font info for 241 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,25n,94p,10366b,930s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1779,10 +1773,10 @@ ive/2018/texmf-dist/fonts/type1/public/newtx/txexas.pfb></usr/local/texlive/201
 dist/fonts/type1/public/txfonts/txmia.pfb></usr/local/texlive/2018/texmf-dist/f
 onts/type1/public/newtx/txsys.pfb></usr/local/texlive/2018/texmf-dist/fonts/typ
 e1/urw/times/utmri8a.pfb>
-Output written on stab.pdf (23 pages, 3707068 bytes).
+Output written on stab.pdf (23 pages, 3707699 bytes).
 PDF statistics:
- 632 PDF objects out of 1000 (max. 8388607)
- 405 compressed objects within 5 object streams
+ 635 PDF objects out of 1000 (max. 8388607)
+ 408 compressed objects within 5 object streams
  111 named destinations out of 1000 (max. 500000)
- 33625 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 33633 words of extra memory for PDF output out of 35830 (max. 10000000)
 
