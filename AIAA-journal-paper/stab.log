@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.2.11)  6 SEP 2019 16:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.2.11)  7 SEP 2019 12:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1223,6 +1223,9 @@ LaTeX Warning: Label `discretetime' multiply defined.
 LaTeX Warning: Label `discretetime' multiply defined.
 
 
+LaTeX Warning: Label `cellrotspd' multiply defined.
+
+
 LaTeX Warning: Label `fig:r67-eigenvector-18kpa' multiply defined.
 
 )
@@ -1654,12 +1657,11 @@ pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./PyPlot/eigen-vs-timedomain
 /annular-cascade-eff.pdf): PDF inclusion: multiple pdfs with page group include
 d in a single page
 >]
-<pic/rotor67-18kpa-spectrum.png, id=407, 745.3446pt x 363.2772pt>
-File: pic/rotor67-18kpa-spectrum.png Graphic file (type png)
-<use pic/rotor67-18kpa-spectrum.png>
-Package pdftex.def Info: pic/rotor67-18kpa-spectrum.png  used on input line 101
-2.
-(pdftex.def)             Requested size: 328.82707pt x 160.27483pt.
+<eigen-annular-cascade.png, id=407, 887.9574pt x 432.1746pt>
+File: eigen-annular-cascade.png Graphic file (type png)
+<use eigen-annular-cascade.png>
+Package pdftex.def Info: eigen-annular-cascade.png  used on input line 1012.
+(pdftex.def)             Requested size: 469.75502pt x 228.636pt.
 <pic/mode-with-nd5.png, id=411, 1203.0546pt x 416.2752pt>
 File: pic/mode-with-nd5.png Graphic file (type png)
 <use pic/mode-with-nd5.png>
@@ -1667,56 +1669,56 @@ Package pdftex.def Info: pic/mode-with-nd5.png  used on input line 1031.
 (pdftex.def)             Requested size: 281.85587pt x 97.52614pt.
  [17 <./rotor67-2d-rel-mach-0kpa.png (PNG copy)> <./rotor67-2d-pres-0kpa.png (P
 NG copy)> <./rotor67-2d-rel-mach-18d5kpa.png (PNG copy)> <./rotor67-2d-pres-18d
-5kpa.png (PNG copy)>]
+5kpa.png (PNG copy)>] [18 <./eigen-annular-cascade.png> <./pic/mode-with-nd5.pn
+g>]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 5.0pt on input line 1078.
-<pic/speed-vs-nd.jpg, id=418, 694.595pt x 484.81125pt>
+(Font)              scaled to size 5.0pt on input line 1081.
+<pic/speed-vs-nd.jpg, id=427, 694.595pt x 484.81125pt>
 File: pic/speed-vs-nd.jpg Graphic file (type jpg)
 <use pic/speed-vs-nd.jpg>
-Package pdftex.def Info: pic/speed-vs-nd.jpg  used on input line 1078.
+Package pdftex.def Info: pic/speed-vs-nd.jpg  used on input line 1081.
 (pdftex.def)             Requested size: 187.89914pt x 131.1449pt.
 
 
-Package natbib Warning: Citation `Strazisar1989Laser' on page 18 undefined on i
-nput line 1091.
+Package natbib Warning: Citation `Strazisar1989Laser' on page 19 undefined on i
+nput line 1094.
 
-[18 <./pic/rotor67-18kpa-spectrum.png> <./pic/mode-with-nd5.png>]
-<rotor67/rotor67-geo-mesh.png, id=428, 671.1474pt x 418.2024pt>
+<rotor67/rotor67-geo-mesh.png, id=429, 671.1474pt x 418.2024pt>
 File: rotor67/rotor67-geo-mesh.png Graphic file (type png)
 <use rotor67/rotor67-geo-mesh.png>
-Package pdftex.def Info: rotor67/rotor67-geo-mesh.png  used on input line 1104.
+Package pdftex.def Info: rotor67/rotor67-geo-mesh.png  used on input line 1107.
 
 (pdftex.def)             Requested size: 234.8775pt x 146.35388pt.
 
-
 LaTeX Warning: Reference `radiver-solution-approach1' on page 19 undefined on i
-nput line 1130.
+nput line 1133.
 
-[19 <./pic/speed-vs-nd.jpg> <./rotor67/rotor67-geo-mesh.png>]
+[19 <./pic/speed-vs-nd.jpg>]
 
 Package natbib Warning: Citation `Arnone1994Viscous' on page 20 undefined on in
-put line 1142.
+put line 1145.
 
 <rotor67/conv/rotor67-pr.pdf, id=437, 289.08pt x 289.08pt>
 File: rotor67/conv/rotor67-pr.pdf Graphic file (type pdf)
 <use rotor67/conv/rotor67-pr.pdf>
-Package pdftex.def Info: rotor67/conv/rotor67-pr.pdf  used on input line 1153.
+Package pdftex.def Info: rotor67/conv/rotor67-pr.pdf  used on input line 1156.
 (pdftex.def)             Requested size: 140.92793pt x 140.92703pt.
 <rotor67/conv/rotor67-eff.pdf, id=438, 289.08pt x 289.08pt>
 File: rotor67/conv/rotor67-eff.pdf Graphic file (type pdf)
 <use rotor67/conv/rotor67-eff.pdf>
-Package pdftex.def Info: rotor67/conv/rotor67-eff.pdf  used on input line 1155.
+Package pdftex.def Info: rotor67/conv/rotor67-eff.pdf  used on input line 1158.
 
 (pdftex.def)             Requested size: 140.92793pt x 140.92703pt.
 
 Package natbib Warning: Citation `Strazisar1989Laser' on page 20 undefined on i
-nput line 1157.
+nput line 1160.
 
 
 Package natbib Warning: Citation `Strazisar1989Laser' on page 20 undefined on i
-nput line 1157.
+nput line 1160.
 
-[20 <./rotor67/conv/rotor67-pr.pdf> <./rotor67/conv/rotor67-eff.pdf
+[20 <./rotor67/rotor67-geo-mesh.png> <./rotor67/conv/rotor67-pr.pdf> <./rotor67
+/conv/rotor67-eff.pdf
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./rotor67/conv/rotor67-eff.p
 df): PDF inclusion: multiple pdfs with page group included in a single page
@@ -1729,12 +1731,12 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
 
 Package natbib Warning: There were undefined citations.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1227.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1230.
 [23]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1227.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1230.
  (./stab.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1227.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1227.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1230.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1230.
 
 Package rerunfilecheck Info: File `stab.out' has not changed.
 (rerunfilecheck)             Checksum: E7A3A082A1A20709842F549CD59AC8D1;2325.
@@ -1747,13 +1749,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 25565 strings out of 492649
- 474338 string characters out of 6129622
+ 25566 strings out of 492649
+ 474330 string characters out of 6129622
  577256 words of memory out of 5000000
  28776 multiletter control sequences out of 15000+600000
  641540 words of font info for 241 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,25n,94p,10366b,930s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,25n,94p,10366b,924s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc}{/u
 sr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/local/texliv
 e/2018/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}{/usr/local/texlive/2018
@@ -1773,10 +1775,10 @@ ive/2018/texmf-dist/fonts/type1/public/newtx/txexas.pfb></usr/local/texlive/201
 dist/fonts/type1/public/txfonts/txmia.pfb></usr/local/texlive/2018/texmf-dist/f
 onts/type1/public/newtx/txsys.pfb></usr/local/texlive/2018/texmf-dist/fonts/typ
 e1/urw/times/utmri8a.pfb>
-Output written on stab.pdf (23 pages, 3707689 bytes).
+Output written on stab.pdf (23 pages, 3799222 bytes).
 PDF statistics:
  635 PDF objects out of 1000 (max. 8388607)
- 408 compressed objects within 5 object streams
- 111 named destinations out of 1000 (max. 500000)
+ 409 compressed objects within 5 object streams
+ 112 named destinations out of 1000 (max. 500000)
  33633 words of extra memory for PDF output out of 35830 (max. 10000000)
 

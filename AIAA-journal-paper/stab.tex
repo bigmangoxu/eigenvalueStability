@@ -1009,7 +1009,7 @@ be conducted in our future work.
 \begin{figure}[htb]
 	\centering   
 %	\includegraphics[width=.4\textwidth]{pic/eigenvalue-18kpa.png}
-	\includegraphics[width=.7\textwidth]{pic/rotor67-18kpa-spectrum.png}	
+	\includegraphics[width=\textwidth]{eigen-annular-cascade.png}	
 	\caption{Spectrum for stall condition.}
 	\label{fig:r67-eigenvalue-18kpa}
 \end{figure}
@@ -1050,14 +1050,17 @@ for every eigenvector, is a travelling wave that rotates in the opposite
 direction of the motion of the rotor (in the relative frame), and with a speed a fraction of the
 shaft rotating speed. This relative rotating speed can be
 calculated using the imaginary of the eigenvalue and the nodal diameter
-of the perturbation pattern as $\dfrac{\text{Imag}(\lambda)}{\omega_{shaft}} \dfrac{1}{ND}$.
+of the perturbation pattern as 
+\begin{equation}\label{cellrotspd}
+\Omega_{cellRotation}^{rel}= \dfrac{\text{Imag}(\lambda)}{ND} \Omega_{shaft}
+\end{equation}
 %In experiments, instrumentation for detecting rotating instability is usually
 %sensors installed on the stationary casing and the speed of the rotating
 %cells is also measured in the absolute reference frame.
 In the absolute reference frame, the cell rotating speed (normalized
 with shaft angular frequency) is calculated as
 \begin{equation}\label{cellrotspd}
-U_{cellRotatingFreq}= \left (1-\dfrac{\text{Imag}(\lambda)}{ND}\right ) E.O.
+\Omega_{cellRotation}^{abs}= \left (1-\dfrac{\text{Imag}(\lambda)}{ND}\right ) \Omega_{shaft}
 \end{equation}
 Applying this formula to each of the 11 eigenmodes leads to the
 correlation between the nodal diameter and the perturbation rotating speed, as shown in Fig.~\ref{fig:r67-eigenvector-18kpa}. Note that we use the terminology 'cell rotating speed'
