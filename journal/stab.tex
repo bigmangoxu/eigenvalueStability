@@ -1,0 +1,1232 @@
+\documentclass[journal,final]{new-aiaa}
+\usepackage[utf8]{inputenc}
+\usepackage{color}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage[version=4]{mhchem}
+\usepackage{siunitx}
+\usepackage{longtable,tabularx}
+\setlength\LTleft{0pt}
+
+\input{math-abbrev.tex}
+\graphicspath{{./pic/}}
+
+\title{Linear Global Stability Analysis based on RANS Equations for an Axial Compressor}
+\author[1]{Shenren Xu	
+\footnote{Associate Professor, Yangtze River Delta Research Institute
+%; corresponding author, email address: shenren\_xu@nwpu.edu.cn
+}
+}
+\affil[1]{Northwestern Polytechnical University, Taicang~215400, P.R.~China}
+\affil[2]{Beihang University, Beijing 100191, P.R.~China}
+\author[2]{Chen He\footnote{Ph.D. Candidate, School of Energy and Power Engineering; hechen@
+		buaa.edu.cn
+	%	 (Corresponding Author) 
+	 }}
+\author[2]{Dakun Sun\footnote{Associate Professor, School of Energy and Power Engineering; Co-Innovation
+		Center for Advanced Aero-Engine; sundk@buaa.edu.cn}}
+%\author[3]{Xiaofeng Sun\footnote{Professor, School of Energy and Power Engineering; Co-Innovation Center for Advanced Aero-Engine; sunxf@buaa.edu.cn}}
+\author[1]{Dingxi Wang\footnote{Professor, School of Power and Engery; dingxi\_wang@nwpu.edu.cn}
+}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Linear global stability analysis is an effective approach to predict the
+exact condition at which flow goes unstable. Compared to the time-domain
+simulation approach, ??? method can equivalently predict the destabilization
+condition, but at a much lower cost, since unsteady simulations are no longer required.
+In this work, a Newton--Krylov nonlinear flow solver is used to first solve for the
+steady state flow solution and then eigenanalysis is performed by applying the 
+implicit-restart Arnoldi method to the exact Jacobian matrix.
+By tracking a subset of the eigenspectrum that is close to the imaginary axis,
+the least stable eigenmodes can be found. By perturbing the bifurcation parameter,
+e.g., the Reynolds number, the Hopf bifurcation point can be identified.
+This method is applied to find the critical Reynolds number for a laminar
+flow around a circular cylinder above which laminar vortex shedding appears.
+Time-accurate unsteady simulation confirms the correctness of the critical eigenvalue
+and eigenvector found. It is also applied to a quasi-3D compressor rotor
+annular cascade case, for which eigenanalysis is performed and flow physics
+is analyzed based on the unstable modes identified. Interesting correlation
+between the rotating perturbation pattern and cell rotating speed is found,
+which resembles what is observed in experiments.
+This work is a first step towards the study of
+rotating flow instabilities in turbomachines, such as rotating stall and rotating instability,
+and the preliminery results proved promising for future
+application to three-dimensional practical problems.
+	
+	
+	
+%The compression system in turbomachines, e.g.,  aircraft engines and gas turbines,
+%when operating under off-design conditions, exhibits self-excited unsteady phenomena
+%such as surge, rotating stall and rotating instability, leading to performance deterioration
+%and/or structural damages. Inability to accurately predict when such flow instability occurs
+%limits the development of high performance compression system.
+%Conventional methods for predicting the onset of such instabilities include analytical,
+%semi-analytical-semi-empherical, and unsteady computational fluid dynamics (CFD) simulation,
+%which are either fast but less accurate, or more accurate but requires long computational time.
+%For engineering application, only steady state CFD analyses are affordable for deployment
+%in practicla workflow. 
+%In this paper, we explore using the eigenanalysis approach to predict the onset of such
+%instabilities. The key benifit of such analysis is that it is capable to capture exactly the
+%eigenmodes that destabilize with computational cost of a few steady analyses.
+%Pivotal to such analysis is a robust steady state RANS flow solver using the Newton--Krylov
+%time-integration scheme which explicitly forms the Jacobian matrix. Once the flow has
+%converged fully, the Jacobian matrix is used to compute the relavent eigenvalues and vectors.
+%The methodology is applied to the computation of stability boundary of
+%(i) the laminar flow around a two-dimensional circular cylinder, and
+%(ii) the flow around a quasi-three-dimensional compressor anuular cascade.
+%The method developed here has the potential to revive the once-popular
+%eigenvalue method for prediction rotating stall and surge, and to provide
+%industry with tools to accurately predict the stall line in the early design stage.
+\end{abstract}
+
+%\section*{Nomenclature}
+%{\renewcommand\arraystretch{1.0}
+%\noindent\begin{longtable*}{@{}l @{\quad=\quad} l@{}}
+%$c_v,c_p$   & specific heat \\
+%$e$     & internal energy\\
+%$E$     & total energy\\
+%
+%$\partial \Omega_r$& boundary of $\Omega_r$
+%\end{longtable*}}
+
+%{\Large \color{red} Tasks}
+%
+%\begin{enumerate}
+%	\item{\color{red} finalize gpps paper}
+%	\item  {\color{red} Literature review for rotating stall:}
+%	\begin{enumerate}
+%		\item {\color{red} M-G theory?}
+%		\item {\color{red} Subsonic, how many cells? when? roating speed?}	
+%		\item {\color{red} Transonic, how many cells? when? rotating speed?}
+%		\item {\color{red} Active control achievement so far? low or high speed?}
+%		\item{\color{red} Shortcoming of existing theory and applications?}				
+%	\end{enumerate}
+%\item  {\color{red} high speed steady performance curve? mesh convergence? validation?
+%spectrum? find all ND=1-11? or even 12-22? how to explain 5+17=22?}
+%\item{\color{red} same conclusion for low speed? same conclusions?}
+%\item{\color{red} urans for confirmimg the eigenanalysis?}
+%
+%\end{enumerate}
+
+
+\section{Introduction}
+Rotating stall and rotating instability have been studied extensively
+both experimentally~\cite{emmons1955compressor,frank1955propagation,emmons1959survey}
+and numerically~\cite{cornelius2014experimental,he1997computational,vo2008control,pullan2015origins}.
+Early experimental work revealed
+the basic features of such phenemenon and subsequent work has focused
+on building simple analytical models.
+Existing analytical models~\cite{emmons1955compressor,greitzer1986theory} have
+had their success in the early days but the accuracy and effectiveness of them
+is less than sastifactory when applied to realistic configurations and
+more details are needed for quantitative prediction of the stall behavior.
+
+Previous numerical investigations mainly focused on using time-dependent
+unsteady flow analysis using either a fraction or the whole of an annulus.
+A lot of insight into the flow physics for the destablization mechanism
+has been gained from such high fidelity simuations. Unsteady simulations
+are useful for both reproducing the fully destabilized unsteady flows as
+well as for studying the inception of such instability. Due to the high
+computatioal cost of unsteady simulation, it still remains largely as a
+reserach tool to investigate the stall phenomenon on a case-by-case
+basis.
+
+It is widely believed that the fully developed stall and surge behavior is quite
+different from the incipient stall, or pre-stall disturbance~\cite{stenning1980rotating},
+as fully developed rotating stall exhibits strong nonlinearity. However, if the goal is
+to apply active control to suppress the instability at its infancy, then a linear stability
+prediction should suffice, as has been demonstrated in numerous work~\cite{paduano1991active,day1993active,paduano2001compression,day1997stall},
+as the idea is to eliminate the fully-developed rotating cells from forming.
+
+As modern compression systems are designed with higher loading and speed,
+most analytical models proposed in the early days and desmontrated useful
+on low-speed machines are no longer useful as compressibility and complex
+flow mechanism such as boundary-layer-shock-wave interaction becomes
+important. In addition, existing models seldom take into account the exact
+geometry of the blading, and instead, a simple correlation of the compressor
+characteristics is used. This is obviously not desirable as
+geometry details, such as the exact leading edge geometry, have great impact
+on the stall characteristics. This is particularly the case when more complex stall
+phenomenon are considered, such as spike stall, where geometry details
+such as tip gap and the leading edge shape play a major role.
+
+This calls for a stability analysis method based on the three-dimensional
+Reynolds-averaged Navier-Stokes equations, which is regarded as
+the standard industrial tool for predicting steady and unsteady turbomachinery
+performance. In a way, existing stall model needs to be upgraded using the latest
+high-fidelity flow models. Again, either time-dependent simulations or
+steady-state-based eigenanalysis can be used to study the stability based
+on the high-fidelity models and each has its strength. Time-dependent
+analysis is able to capture not only the incipent stall behavior but also the
+details of the transient process, but at a very high computational cost.
+Eigenvalue analysis is a powerful yet inexpensive tool to probe the flow
+near the critical condition, but is still capable of revealing rich flow physics,
+with cost comparable to a few steady state analysis.
+
+In this work, we demonstrate that using eigenanalysis based on a whole-annulus
+steady state solution, the linear stablity demarcation point can be pinpointed
+with the cost of a few steady state analysis, and a full-annulus time-accurate
+unsteady calculation can thus be avoided. This methodology enables quick parametric
+study of the various rotating flow instability phenomenon
+such as rotating stall and rotating instability.
+
+The idea of performing such eigenanalysis is simple. The difficulty is in the detail.
+One common misunderstanding is that an eigenanalysis for large cases is expensive.
+This is true only if we were to compute the full spectrum of a large sparse linear system
+using a direct method~\cite{amestoy2000mumps}.
+However, since a subset of the millions or even billions of eigenvalues are relevant regarding
+the linear stability, typically $\mathcal O(100)$, such eigenanalysis can be done at the cost of
+a few steady state analysis, using iterative eigenvalue calculation
+methods~\cite{sorensen1992implicit,lehoucq1998arpack}.
+
+In practice, such eigenanalysis is rarely done for large, complex cases of industry relevance.
+The challenge is twofold. First,
+in order to perform eigenanalysis, a steady state flow solution should first be
+obtained, requiring the full convergence of the flow solver. While this is easily
+achievable at design condition, obtaining a fully converged solution at off-design
+conditions remains a challange from the perspective of flow solver~\cite{xu2015stabilisation}.
+This is seldom discussed in literature, but widely felt in industry. Secondly, it is
+a common belief that the  computatinal cost of such eigenanlysis is overwhelming
+and is thus impractical for real applications. With the maturing of distributed
+computing, this is no longer the bottleneck and one can easily compute the
+relevant eigenvectors for cases with up to 10 million grid point, and the cost
+only increases linearly with a scalable algorithm. But here the focus shifts slightly
+to the computational methods side from the flow physics . As discussed
+in~\cite{day2016stall}, combining the advancement by computational specialists
+and the expertise from the `stall fraternity' is the right way to advance the research
+in compressor stall study and an effective way to harness better the benifit of
+using CFD. In this paper, we attempt to apply the latest development in large
+scale eigenanalysis computational method to the long-standing problem of
+rotating flow instability, rotating stall in particular, and try to explore the
+underlying flow physics governing the pre- and in-stall behavior, at a
+computational cost that is affordable for industrial applications.
+
+The rest of this paper is organized as follows. First, the basic algorithm of the
+nonlinear flow solver will be discussed in sec.~\ref{lable:sec1}. Fundemantals of 
+performing eigenanalysis based on RANS equations and relevant techniques
+are discussed in sec.~\ref{label:sec2}. Results for the application of eigenanalysis
+to predict flow instability is elaborated in sec.~\ref{label:results} and conclusions
+are drawn in sec.~\ref{conclusion}.
+
+
+
+\section{The nonlinear flow solver}
+\label{lable:sec1}
+The nonlinear flow solver used in this work is NutsCFD, an unstructured-mesh
+finite-volume RANS solver capable of dealing with rotating frame reference
+and periodic boundary conditions.
+The solver features the use of the Newton--Krylov algorithm,
+which significantly enhances the efficiency and robsutness when
+computing turbomachinery flows at off-design conditions.
+Details of the solver can be found in~\cite{xu2019nk}
+and a brief description of the solution algorithm is provided in this section.
+
+\subsection{Governing equations}
+The integral form of the governing equations in a
+relative frame of reference with a constant angular
+velocity of $\boldsymbol \omega$ is
+\begin{equation*}
+\dfrac{d}{dt}\int_{\Omega_r} \W dV
++\oint_{\partial \Omega_r} (\F^r_c-\F_v)dS
++\int_{\Omega_r}\F_\omega dV
+=0,
+\label{governing}
+\end{equation*}
+where $\W$ are %is
+the conservative variables
+$\left[\rho,~\rho\uu,~\rho E\right]^T$.
+The absolute and relative convective fluxes,
+$\F_c$ and $\F^r_c$,
+the viscous flux $\F_v$,
+and the additional source term due
+to rotation, $\F_\omega$,
+are defined as %follows
+\begin{equation*}
+\F_c=
+\left [ 
+\begin{array}{c}
+\rho \uu \cdot \n\\
+\rho \uu \uu\cdot \n +  p\n\\
+\rho H \uu \cdot \n
+\end{array}
+\right],
+\text{~~}
+\F^r_c=
+\F_c
+-
+(\uu_{rot}\cdot \n) 
+\left [ 
+\begin{array}{c}
+\rho\\
+\rho \uu\\
+\rho E
+\end{array}
+\right ]
+,\text{~~}
+\F_v=
+\left [ 
+\begin{array}{c}
+0\\
+\tau \cdot \n\\
+\uu \cdot \tau \cdot \n + \kappa \n \cdot \nabla T
+\end{array}
+\right ],\text{~~}
+\F_\omega=
+\left [ 
+\begin{array}{c}
+0\\
+\rho {\boldsymbol{\omega}} \times \uu\\
+0
+\end{array}
+\right ],
+\end{equation*}
+with $\uu_{rot}={\boldsymbol \omega} \times \x$.
+When $\omega$ is zero, a solver applicable to
+non-rotating reference frame is recovered.
+
+Flow is assumed to be fully turbulent and turbulence is
+modeled using the negative Spalart--Allmaras
+(SA-neg) model~\cite{allmaras2012modifications}.
+Compared to the original SA model~\cite{spalart1992one},
+this avoids the clipping of the turbulent variable
+to a non-negative value which potentially
+prevents the full convergence of the nonlinear solver.
+The turbulence equation is discretized using
+the first-order accurate upwind
+scheme~\cite{langer2014agglomeration}.
+
+\subsection{Spatial discretization}
+The governing equations are discretized using the
+method of lines and thus the spatial and temporal
+discretizations can be treated separately.
+The governing equations for
+the
+steady-state solution $\W$
+is
+\begin{equation}
+\label{nonlinear}
+\R(\W)={\bf 0},
+\end{equation}
+where $\R$ is the sum of fluxes and source terms
+associated with each control volume. Suppose control
+volume %node
+$i$ has $N$ flux faces with
+area $S_{ik}$ for
+$k=1,2,...,N$.
+$R_i$ then is 
+\begin{equation*}
+R_i(\W)=\sum^{N}_{k=1} (\F^r_c-\F_v)S_{ik}+\F_{\omega} V_i,
+\end{equation*}
+where $V_i$ denotes the volume.
+The computation of the convective flux $\F^r_c$ is based on a modification
+of the Roe flux scheme to account for the relative reference
+frame that is rotating with a constant angular velocity;
+while the viscous flux $\F_v$ is the same as in the stationary
+reference frame.
+
+
+
+\subsection{Temporal discretization for steady solver}
+The Newton method solves the steady-state nonlinear
+equation~\eqref{nonlinear} iteratively as %follows
+\begin{equation*}
+\W^{n+1}=\W^n+\beta \Delta \W
+\label{newtonTransient}
+\end{equation*}
+until convergence is reached, i.e., $\|\R(\W)\|=0$,
+where $\Delta \W$ is the solution to the linear 
+system of equations
+\begin{equation*}
+\df{\R}{\W}\Delta \W = -\R(\W^n),
+\end{equation*}
+while $\beta$ is an under-relaxation factor 
+obtained using a line search.
+
+Once the spatial discretization,  $\R(\W^n)$, is established,
+there are three main steps to complete a Newton update step,
+namely, (i) forming the Jacobian matrix, (ii)
+solving the large sparse linear system of equations,
+and (iii) finding a step size $\beta$ and update the nonlinear
+flow solution.
+To form the Jacobian matrix, automatic differentiatino tool Tapenade~\cite{Tapenade}
+is used, together with graph coloring tool Colpack~\cite{gebremedhin2013colpack}.
+By executing the
+foward-differentiated residual subroutine for a subsets of nodes
+with the same color, the Jacobian matrix is calculated. The resulting
+large sparse linear system of equations is solved using GMRES
+right-preconditioned by the incomplete LU factorization with zero
+fill-in. 
+
+\subsection{Temporal discretization for unsteady solver}
+
+
+
+
+\section{Global linear stability analysis via eigenmode decomposition}
+\label{label:sec2}
+\subsection{Global linear stability analysis}
+The time-dependent RANS equations, discretized
+using the method of lines,
+is of the following form
+\begin{equation}\label{timedomain}
+ \dfrac{d \uu(t)}{dt}=\R(\uu(t))
+\end{equation}
+where $\uu(t)$ is vector of the time-varying conservative flow variables
+and $\R(\uu)$ is the nonlinear residual representating the spatial discretization.
+Note that the residual vector has already the volume of the cell taken into
+account, by diving the sum of the fluxes out of each cell by its volume.
+Assuming a steady state solution $\uu_0$ (equilibrium point of the dynamic system)
+exists, and the time-varying flow variable can be decomposed into the
+steady and the unsteady part 
+\begin{equation*}
+\uu(t):=\uu_0 + \tilde \uu(t)
+\end{equation*}.
+Assuming the perturbation is small, then
+and the governing equation becomes
+\begin{equation*}
+\dfrac{d \tilde \uu(t)}{dt}=A \tilde \uu(t)
+\end{equation*}
+where $A$ is the Jacobian $A:=\df{\R}{\uu}$.
+
+In order to use the eigen model decomposition approach, suppose
+matrix $A$ has right eigenvectors $\{\vv_i, \vv_2, ..., \vv_N\}$,
+which forms the matrix $V$ as its colum vectors. Matrix $A$ can then
+be factorized as 
+\begin{equation*}
+A=V\Lambda V^{-1}
+\end{equation*}
+where the diagonal matrix $\Lambda$ has the eigenvalues of the matrix $A$
+as its diagonal elements.
+Decomposing the unsteady part $\tilde \uu$ in the eigen modal space with
+coordinates $\eta:=\{\eta_1, \eta_2,\dots, \eta_N\}$,
+\begin{equation*}
+\tilde \uu(t) = V \eta(t).
+\end{equation*}
+Substituting $\tilde \uu$ in the governing equation using the eigen modal
+decomposition, it becomes
+\begin{equation*}
+\dfrac{d \eta(t)}{dt}= \Lambda \eta(t).
+\end{equation*}
+All equations are decoupled now and can be written as
+\begin{equation*}
+\dfrac{d \eta_i(t)}{dt}= \lambda_i \eta_i(t)  ~~~\forall i.
+\end{equation*}
+For the linear system to be stable, a sufficient condition is
+that all eigenvalues have negative real parts, i.e., real$(\lambda_i)<0, \forall i$.
+
+
+\subsection{Relation with time-accurate unsteady analysis}
+The relation between the eigenvalue and the time-accurate
+unsteady analysis is discussed in this subsection. Assume that
+the backward-differentiation-formula 1 (BDF1) is used.
+The discretized system is then
+\begin{equation}\label{discretetime}
+\dfrac{\eta^{n+1}_i-\eta^n_i}{T} = \lambda_i  \eta_i^{n+1}
+\end{equation}
+which yields
+\begin{equation}\label{discretetime}
+\eta^{n+1}_i   =\dfrac{1}{1-T \lambda_i}  \eta_i^n
+\end{equation}
+which means that for $\eta_i$ to converge to zero,
+the amplification factor has to have a modulus smaller than 1, i.e.,
+\begin{equation*}
+\left |\dfrac{{1}}{1-T \lambda_i} \right  |<1
+\end{equation*}
+or equivalently,
+\begin{equation*}
+\left |1-T \lambda_i \right  |>1
+\end{equation*}
+The stability region is shown in the red part of the plot in 
+
+\begin{figure}[htb]
+	\centering   
+	\includegraphics[width=0.428\textwidth]{PyPlot/eigen-vs-timedomain/bdf1.png}	
+	\caption{123}
+\end{figure}
+
+If BDF2 is used, then
+the discretized equation becomes
+\begin{equation}\label{discretetime}
+\dfrac{3\eta^{n+2}_i-4\eta^{n+1}_i +\eta^n}{2T} = \lambda_i  \eta_i^{n+2}
+\end{equation}
+Assuming the amplication factor is $z\in \mathcal C$, and substitute
+$\eta^{n+2}=z^2 \eta^n$ and  $\eta^{n+1}=z \eta^n$ into eqn, one has
+the characteristic polynomial that equals zero:
+\begin{equation*}
+(3+2T\lambda_i) z^2 -4z+1=0
+\end{equation*}
+and the stability region for $T\lambda_i$ can thus be defined as one such
+that $|z|<1$, which is visualized in the figure
+\begin{figure}[htb]
+	\centering   
+	\includegraphics[width=0.4\textwidth]{PyPlot/eigen-vs-timedomain/bdf2.png}	
+	\caption{123}
+\end{figure}
+
+Based on the stability analysis for the 1-step and 2-step backward differentiation formula (BDF),
+the following conclusions can be drawn regarding its relation to the eigenvalue analysis of the
+Jacobian matrix $A$ for the spatial discretization.
+\begin{enumerate}
+	\item if the matrix $A$ has unstable eigehvalues (those that have positive
+	real parts), then the time-stepping method with a sufficiently small time-step 
+	should also exhibit linear instability (eigenvalues of the timestepping matrix
+	lying outside the unit circle).
+	\item if all eigenvalues of the matrix $A$ have negative real part, then the
+	time-stepping method unconditionally stable, i.e., a small perturbation
+	will decay and diminish.
+\end{enumerate}
+
+\subsection{Matrix structure for configurations with cyclic symmetry}
+\subsubsection{circulant matrix}
+Consider the simpliest case of a circulant matrix $B$
+\begin{equation*}
+B=circ(b_0,b_1,\dots,b_{M-1})
+=
+\left [
+\begin{array}{c c c c c c }
+b_0 & b_1 & b_2 &  \cdots & b_{M-2} & b_{M-1}\\
+b_{M-1} & b_0 & b_1 &  \cdots & b_{M-3} & b_{M-2}\\
+\vdots & \vdots & \vdots & \vdots & \vdots & \vdots \\
+b_1 & b_2 & b_3 &  \cdots & b_{M-1} & b_{0}
+\end{array}
+\right]
+\end{equation*}
+Due to the cyclic symmetry, it can be verified that matrix $B$ has
+$M$ eigenvalues and eigenvectors
+defined as
+\begin{equation*}
+\vv_j=
+[1 ,  \rho_j , \rho_j^2,  \dots ,  \rho_{j}^{M-1}]^T,~
+\lambda_j= \sum_{m=0}^{M-1} b_m \rho_j^m~i=0,1,2,\dots, M-1
+\end{equation*}
+Further more, it can be verified that all the eigenvectors are orthogonal to each other.
+\subsubsection{block-circulant matrix}
+A slightly more complex case is when each element in the circulant matrix
+is replaced at a block matrix, e.g., $b_m$ is now an $N\times N$ square matrix,
+resulting in a block-circulant matrix.
+
+Consider a vector $\w$ of the following form:
+%\begin{equation*}
+%\w =
+%\left[
+%\begin{array}{c}
+%\vv \\
+%\rho \vv \\
+%\rho^2 \vv \\
+%\vdots \\
+%\rho^{n-1}\vv
+%\end{array}
+%\right]
+%\end{equation*}
+\begin{equation*}
+\w =
+\left[
+\vv ,
+\rho \vv ,
+\rho^2 \vv ,
+\dots ,
+\rho^{n-1}\vv
+\right]^T
+\end{equation*}
+where $\rho$ is any $M$-th root of 1 and $\vv$ is a vector of length $N$.
+
+In order for $\w$ to be the eigenvector of the block-circulant matrix $B$,
+the following equation has to be satisfied:
+\begin{equation*}
+B \w = \lambda \w
+\end{equation*}
+which can be expanded as follows
+\begin{equation*}
+\begin{array}{rcl}
+(b_0 + \rho b_1+ \rho^2 b_2 + \cdots + \rho ^{M-1}b_{M-1}) \vv& = & \lambda \vv\\
+(b_{M-1} + \rho b_0+ \rho^2 b_1 + \cdots + \rho ^{M-1}b_{M-2}) \vv& = & \lambda\rho  \vv\\
+(b_{M-2} + \rho b_{M-1}+ \rho^2 b_0 + \cdots + \rho ^{M-1}b_{M-3}) \vv& = & \lambda\rho^2  \vv\\
+\dots & = & \dots\\
+(b_1 + \rho b_2+ \rho^2 b_3 + \cdots + \rho ^{M-1}b_{0}) \vv& = & \lambda\rho^{M-1} \vv.
+\end{array}
+\end{equation*}
+It can be seen that all rows are identical to the first row, different only by a scalar multiplication.
+$\lambda$ and $\vv$ can be found by solving the eigenvalue problem of the equation
+in the first row. There are $N$ $\vv$ for each $\rho$. When $\rho$ varies from $\rho_0$
+to $\rho_{M-1}$, a total of $N\times M$ $\vv$ can be found. The $(m,n)$-th of them is
+%\begin{equation*}
+%\w_{m,n}=
+%\left[
+%\begin{array}{c}
+%\vv_{m,n} \\
+%\rho_m \vv_{m,n} \\
+%\rho_m^2 \vv_{m,n} \\
+%\vdots \\
+%\rho_m^{M-1}\vv_{m,n}
+%\end{array}
+%\right]
+%\end{equation*}
+\begin{equation*}
+\w_{m,n}=
+\left[
+\vv_{m,n} ,
+\rho_m \vv_{m,n} ,
+\rho_m^2 \vv_{m,n} ,
+\dots ,
+\rho_m^{M-1}\vv_{m,n},
+\right]^T
+\end{equation*}
+where $\vv_{m,n}$ is the $n$-th eigenvalue of 
+\begin{equation*}
+(b_0 + \rho b_1+ \rho^2 b_2 + \cdots + \rho^{M-1}b_{M-1}) \vv =  \lambda \vv
+\end{equation*}
+with $\rho=\rho_m$.
+
+
+\subsubsection{linearized discreted RANS equation in axisymmetric domain}
+The residual vector of the discreted RANS equation $\R$ is linearized with respect
+to the flow variable  $\U$ to arrive at the full Jacobian matrix $\df{\R}{\U}$, which describes the
+dynamic behavior of the system around the equilibrium point. It turns out that the fact that
+the computational domain has a cyclic symmetry can be exploited to reveal some
+characteristics of the eigenspace of the full Jacobian.
+
+To facilate the following discussion, it is assume that the computational mesh, and thus
+the spatial discretization, is cyclic symmetric with $M$-periodicity, with $M$ being the
+number of blades/passages in the entire annulus. Consequently, the full-annulus
+mesh can be divided into $M$ non-overlapping segments, each of which contains
+$N$ grid points. The grid points are ordered in such way that points $1+N\times m$ to  $N+N\times m,~m=0,1,2,\dots, M-1$ belongs to the $m$-th segment. In additional,
+the location of point $n+N\times m1$ (the $n$-th point in segment $m1$) is
+point $n+N\times m2$ (the $n$-th point in segment $m2$) rotated by an angle $(m2-m1)\times 2\pi /M$. The arrangement of the grid point is illustrated in the following figure.
+
+The entire Jacobian matrix then can be partitioned into the following block matrix
+\begin{equation}
+\df{\R}{\U}=
+\left[
+\begin{array}{ccccc}
+\df{\R_0}{\U_0} &\df{\R_0}{\U_1} & \df{\R_0}{\U_2} &\dots & \df{\R_0}{\U_{M-1}}\\   
+\df{\R_1}{\U_0} &\df{\R_1}{\U_1} & \df{\R_1}{\U_2} &\dots & \df{\R_1}{\U_{M-1}}\\   
+\vdots &\vdots& \vdots &\dots & \vdots\\   
+\df{\R_{M-1}}{\U_0} &\df{\R_{M-1}}{\U_1} & \df{\R_{M-1}}{\U_2} &\dots & \df{\R_{M-1}}{\U_{M-1}}
+\end{array}
+\right]
+\end{equation}
+where each block $\df{\R_{m_1}}{\U_{m_2}}, ~m_1,m_2=0,1,\dots, M-1$, is itself an $5N\times 5N$ matrix for Euler/laminar or $6N\times 6N$ matrix for turbulent flow modelled using a one-equation
+turbulence model. It can also be seen that each block is non-zero only when $m_1$ and
+$m_2$ either are identical or differ by 1. However, this property is not exploited in this subsection.
+
+
+By changing the frame of reference to different pitchwise position,
+it can be shown that the matrix can be rewritten as 
+\begin{equation}
+\df{\R}{\U}=
+\left[
+\begin{array}{ccccc}
+\df{\R_0}{\U_0} &\df{\R_0}{\U_1} & \df{\R_0}{\U_2} &\dots & \df{\R_0}{\U_{M-1}}\\   
+B\df{\R_0}{\U_{M-1}} B^{-1}&B\df{\R_0}{\U_0} B^{-1}&B \df{\R_0}{\U_1} B^{-1}&\dots &B \df{\R_0}{\U_{M-2}}B^{-1}\\   
+\vdots &\vdots& \vdots &\dots & \vdots\\   
+B^{M-1}\df{\R_{0}}{\U_1} B^{-(M-1)}&\df{\R_{0}}{\U_2}B^{-(M-1)} & \df{\R_{0}}{\U_3}B^{-(M-1)} &\dots & B^{M-1}\df{\R_{0}}{\U_{0}}B^{-(M-1)}
+\end{array}
+\right]
+\end{equation}
+
+Next, the following change of variable is used:
+\begin{equation*}
+\tilde \U_i = B^{-i} \U_i,~\tilde \R_i = B^{-i} \R_i,~i=0,1,2,\dots,M-1
+\end{equation*}
+The Jacobian then becomes
+%\begin{equation}
+\begin{align}
+\df{\R}{\U}
+&=
+\left[
+\begin{array}{cccc}
+\df{\tilde \R_0}{\tilde \U_0} &
+\df{\tilde \R_0}{\tilde \U_1} B^{-1}&
+\dots &
+ \df{\tilde \R_0}{\tilde \U_{M-1}}B^{-(M-1)}\\   
+B\df{\tilde \R_0}{\tilde \U_{M-1}} &
+B\df{\tilde \R_0}{\tilde \U_0} B^{-1}&
+\dots 
+&B \df{\tilde \R_0}{\tilde \U_{M-2}}B^{-(M-1)}\\   
+\vdots &\vdots &\dots & \vdots\\   
+B^{M-1}\df{\tilde \R_{0}}{\tilde \U_1} &
+B^{M-1}\df{\tilde \R_{0}}{\tilde \U_2}B^{-1} &
+\dots &
+ B^{M-1}\df{\tilde \R_{0}}{\tilde \U_{0}}B^{-(M-1)}
+\end{array}
+\right]\\
+&=
+\underbrace{
+\left[
+\begin{array}{cccc}
+I & 0  & \cdots & 0\\
+0 & B & \cdots  & 0\\
+\vdots&\vdots &\dots & \vdots\\
+0 &  0 & \cdots & B^{M-1}
+\end{array}
+\right]
+}_{ \mathcal {B}  }
+\underbrace{
+\left[
+\begin{array}{cccc}
+\df{\tilde \R_0}{\tilde \U_0}&
+\df{\tilde \R_0}{\tilde \U_1}&
+\dots &
+\df{\tilde \R_0}{\tilde \U_{M-1}}\\   
+\df{\tilde \R_0}{\tilde \U_{M-1}}&
+\df{\tilde \R_0}{\tilde \U_0}&
+\dots &
+\df{\tilde \R_0}{\tilde \U_{M-2}}\\   
+\vdots&
+\vdots&
+\dots &
+\vdots\\   
+\df{\tilde \R_{0}}{\tilde \U_1}&
+\df{\tilde \R_{0}}{\tilde \U_2}&
+\dots &
+\df{\tilde \R_{0}}{\tilde \U_0}
+\end{array}
+\right]
+}_{ \mathcal {A}  }
+\underbrace{
+\left[
+\begin{array}{cccc}
+I & 0 & \cdots & 0\\
+0 & B^{-1}  & \cdots  & 0\\
+\vdots&\vdots &\dots & \vdots\\
+0 & 0  & \cdots & B^{-(M-1)}
+\end{array}
+\right]
+}_{ \mathcal {B}^{-1}  }
+\\
+&= \mathcal {B}  \mathcal {A} \mathcal {B}^{-1}
+\end{align}
+%\end{equation}
+
+Therefore the Jacobian matrix is similar to a block-circulant matrix $\mathcal{A}$.
+As forementioned, matrix $\mathcal{A}$ has eigenvalues $\lambda$ and eigenvectors
+$\w$. $\w$ is a compound vector formed by assemblying
+$\vv$ with scalor factor $\rho$. The eigenvector of $\df{\R}{\U}$ can be
+easily obtained by left multiplying the $\w$ with $\mathcal{B}$.
+Finally, the eigenvectors of the Jacobian matrix is
+
+%\begin{equation*}
+%\w_{m,n}=
+%\left[
+%\begin{array}{c}
+%\vv_{m,n} \\
+%\rho_m B \vv_{m,n} \\
+%\rho_m^2  B^2\vv_{m,n} \\
+%\vdots \\
+%\rho_m^{M-1} B^{M-1}\vv_{m,n}
+%\end{array}
+%\right]
+%\end{equation*}
+
+\begin{equation*}
+\w_{m,n}=
+\left[
+\vv_{m,n} ,
+\rho_m B \vv_{m,n} ,
+\rho_m^2  B^2\vv_{m,n} ,
+\dots ,
+\rho_m^{M-1} B^{M-1}\vv_{m,n}
+\right]^T
+\end{equation*}
+
+where $\vv_{m,n}$ is the $n$-th eigenvector of 
+\begin{equation*}
+\left(
+\df{\R_0}{\U_0}+ \rho \df{\R_0}{\U_1}+ \rho^2\df{\R_0}{\U_2}  + \cdots + \rho^{M-1} \df{\R_0}{\U_{M-1}}
+\right )
+ \vv =  \lambda \vv
+\end{equation*}
+with $\rho=\rho_m$.
+{\color{red} It can be seen that for a given $n$, the $M$ eigenvectors $\w_{0,n},\w_{1,n},\dots,\w_{M-1,n}$
+are modes with nodal diameters from $0$ to $M-1$, or $1-M/2$ to $M/2$,
+provided that $M$ is an even number.}
+
+
+
+\subsection{Numerical implementation of eigenanalysis}
+In theory, performing the global linear stability analysis as described above
+is a standard procedure involving three steps: (i) find an equilirium point $\uu_0$;
+(ii) linearize the nonlinear residual and form the Jacobian matrix $A$, and
+(iii) perform eigenanalysis and find $\Lambda$ and $V$. Step (i) is simply
+running the steady state flow solver until a steady state solution
+is found. Step (ii) is a by-product of the nonlinear flow calculation using
+the NK method, i.e., store away the Jacobian matrix at the final Newton step.
+Step (iii) is a bit more involved for high dimensional problems.
+
+For eigenmode computations, the implicitly restarted Arnoldi method proposed
+by Sorensen~\cite{sorensen1992implicit} and implemented in the ARPACK
+library~\cite{lehoucq1998arpack}, is used
+in combination with the NutsCFD solver.
+Shift-and-invert spectral transformation is applied to converge to wanted parts
+of the eigenspectrum, and critical is therefore the robust solution of many linear
+systems of equations. 
+Key to efficiently solving the arising large sparse linear system of equations
+is the deflated Krylov subspace solver GCRO-DR~\cite{parks2006recycling}.
+Compared with the more commonly used GMRES solver~\cite{saad1986gmres},
+GCRO-DR is both more CPU time and memory efficient, especially as the system
+matrix condition worsens, as demonstrated in~\cite{xu2016enabling,xu2017robust}.
+
+\section{Results}
+\label{label:results}
+
+\subsection{Laminar flow around a two-dimensional circular cylinder}
+Eigenvalue analysis is performed for the canonical case of the
+laminar flow around a circular cylinder with the Reynolds number in
+the range between 40 and 100. The computational domain is a
+circular cylinder centered at the origin with a diameter of $D=10^{-5}$
+and the farfield is a circle with a diameter of $100D$. The left half of
+the outer circle is set to 'farfield' boundary condition with an incoming
+flow of Mach 0.2 in the x-direction, a static pressure of $101325~Pa$ and
+and a temperature of $288.15~K$.
+The right half of the circle is set to 'pressure-outlet' boundary condition,
+with a constant pressure of $101325~Pa$.
+The computational domain is meshed with quadrilateral elements,
+with a total of 29600 grid points. The density is $1.225~kg/m^3$.
+The dynamic viscosity is varied in order to achieve a particular Reynolds number.
+
+\subsubsection{Steady state calculation}
+The steady state flow solution for $Re=55$ is obtained by either using an implicit solution method in
+Fluent (version 19.2) or by resorting to the Newton-Krylov algorithm in NutsCFD,
+despite the fact that the flow is physically unsteady under this condition. The
+Mach number contour of the NutsCFD calculation is shown in Fig.~\ref{fig:cyl-re55}.
+%
+%\begin{figure}[htb]
+%	\centering   
+%	\includegraphics[width=0.5\textwidth]{pic/cylinder-std.png}
+%	\caption{Mach number contour plot of the calculation results by NutsCFD for $Re=55$.}
+%	\label{fig:cyl-re55}
+%\end{figure}
+
+To compare the Fluent and NutsCFD results quantitatively, the x-velocity
+behind the cylinder and the pressure coefficient along the cylinder
+surface are presented in Fig.~\ref{fig:cyl-re55-u-cp} and very good agreement
+can be found.
+\begin{figure}[htb]
+	\centering   
+	\includegraphics[width=0.3\textwidth]{cylinder-mach-steady-re-40.png}~~~	\includegraphics[width=0.3\textwidth]{cylinder-mach-steady-re-60.png}~~~
+	\includegraphics[width=0.3\textwidth]{cylinder-mach-steady-re-100.png}\\
+	~\\
+	\includegraphics[width=0.3\textwidth]{cylinder-mach-steady-re-40.png}~~~
+	\includegraphics[width=0.3\textwidth]{cylinder-mach-unsteady-re-60.png}~~~	
+	\includegraphics[width=0.3\textwidth]{cylinder-mach-unsteady-re-100.png}	
+	\caption{From left to right: Re=40, 60, 100. Upper: steady state solution;
+	lower: unsteady solution snapshot.}
+		\label{fig:cyl-re55-u-cp}
+\end{figure}
+
+\subsubsection{Unsteady calculation}
+Experimental results show that the laminar flow around the cylinder
+becomes unsteady for Re above a critical value (around 47)\cite{Williamson2003Vortex}. To study
+this phenomenon, unsteady flows for $Re=55$ and $Re=40$
+are performed using NutsCFD. First, for both conditions, a steady
+state flow solution is obtained by converging the residual to machine error.
+Then, unsteady simulation is run with the steady state
+as the initial condition for $Re=55$.
+A BDF2 second-order implicit dual-time-stepping
+method is used with the physical time step set to
+$10^{-8} sec$, that is, $0.01 ms$, and
+the inner loop is solved with a maximum of 3 Newton iterations.
+From Fig.~\ref{fig:cyl-re40-re55-uns}, it can be seen
+that after around $100 ms$, the lift coefficient starts to grow and
+eventually reaches a saturated limit cycle at around $130 ms$.
+On the contrary, running unsteady simulation with a fully converged
+steady state for $Re=40$ does not lead to unsteadiness. To probe
+the flow at $Re=40$ further, a disturbance is introduced into the
+flow from the farfield by setting the incoming flow direction to vertical
+for one time step and switching it back to the x-direction,
+and then continue the unsteady run. The lift coefficient shows a
+transient growth but eventually slowly delays to zero. The
+two sets of lift coefficient signals for $Re=40$ and $Re=55$
+are plotted in Fig.~\ref{fig:cyl-re40-re55-uns}
+in both linear and logrithm scales. The logrithmic plot on the right
+clearly shows an exponential growth/decay for $Re=55$ and $Re=40$,
+respectively.
+
+\begin{figure}[htb]
+	\centering   
+	\includegraphics[width=0.3\textwidth]{pic/cl-linear.jpg}	
+	\includegraphics[width=0.3\textwidth]{pic/cl-log.jpg}
+	\caption{Lift coeffient histogram for $Re=55$ and $Re=40$.}
+	\label{fig:cyl-re40-re55-uns}
+\end{figure}
+
+\subsubsection{Eigenanalysis}
+Eigenanalysis is performed for the steady state solution calculated
+using NutsCFD. After converging the steady state solver to machine error ($tol=10^{-14}$),
+the exact Jacobian matrix based on the 2nd-order spatial accuracy is calculated and
+output to file. {\color{red}ARPACK} is used to computed a subset of the eigenvalues, with the aim of
+finding the least stable mode.
+To minimize the computational effort, 10 eigenvalues/vectors
+are computed for matrices with different shifts of $0$, $i$, $2i$, $3i$, $4i$, $5i$. All the
+eigenvalues, 60 in total and with some duplicated, are plotted
+in Fig.~\ref{fig:cyl-re55-eigen-vs-uns}.
+It can be seen that there is one eigenvalue that is on the right side of the imaginary axis,
+indicating there is one unstable mode. In the meantime, from the time-domain simulation,
+one can extract from the lift-coefficient signal that the flow is exponentially growing with
+a growth rate of 0.123 and oscillating with a circular frequency of $4.94~rad/s$. This
+value is plotted along with the spectrum and it can be seen that it overlaps with the
+unstable eigenvalue from the eigenanalysis. 
+
+\begin{figure}[htb]
+	\centering   
+	\includegraphics[width=0.6\textwidth]{pic/uns-vs-eigen.png}	
+	\caption{Eigenspectrum from the steady state eigenvalue analysis
+		compared with the linearly destabiling unsteady simulation for $Re=55$.}
+	\label{fig:cyl-re55-eigen-vs-uns}
+\end{figure}
+
+The eigenanalysis not only generates the eigenvalues but also the eigenvectors
+associated with each eigenvalue. For the unstable mode, the real part of the
+density, x/y momentum and energy component of the unstable eigenvector
+is shown in Fig.\ref{fig:cyl-re55-eigenmode}. Although not further explored
+here, these eigenvectors will be useful for constructing reduced-order-models,
+which can be used for rapid parametric study or fast time-domain responce.
+\begin{figure}[htb]
+	\centering   
+	\includegraphics[width=0.6\textwidth]{pic/eigenmode-real.png}	
+	\caption{Real part of the density, x/y momentum, energy components
+		of the unstable eigenmode for $Re=55$.}
+	\label{fig:cyl-re55-eigenmode}
+\end{figure}
+
+\subsubsection{Bifurcation tracking}
+\begin{figure}[htb]
+	\centering   
+	\includegraphics[width=0.7\textwidth]{pic/cylinder-bifurcation.png}	
+	\caption{The spectra for $Re=40, 45, 50$ and $55$ (left) and the damping v.s. the Reynolds number (right).}
+	\label{fig:cyl-bifur}
+\end{figure}
+
+The same procedure for computing the eigenvalues for $Re=55$ is applied to flows at $Re=40$, 45, and 50
+to obtain their respective spectra, which is shown in Fig.~\ref{fig:cyl-bifur}. It can be seen that as the
+bifurcation parameter $Re$ is increased from 40 to 55, one eigenmode becomes linear unstable. The
+real part of this eigenvalue is plotted against $Re$ on the right in Fig.~\ref{fig:cyl-bifur}. It across the
+imaginary axis at approximately $Re=49$, consistent with the experimental value of $Re_{crit}=47$.
+Note that shown in the figure is only the upper half of the spectrum and the complex conjugate of
+the destabilizing eigenvalue is thus not visualized. This is a classic Hopf bifurcation as the conjugate
+complex eigenpair destabilizes simultaneously. However, it should be noted
+that although linear stability analysis can predict the exact bifurcation, frequency predicted
+based on the unstable eigenvalue beyond that
+critical bifurcation parameter, $Re_{crit}$, should be used with care as it is different
+from the vortex shedding frequency except very close to onset, for the laminar flow
+around a long cylinder~\cite{barkley2006linear}. The implication on general cases
+is yet to be explored in future work.
+
+\subsection{Singlerow annular cascade (quasi-3D analysis)}
+NutsCFD is used to analyze the performance of the first
+stage rotor (NASA Rotor 67) of a two stage transonic fan
+designed and tested at the NASA Glenn center~\cite{strazisar1989laser}.
+Its design pressure ratio is
+1.63, at a mass flow rate of 33.25 kg/sec. 
+The NASA Rotor 67 has 22 blades with tip radii of 25.7 cm
+and 24.25 cm at the leading and trailing edge, respectively,
+and a constant tip clearance of 1.0 mm. The hub to tip radius
+ratio is 0.375 at the leading edge (TC = 0.6\% span) and 0.478
+at the trailing edge (TC = 0.75\% span). The design rotational
+speed is 16,043 RPM, and the tip leading edge speed is 429 m/s
+with a tip relative Mach number of 1.38.
+
+As a first step, the analysis is performed on the surface of
+revolution taken at approximately 50\% of the blade height.
+The three-dimensional mesh has one cell in the radial direction
+and the subsequent analysis is thus a quasi-3D one.
+
+\subsubsection{Steady state calculation}
+Steady state analysis is first performed for an annular compressor cascade.
+The pressure ratio and efficiency against the mass flow normalized by the
+choked mass flow, produced by incrementally raising the back pressure,
+are shown in Fig.~\ref{fig:r67-performance}.
+The fully-converged steady state flow solution scorresponding to the
+lowest and highest back pressures are shown in Fig.~\ref{fig:r67-flow}.
+
+\begin{figure}[htb]
+	\centering   
+	\includegraphics[width=0.45\textwidth]{PyPlot/eigen-vs-timedomain/annular-cascade-pr.pdf}
+	\includegraphics[width=0.45\textwidth]{PyPlot/eigen-vs-timedomain/annular-cascade-eff.pdf}
+	\caption{}
+	\label{}
+\end{figure}
+
+\begin{figure}[htb]
+	\centering    
+	choked condition \\
+	~\\	
+	\includegraphics[width=0.35\textwidth]{rotor67-2d-rel-mach-0kpa.png}
+	\includegraphics[width=0.35\textwidth]{rotor67-2d-pres-0kpa.png}\\
+%	\includegraphics[width=0.35\textwidth]{rotor67-2d-rel-mach-17d5kpa.png}
+%	\includegraphics[width=0.35\textwidth]{rotor67-2d-pres-17d5kpa.png}	\\
+%	\includegraphics[width=0.35\textwidth]{rotor67-2d-rel-mach-18kpa.png}
+%	\includegraphics[width=0.35\textwidth]{rotor67-2d-pres-18kpa.png}\\
+	~\\
+	near stall condition\\
+	~\\
+	\includegraphics[width=0.35\textwidth]{rotor67-2d-rel-mach-18d5kpa.png}
+	\includegraphics[width=0.35\textwidth]{rotor67-2d-pres-18d5kpa.png}
+	\caption{Pressure (left) and SA variable (right) contours for
+	whole-annulus calculations.}
+	\label{fig:r67-flow}
+\end{figure}
+
+\subsubsection{Eigenanalysis}
+Eigenvalue analysis is performed for all the steady state solutions along the
+speedline. Since only the 'relevant' eigenvalues are desired (relevant here
+means eigenvalues that are likely to across the imaginary axis, corresponding
+to the onset of Hopf-bifurcation), the knowledge that the rotating stall cells
+usually move along the circumferential direction with a speed that is on the
+same order of the rotating rotation speed, each element of the Jacobian
+matrix is therefore divided by a factor of $1/(2\pi \times 16043 / 60)\approx 1/1680$ (assuming
+the rotational speed of 16,043 RPM),
+so that the frequency information represented by the imaginery part of the
+eigenvalues found is in terms of engine order (EO).
+
+For each condition in Fig.~\ref{fig:r67-flow}, the relevant eigenvalues are computed
+by applying shifts of $\sigma= 0+0.5j, 0+1j, 0+1.5j and 0+2j$ to the Jacobian matrices and
+finding the 10 most interior eigenvalues of the shifted matrices.
+
+
+\subsubsection{Interpretation of the eigenanalysis results}
+
+Shown in Fig.~\ref{fig:r67-eigenvalue-18kpa} is a subset of the eigenvalues
+that are near the imaginary axis, which presumally are most likely to
+be unstable. ARPACK is used with various imaginery shifts to compute
+interior eigenvalues. The ones that are suspicious of crossing the
+imaginery axis are shown. A zoomed view of the eigenvalues reveals
+that there are a total of five that have positive real parts, i.e., unstable.
+A single-mode instability is not found for the case most likely because
+the flow condition chosen is one that is deep into the linearly unstable
+region and a bifurcation point should be searched for at a higher flow-rate
+condition. Nevertheless, in the work, we restrict outselves to the analysis
+of this single condition and a thorough exploration of the whole picture will
+be conducted in our future work.
+
+
+\begin{figure}[htb]
+	\centering   
+%	\includegraphics[width=.4\textwidth]{pic/eigenvalue-18kpa.png}
+	\includegraphics[width=\textwidth]{eigen-annular-cascade.png}	
+	\caption{Spectrum for stall condition.}
+	\label{fig:r67-eigenvalue-18kpa}
+\end{figure}
+
+The unstable eigenvector with the smallest imaginary part (lowest point among the
+five unstable eigenvalues) is visualized in Fig.~\ref{fig:r67-eigenvector-18kpa} with
+both the real and imaginary parts. The circumferential shock
+oscillation can be seen. To analyze the spatial modes, data along
+the intersecting curve is taken (marked at the red line in
+Fig.~\ref{fig:r67-eigenvector-18kpa}). This is done for
+each of the 11 modes (marked with red cross in Fig.~\ref{fig:r67-eigenvalue-18kpa}).
+It is clear from the spatial Fouriour analysis
+that each eigenvector corresponds to a rotating pattern with a different
+nodal diameter, which increases from 1 to 11 monotonically from the lowest
+to the highest eigenvalues.
+
+\begin{figure}[htb]
+	\centering   
+	\includegraphics[width=.6\textwidth]{pic/mode-with-nd5.png}
+	\caption{Eigenvector 5 visualized using the real and imaginary parts
+		of energy component}
+	\label{fig:r67-eigenvector-18kpa}
+\end{figure}
+
+%\begin{figure}[htb]
+%	\centering   
+%	\includegraphics[width=.2\textwidth]{pic/mode1-nd1.jpg}~~~~
+%	\includegraphics[width=.2\textwidth]{pic/mode2-nd2.jpg}~~~~
+%	\includegraphics[width=.2\textwidth]{pic/mode3-nd3.jpg}~~~~
+%	\includegraphics[width=.2\textwidth]{pic/mode11-nd11.jpg}			
+%	\caption{The circumferential distribution for the real part of the
+%	pressure component of the 1st, 2nd, 3rd and 11th eigenvectors.}
+%	\label{fig:r67-data-circumferential}
+%\end{figure}
+
+A more involved data processing reveals that the perturbation pattern,
+for every eigenvector, is a travelling wave that rotates in the opposite
+direction of the motion of the rotor (in the relative frame), and with a speed a fraction of the
+shaft rotating speed. This relative rotating speed can be
+calculated using the imaginary of the eigenvalue and the nodal diameter
+of the perturbation pattern as 
+\begin{equation}\label{cellrotspd}
+\Omega_{cellRotation}^{rel}= \dfrac{\text{Imag}(\lambda)}{ND} \Omega_{shaft}
+\end{equation}
+%In experiments, instrumentation for detecting rotating instability is usually
+%sensors installed on the stationary casing and the speed of the rotating
+%cells is also measured in the absolute reference frame.
+In the absolute reference frame, the cell rotating speed (normalized
+with shaft angular frequency) is calculated as
+\begin{equation}\label{cellrotspd}
+\Omega_{cellRotation}^{abs}= \left (1-\dfrac{\text{Imag}(\lambda)}{ND}\right ) \Omega_{shaft}
+\end{equation}
+Applying this formula to each of the 11 eigenmodes leads to the
+correlation between the nodal diameter and the perturbation rotating speed, as shown in Fig.~\ref{fig:r67-eigenvector-18kpa}. Note that we use the terminology 'cell rotating speed'
+to be consistent with the language used by experimentalists when they describe
+the rotating cells. In fact, what is meant in the current context is actually
+`rotating speed of the perturbation pattern'.
+Although it is well-known that the conclusions drawn from a global linear
+stability analysis can not represent the behavior of a saturated limit cycle
+which is highly nonlinear, it seems that the characteristics of the
+rotating perturbation,
+in terms of nodal diameter and rotating speed, is qualitatively representative
+of rotating cells observed experimentally. However, questions such as which eigenmode
+should destabilizes first, and how does the inlet distortion and blade-row interaction in
+multirow configuration affect the conclusion, remain to be answered.
+
+\begin{figure}[htb]
+	\centering   
+{\tiny }	\includegraphics[width=.4\textwidth]{pic/speed-vs-nd.jpg}
+	\caption{The cell rotating speed in the absolute frame of reference v.s. the number of cells (nodal diameter of the perturbation pattern).}
+	\label{fig:r67-eigenvector-18kpa}
+\end{figure}
+
+\subsubsection{Unsteady analysis}
+
+\subsection {Rotor 67}
+{\color{red} Update performance curve with data at
+the correct survey station location.}
+
+\subsubsection{Case overview}
+The final case is the NASA Rotor 67 transonic fan, which
+is the first-stage rotor of a two-stage transonic fan.
+It has 22 low aspect-ratio blades and was designed for
+a rotational speed of 16,043 rpm, with a total pressure ratio
+of 1.63 and a mass flow of 33.25\,kg/s \cite{Strazisar1989Laser}.
+The flow calculations for this case are performed
+using 72 processors.
+
+\subsubsection{Accuracy validation}
+The computational domain with a single blade passage is meshed
+with 973,065 grid points and 934,400 hexahedral elements. The
+height of the first layer cell off the viscous wall is $10^{-6}$\,m,
+satisfying $y^+\!\approx\!1$. The geometry of the rotor blade as well as
+detailed views of the mesh are shown in Fig.~\ref{rotor67-view}.
+
+\begin{figure}[htb]
+	\centering   
+	\includegraphics[width=0.5\textwidth]{rotor67/rotor67-geo-mesh.png}
+	\caption{NASA rotor 67 blade viewed from the tip (top)
+		and detailed views of the computational mesh (bottom). % for NASA rotor 67.
+		The rotating part of the hub surface, from
+		$x=-1.374$\,cm to $x=9.365$\,cm, is marked with the two vertical lines.}	
+	\label{rotor67-view} 
+\end{figure}
+
+
+At the inlet boundary, a total pressure of $101325~Pa$ and
+a total temperature of $288.15~K$ are imposed.
+The incoming flow is in the axial direction.
+Since the outlet boundary is relatively far from the rotor,
+i.e., the distance from the rotor trailing edge to the outlet
+boundary is over twice the chord length, a constant back
+pressure is imposed at the outlet as the boundary condition.
+Our numerical experiment shows that using a
+radial
+equilibrium boundary condition only changes the resulting
+speedline negligibly.
+%\jcomm{Better to argue with the absence of swirl in the outflow.}
+Therefore, the constant back pressure
+boundary condition is used for simplicity.
+The back pressure is set to 0\,kPa initially and
+then gradually raised to produce the speedline.
+The procedure illustrated in
+Fig.~\ref{radiver-solution-approach1},
+is used to generate the speedline,
+except that for this case, pressure increments of 5\,kPa,
+1\,kPa and 0.1\,kPa are used.
+%The speedline generation process is terminated
+%The numerical stall boundary is found when
+%the steady state solver no longer converges.
+
+The experimental
+and numerical speedlines are shown in Fig.~\ref{rotor67-map}
+for comparison. The relative error for the choked flow
+rate is $1.0\%$, which is similar to reported
+values of other numerical investigations~\cite{Arnone1994Viscous}.
+The under-prediction of the pressure ratio and the efficiency
+is suspected to be caused by the fact that the implementation of
+the S-A turbulence model used here is not fully appropriate
+for this case.
+%inappropriate turbulence model.
+However,
+as this work focuses on the solver convergence and robustness,
+this is not further investigated here. 
+\begin{figure}[htb]
+	\centering   
+	\includegraphics[width=0.3 \textwidth]{rotor67/conv/rotor67-pr.pdf}
+	\hspace{.1\textwidth}
+	\includegraphics[width=0.3 \textwidth]{rotor67/conv/rotor67-eff.pdf}
+	\caption{CFD calculations compared with measurements \cite{Strazisar1989Laser} 
+		for NASA Rotor 67.}
+	\label{rotor67-map} 
+\end{figure}
+
+
+\section{Conclusion}
+\label{conclusion}
+
+Rotating flow instability at near stall condition for an annular compressor cascade is studied using the eigenanalysis approach and the destabilizing eigenmodes are computed and
+analyzed to shed insight on the rotating stall phenomenon. 
+This is the first time a full-order gloabl linear stability analysis based on
+the three dimensional RANS equations is performed to study the destabilising
+mechanism of such turbomachinery flow phenomenon.
+
+Specifically, a stable nonlinear flow solver based on the matrix-forming Newton--Krylov
+approach is used to compute the steady state flow solution at near stall (possibly
+post-stall) condition and the readily available exact Jacobian matrix is then used
+for eigenvalue anlaysis. The eigenanalysis is performed to compute a subset of
+the eigenvalues that are near the imaginary axis, with the implicit-restarted
+Arnoldi method implemented in the ARPACK library. The shift-and-invert
+approach is used to obtain the least unstable eigenvalues.
+
+The methodology is first applied to the classic case of a laminar flow around
+a 2D circular cylidner. By perturbing the system parameter $Re$, Hopf
+bifurcation is identified which is responsible for the inception of the laminar
+vortex shedding. The frequency and linear growth ratio from the eigenanalysis
+agree well with time-dependent simulation during the linear growth regime.
+
+The same procedure is then applied to the a quasi-3d compressor rotor.
+Analysis shows the existance of a complete set of spatial modes that have
+different nodal diameters and
+rotating speeds. These analysis results provide a solid foundation for the
+explanation of various observations in experiments regarding
+rotating flow instabilities. It is revealed that the multiple modes with
+different nodal diameters coexist, as the inherent property of the
+physical system, and it can be hypothesized that the reason for
+different observed stall cell patterns is due to one particular mode being
+excited to finite amplitute first by external disturbance.
+Further more, by processing the spatial modes and the imaginary
+part of the eigenvalues, rotating speeds of the perturbation patterns
+can be calculated and are found to qualitatively agree with the various
+experimentally observed values for rotating stall cells.
+
+The preliminary results presented in this paper represent our first
+attempt to use eigenanalysis based on RANS equations to study
+the rotating flow instability phenomenon in turbomachinary flows.
+The results are promising in that it shows the eigenanalysis method
+is feasible for practical cases and the eigenvectors do capture some
+of the key featuers of the flow instability investigated. However, more in-depth
+study is needed to investigate the bifurcation process for the quasi-3D
+case, and further investigation into three-dimensional cases will be
+carried out in our future work.
+
+%The results also indicate that the incipent rotating stall is dominated by the
+%dynamics of a single complex-conjugate pair of unstable eigenmodes.
+%This provides a clarification of the currently widely spreaded
+%explainations regarding the origin of the rotating stall. In line with the
+%classical explaination of the modal wave instability route to rotating stall,
+%the full-order CFD analysis in this work confirms this, but provides a much
+%better understanding of the detailed flow physics when such instability
+%occurs.
+
+
+\section*{Acknowledgements}
+This work received support by the National Natural
+Science Foundation of China (Grant No.~51790512).
+
+
+\bibliography{xu}
+
+\end{document}

@@ -1,0 +1,29 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{The nonlinear flow solver}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Governing equations}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Spatial discretization}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{Temporal discretization for steady solver}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.4}{Temporal discretization for unsteady solver}{section.2}% 6
+\BOOKMARK [1][-]{section.3}{Global linear stability analysis via eigenmode decomposition}{}% 7
+\BOOKMARK [2][-]{subsection.3.1}{Global linear stability analysis}{section.3}% 8
+\BOOKMARK [2][-]{subsection.3.2}{Relation with time-accurate unsteady analysis}{section.3}% 9
+\BOOKMARK [2][-]{subsection.3.3}{Matrix structure for configurations with cyclic symmetry}{section.3}% 10
+\BOOKMARK [3][-]{subsubsection.3.3.1}{circulant matrix}{subsection.3.3}% 11
+\BOOKMARK [3][-]{subsubsection.3.3.2}{block-circulant matrix}{subsection.3.3}% 12
+\BOOKMARK [3][-]{subsubsection.3.3.3}{linearized discreted RANS equation in axisymmetric domain}{subsection.3.3}% 13
+\BOOKMARK [2][-]{subsection.3.4}{Numerical implementation of eigenanalysis}{section.3}% 14
+\BOOKMARK [1][-]{section.4}{Results}{}% 15
+\BOOKMARK [2][-]{subsection.4.1}{Laminar flow around a two-dimensional circular cylinder}{section.4}% 16
+\BOOKMARK [3][-]{subsubsection.4.1.1}{Steady state calculation}{subsection.4.1}% 17
+\BOOKMARK [3][-]{subsubsection.4.1.2}{Unsteady calculation}{subsection.4.1}% 18
+\BOOKMARK [3][-]{subsubsection.4.1.3}{Eigenanalysis}{subsection.4.1}% 19
+\BOOKMARK [3][-]{subsubsection.4.1.4}{Bifurcation tracking}{subsection.4.1}% 20
+\BOOKMARK [2][-]{subsection.4.2}{Singlerow annular cascade \(quasi-3D analysis\)}{section.4}% 21
+\BOOKMARK [3][-]{subsubsection.4.2.1}{Steady state calculation}{subsection.4.2}% 22
+\BOOKMARK [3][-]{subsubsection.4.2.2}{Eigenanalysis}{subsection.4.2}% 23
+\BOOKMARK [3][-]{subsubsection.4.2.3}{Interpretation of the eigenanalysis results}{subsection.4.2}% 24
+\BOOKMARK [3][-]{subsubsection.4.2.4}{Unsteady analysis}{subsection.4.2}% 25
+\BOOKMARK [2][-]{subsection.4.3}{Rotor 67}{section.4}% 26
+\BOOKMARK [3][-]{subsubsection.4.3.1}{Case overview}{subsection.4.3}% 27
+\BOOKMARK [3][-]{subsubsection.4.3.2}{Accuracy validation}{subsection.4.3}% 28
+\BOOKMARK [1][-]{section.5}{Conclusion}{}% 29
