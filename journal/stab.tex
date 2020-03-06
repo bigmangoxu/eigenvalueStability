@@ -13,21 +13,13 @@
 \input{math-abbrev.tex}
 \graphicspath{{./pic/}}
 
-\title{Linear Global Stability Analysis based on RANS Equations for an Axial Compressor}
+\title{Global instability of compressor stall onset}
 \author[1]{Shenren Xu	
-\footnote{Associate Professor, Yangtze River Delta Research Institute
-%; corresponding author, email address: shenren\_xu@nwpu.edu.cn
-}
-}
+\footnote{Associate Professor, Yangtze River Delta Research Institute}}
 \affil[1]{Northwestern Polytechnical University, Taicang~215400, P.R.~China}
 \affil[2]{Beihang University, Beijing 100191, P.R.~China}
-\author[2]{Chen He\footnote{Ph.D. Candidate, School of Energy and Power Engineering; hechen@
-		buaa.edu.cn
-	%	 (Corresponding Author) 
-	 }}
-\author[2]{Dakun Sun\footnote{Associate Professor, School of Energy and Power Engineering; Co-Innovation
-		Center for Advanced Aero-Engine; sundk@buaa.edu.cn}}
-%\author[3]{Xiaofeng Sun\footnote{Professor, School of Energy and Power Engineering; Co-Innovation Center for Advanced Aero-Engine; sunxf@buaa.edu.cn}}
+\author[2]{Chen He\footnote{Ph.D. Candidate, School of Energy and Power Engineering; hechen@buaa.edu.cn}}
+\author[2]{Dakun Sun\footnote{Associate Professor, School of Energy and Power Engineering; Co-Innovation Center for Advanced Aero-Engine; sundk@buaa.edu.cn}}
 \author[1]{Dingxi Wang\footnote{Professor, School of Power and Engery; dingxi\_wang@nwpu.edu.cn}
 }
 
@@ -84,146 +76,165 @@ application to three-dimensional practical problems.
 %industry with tools to accurately predict the stall line in the early design stage.
 \end{abstract}
 
-%\section*{Nomenclature}
-%{\renewcommand\arraystretch{1.0}
-%\noindent\begin{longtable*}{@{}l @{\quad=\quad} l@{}}
-%$c_v,c_p$   & specific heat \\
-%$e$     & internal energy\\
-%$E$     & total energy\\
-%
-%$\partial \Omega_r$& boundary of $\Omega_r$
-%\end{longtable*}}
+\section*{Nomenclature}
+{\renewcommand\arraystretch{1.0}
+\noindent\begin{longtable*}{@{}l @{\quad=\quad} l@{}}
+$c_v,c_p$   & specific heat \\
+$e$     & internal energy\\
+$E$     & total energy\\
 
-%{\Large \color{red} Tasks}
-%
-%\begin{enumerate}
-%	\item{\color{red} finalize gpps paper}
-%	\item  {\color{red} Literature review for rotating stall:}
-%	\begin{enumerate}
-%		\item {\color{red} M-G theory?}
-%		\item {\color{red} Subsonic, how many cells? when? roating speed?}	
-%		\item {\color{red} Transonic, how many cells? when? rotating speed?}
-%		\item {\color{red} Active control achievement so far? low or high speed?}
-%		\item{\color{red} Shortcoming of existing theory and applications?}				
-%	\end{enumerate}
-%\item  {\color{red} high speed steady performance curve? mesh convergence? validation?
-%spectrum? find all ND=1-11? or even 12-22? how to explain 5+17=22?}
-%\item{\color{red} same conclusion for low speed? same conclusions?}
-%\item{\color{red} urans for confirmimg the eigenanalysis?}
-%
-%\end{enumerate}
+$\partial \Omega_r$& boundary of $\Omega_r$
+\end{longtable*}}
+
+{\Large \color{red} Tasks}
+
+\begin{enumerate}
+	\item  {\color{red} Literature review for rotating stall:}
+	\begin{enumerate}
+		\item {\color{red} M-G theory?}
+		\item {\color{red} Subsonic, how many cells? when? roating speed?}	
+		\item {\color{red} Transonic, how many cells? when? rotating speed?}
+		\item {\color{red} Active control achievement so far? low or high speed?}
+		\item{\color{red} Shortcoming of existing theory and applications?}				
+	\end{enumerate}
+\item  {\color{red} high speed steady performance curve? mesh convergence? validation?
+spectrum? find all ND=1-11? or even 12-22? how to explain 5+17=22?}
+\item{\color{red} same conclusion for low speed? same conclusions?}
+\item{\color{red} urans for confirmimg the eigenanalysis?}
+
+\end{enumerate}
 
 
 \section{Introduction}
-Rotating stall and rotating instability have been studied extensively
-both experimentally~\cite{emmons1955compressor,frank1955propagation,emmons1959survey}
-and numerically~\cite{cornelius2014experimental,he1997computational,vo2008control,pullan2015origins}.
-Early experimental work revealed
-the basic features of such phenemenon and subsequent work has focused
-on building simple analytical models.
-Existing analytical models~\cite{emmons1955compressor,greitzer1986theory} have
-had their success in the early days but the accuracy and effectiveness of them
-is less than sastifactory when applied to realistic configurations and
-more details are needed for quantitative prediction of the stall behavior.
+%Rotating stall and rotating instability have been studied extensively
+%both experimentally~\cite{emmons1955compressor,frank1955propagation,emmons1959survey}
+%and numerically~\cite{cornelius2014experimental,he1997computational,vo2008control,pullan2015origins}.
+%Early experimental work revealed
+%the basic features of such phenemenon and subsequent work has focused
+%on building simple analytical models.
+%Existing analytical models~\cite{emmons1955compressor,greitzer1986theory} have
+%had their success in the early days but the accuracy and effectiveness of them
+%is less than sastifactory when applied to realistic configurations and
+%more details are needed for quantitative prediction of the stall behavior.
+%
+%Previous numerical investigations mainly focused on using time-dependent
+%unsteady flow analysis using either a fraction or the whole of an annulus.
+%A lot of insight into the flow physics for the destablization mechanism
+%has been gained from such high fidelity simuations. Unsteady simulations
+%are useful for both reproducing the fully destabilized unsteady flows as
+%well as for studying the inception of such instability. Due to the high
+%computatioal cost of unsteady simulation, it still remains largely as a
+%reserach tool to investigate the stall phenomenon on a case-by-case
+%basis.
+%
+%It is widely believed that the fully developed stall and surge behavior is quite
+%different from the incipient stall, or pre-stall disturbance~\cite{stenning1980rotating},
+%as fully developed rotating stall exhibits strong nonlinearity. However, if the goal is
+%to apply active control to suppress the instability at its infancy, then a linear stability
+%prediction should suffice, as has been demonstrated in numerous work~\cite{paduano1991active,day1993active,paduano2001compression,day1997stall},
+%as the idea is to eliminate the fully-developed rotating cells from forming.
+%
+%As modern compression systems are designed with higher loading and speed,
+%most analytical models proposed in the early days and desmontrated useful
+%on low-speed machines are no longer useful as compressibility and complex
+%flow mechanism such as boundary-layer-shock-wave interaction becomes
+%important. In addition, existing models seldom take into account the exact
+%geometry of the blading, and instead, a simple correlation of the compressor
+%characteristics is used. This is obviously not desirable as
+%geometry details, such as the exact leading edge geometry, have great impact
+%on the stall characteristics. This is particularly the case when more complex stall
+%phenomenon are considered, such as spike stall, where geometry details
+%such as tip gap and the leading edge shape play a major role.
+%
+%This calls for a stability analysis method based on the three-dimensional
+%Reynolds-averaged Navier-Stokes equations, which is regarded as
+%the standard industrial tool for predicting steady and unsteady turbomachinery
+%performance. In a way, existing stall model needs to be upgraded using the latest
+%high-fidelity flow models. Again, either time-dependent simulations or
+%steady-state-based eigenanalysis can be used to study the stability based
+%on the high-fidelity models and each has its strength. Time-dependent
+%analysis is able to capture not only the incipent stall behavior but also the
+%details of the transient process, but at a very high computational cost.
+%Eigenvalue analysis is a powerful yet inexpensive tool to probe the flow
+%near the critical condition, but is still capable of revealing rich flow physics,
+%with cost comparable to a few steady state analysis.
+%
+%In this work, we demonstrate that using eigenanalysis based on a whole-annulus
+%steady state solution, the linear stablity demarcation point can be pinpointed
+%with the cost of a few steady state analysis, and a full-annulus time-accurate
+%unsteady calculation can thus be avoided. This methodology enables quick parametric
+%study of the various rotating flow instability phenomenon
+%such as rotating stall and rotating instability.
+%
+%The idea of performing such eigenanalysis is simple. The difficulty is in the detail.
+%One common misunderstanding is that an eigenanalysis for large cases is expensive.
+%This is true only if we were to compute the full spectrum of a large sparse linear system
+%using a direct method~\cite{amestoy2000mumps}.
+%However, since a subset of the millions or even billions of eigenvalues are relevant regarding
+%the linear stability, typically $\mathcal O(100)$, such eigenanalysis can be done at the cost of
+%a few steady state analysis, using iterative eigenvalue calculation
+%methods~\cite{sorensen1992implicit,lehoucq1998arpack}.
+%
+%In practice, such eigenanalysis is rarely done for large, complex cases of industry relevance.
+%The challenge is twofold. First,
+%in order to perform eigenanalysis, a steady state flow solution should first be
+%obtained, requiring the full convergence of the flow solver. While this is easily
+%achievable at design condition, obtaining a fully converged solution at off-design
+%conditions remains a challange from the perspective of flow solver~\cite{xu2015stabilisation}.
+%This is seldom discussed in literature, but widely felt in industry. Secondly, it is
+%a common belief that the  computatinal cost of such eigenanlysis is overwhelming
+%and is thus impractical for real applications. With the maturing of distributed
+%computing, this is no longer the bottleneck and one can easily compute the
+%relevant eigenvectors for cases with up to 10 million grid point, and the cost
+%only increases linearly with a scalable algorithm. But here the focus shifts slightly
+%to the computational methods side from the flow physics . As discussed
+%in~\cite{day2016stall}, combining the advancement by computational specialists
+%and the expertise from the `stall fraternity' is the right way to advance the research
+%in compressor stall study and an effective way to harness better the benifit of
+%using CFD. In this paper, we attempt to apply the latest development in large
+%scale eigenanalysis computational method to the long-standing problem of
+%rotating flow instability, rotating stall in particular, and try to explore the
+%underlying flow physics governing the pre- and in-stall behavior, at a
+%computational cost that is affordable for industrial applications.
+%
+%The rest of this paper is organized as follows. First, the basic algorithm of the
+%nonlinear flow solver will be discussed in sec.~\ref{lable:sec1}. Fundemantals of 
+%performing eigenanalysis based on RANS equations and relevant techniques
+%are discussed in sec.~\ref{label:sec2}. Results for the application of eigenanalysis
+%to predict flow instability is elaborated in sec.~\ref{label:results} and conclusions
+%are drawn in sec.~\ref{conclusion}.
 
-Previous numerical investigations mainly focused on using time-dependent
-unsteady flow analysis using either a fraction or the whole of an annulus.
-A lot of insight into the flow physics for the destablization mechanism
-has been gained from such high fidelity simuations. Unsteady simulations
-are useful for both reproducing the fully destabilized unsteady flows as
-well as for studying the inception of such instability. Due to the high
-computatioal cost of unsteady simulation, it still remains largely as a
-reserach tool to investigate the stall phenomenon on a case-by-case
-basis.
-
-It is widely believed that the fully developed stall and surge behavior is quite
-different from the incipient stall, or pre-stall disturbance~\cite{stenning1980rotating},
-as fully developed rotating stall exhibits strong nonlinearity. However, if the goal is
-to apply active control to suppress the instability at its infancy, then a linear stability
-prediction should suffice, as has been demonstrated in numerous work~\cite{paduano1991active,day1993active,paduano2001compression,day1997stall},
-as the idea is to eliminate the fully-developed rotating cells from forming.
-
-As modern compression systems are designed with higher loading and speed,
-most analytical models proposed in the early days and desmontrated useful
-on low-speed machines are no longer useful as compressibility and complex
-flow mechanism such as boundary-layer-shock-wave interaction becomes
-important. In addition, existing models seldom take into account the exact
-geometry of the blading, and instead, a simple correlation of the compressor
-characteristics is used. This is obviously not desirable as
-geometry details, such as the exact leading edge geometry, have great impact
-on the stall characteristics. This is particularly the case when more complex stall
-phenomenon are considered, such as spike stall, where geometry details
-such as tip gap and the leading edge shape play a major role.
-
-This calls for a stability analysis method based on the three-dimensional
-Reynolds-averaged Navier-Stokes equations, which is regarded as
-the standard industrial tool for predicting steady and unsteady turbomachinery
-performance. In a way, existing stall model needs to be upgraded using the latest
-high-fidelity flow models. Again, either time-dependent simulations or
-steady-state-based eigenanalysis can be used to study the stability based
-on the high-fidelity models and each has its strength. Time-dependent
-analysis is able to capture not only the incipent stall behavior but also the
-details of the transient process, but at a very high computational cost.
-Eigenvalue analysis is a powerful yet inexpensive tool to probe the flow
-near the critical condition, but is still capable of revealing rich flow physics,
-with cost comparable to a few steady state analysis.
-
-In this work, we demonstrate that using eigenanalysis based on a whole-annulus
-steady state solution, the linear stablity demarcation point can be pinpointed
-with the cost of a few steady state analysis, and a full-annulus time-accurate
-unsteady calculation can thus be avoided. This methodology enables quick parametric
-study of the various rotating flow instability phenomenon
-such as rotating stall and rotating instability.
-
-The idea of performing such eigenanalysis is simple. The difficulty is in the detail.
-One common misunderstanding is that an eigenanalysis for large cases is expensive.
-This is true only if we were to compute the full spectrum of a large sparse linear system
-using a direct method~\cite{amestoy2000mumps}.
-However, since a subset of the millions or even billions of eigenvalues are relevant regarding
-the linear stability, typically $\mathcal O(100)$, such eigenanalysis can be done at the cost of
-a few steady state analysis, using iterative eigenvalue calculation
-methods~\cite{sorensen1992implicit,lehoucq1998arpack}.
-
-In practice, such eigenanalysis is rarely done for large, complex cases of industry relevance.
-The challenge is twofold. First,
-in order to perform eigenanalysis, a steady state flow solution should first be
-obtained, requiring the full convergence of the flow solver. While this is easily
-achievable at design condition, obtaining a fully converged solution at off-design
-conditions remains a challange from the perspective of flow solver~\cite{xu2015stabilisation}.
-This is seldom discussed in literature, but widely felt in industry. Secondly, it is
-a common belief that the  computatinal cost of such eigenanlysis is overwhelming
-and is thus impractical for real applications. With the maturing of distributed
-computing, this is no longer the bottleneck and one can easily compute the
-relevant eigenvectors for cases with up to 10 million grid point, and the cost
-only increases linearly with a scalable algorithm. But here the focus shifts slightly
-to the computational methods side from the flow physics . As discussed
-in~\cite{day2016stall}, combining the advancement by computational specialists
-and the expertise from the `stall fraternity' is the right way to advance the research
-in compressor stall study and an effective way to harness better the benifit of
-using CFD. In this paper, we attempt to apply the latest development in large
-scale eigenanalysis computational method to the long-standing problem of
-rotating flow instability, rotating stall in particular, and try to explore the
-underlying flow physics governing the pre- and in-stall behavior, at a
-computational cost that is affordable for industrial applications.
-
-The rest of this paper is organized as follows. First, the basic algorithm of the
-nonlinear flow solver will be discussed in sec.~\ref{lable:sec1}. Fundemantals of 
-performing eigenanalysis based on RANS equations and relevant techniques
-are discussed in sec.~\ref{label:sec2}. Results for the application of eigenanalysis
-to predict flow instability is elaborated in sec.~\ref{label:results} and conclusions
-are drawn in sec.~\ref{conclusion}.
 
 
+\section{Numerical approach}
+\label{solver}
+The flow is computed using the NutsCFD solver, whose accuracy has
+been validated intensively for axial and centrifugal compressors~\cite{xu2019newton}.
+The RANS equations are discretized using the finite volume method on
+arbitrary unstructured meshes. The inviscid flux is calculated with Roe's
+flux difference splitting scheme and the viscous flux is calculated
+using central scheme. Second-order accurate spatial discretisation
+is achieved via linear reconstruction of the primitive variable
+from the mesh node to the flux face center and the gradient of
+flow variables are obtained using the Green-Gauss approach. Simulation
+of the unsteady flow for a rotating geometry is converted to the
+computation of a steady flow by re-formulating the governing equations
+in a reference frame coindending with the rotating geometry.
+In order to obtain a steady flow as the base-flow for linearizing
+the perturbed flow about and performing eigenvalue analysis, at
+physically unstable states, a globalized Newton--Krylov approach
+is used to integrate the unsteady RANS equations in time. This is
+one of the key technical enablers for performing global instability
+analysis for compressors beyond stall.
 
-\section{The nonlinear flow solver}
-\label{lable:sec1}
+
 The nonlinear flow solver used in this work is NutsCFD, an unstructured-mesh
 finite-volume RANS solver capable of dealing with rotating frame reference
 and periodic boundary conditions.
 The solver features the use of the Newton--Krylov algorithm,
 which significantly enhances the efficiency and robsutness when
 computing turbomachinery flows at off-design conditions.
-Details of the solver can be found in~\cite{xu2019nk}
+Details of the solver can be found in
 and a brief description of the solution algorithm is provided in this section.
 
 \subsection{Governing equations}

@@ -1,5 +1,5 @@
 \BOOKMARK [1][-]{section.1}{Introduction}{}% 1
-\BOOKMARK [1][-]{section.2}{The nonlinear flow solver}{}% 2
+\BOOKMARK [1][-]{section.2}{Numerical approach}{}% 2
 \BOOKMARK [2][-]{subsection.2.1}{Governing equations}{section.2}% 3
 \BOOKMARK [2][-]{subsection.2.2}{Spatial discretization}{section.2}% 4
 \BOOKMARK [2][-]{subsection.2.3}{Temporal discretization for steady solver}{section.2}% 5

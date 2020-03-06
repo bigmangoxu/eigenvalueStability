@@ -1,4 +1,4 @@
-\begin{thebibliography}{31}
+\begin{thebibliography}{16}
 \newcommand{\enquote}[1]{``#1''}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
@@ -8,110 +8,17 @@
   \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
   \urlstyle{rm}\Url}\fi
 
-\bibitem[{Emmons(1955)}]{emmons1955compressor}
-Emmons, H., \enquote{Compressor surge and stall propagation,} \emph{Trans. of
-  the ASME}, Vol.~77, No.~4, 1955, pp. 455--467.
+\bibitem[{Xu et~al.(2019{\natexlab{a}})Xu, Mohanamuraly, Wang, and
+  M{\"u}ller}]{xu2019newton}
+Xu, S., Mohanamuraly, P., Wang, D., and M{\"u}ller, J.-D.,
+  \enquote{Newton--Krylov Solver for Robust Turbomachinery Aerodynamic
+  Analysis,} \emph{AIAA Journal}, 2019{\natexlab{a}}, pp. 1--17.
 
-\bibitem[{Marble(1955)}]{frank1955propagation}
-Marble, F.~E., \enquote{Propagation of stall in a compressor blade row,}
-  \emph{Journal of the Aeronautical Sciences}, Vol.~22, No.~8, 1955, pp.
-  541--554.
-
-\bibitem[{Emmons et~al.(1959)Emmons, Kronauer, and Rockett}]{emmons1959survey}
-Emmons, H., Kronauer, R., and Rockett, J., \enquote{A survey of stall
-  propagation--experiment and theory,} \emph{Journal of Basic Engineering},
-  Vol.~81, No.~3, 1959, pp. 409--416.
-
-\bibitem[{Cornelius et~al.(2014)Cornelius, Biesinger, Galpin, and
-  Braune}]{cornelius2014experimental}
-Cornelius, C., Biesinger, T., Galpin, P., and Braune, A., \enquote{Experimental
-  and computational analysis of a multistage axial compressor including stall
-  prediction by steady and transient CFD methods,} \emph{Journal of
-  Turbomachinery}, Vol. 136, No.~6, 2014, p. 061013.
-
-\bibitem[{He(1997)}]{he1997computational}
-He, L., \enquote{Computational study of rotating-stall inception in axial
-  compressors,} \emph{Journal of Propulsion and Power}, Vol.~13, No.~1, 1997,
-  pp. 31--38.
-
-\bibitem[{Vo et~al.(2008)Vo, Cameron, and Morris}]{vo2008control}
-Vo, H.~D., Cameron, J.~D., and Morris, S.~C., \enquote{Control of short
-  length-scale rotating stall inception on a high-speed axial compressor with
-  plasma actuation,} \emph{ASME Turbo Expo 2008: Power for Land, Sea, and Air},
-  American Society of Mechanical Engineers, 2008, pp. 533--542.
-
-\bibitem[{Pullan et~al.(2015)Pullan, Young, Day, Greitzer, and
-  Spakovszky}]{pullan2015origins}
-Pullan, G., Young, A., Day, I., Greitzer, E., and Spakovszky, Z.,
-  \enquote{Origins and structure of spike-type rotating stall,} \emph{Journal
-  of Turbomachinery}, Vol. 137, No.~5, 2015, p. 051007.
-
-\bibitem[{Greitzer and Moore(1986)}]{greitzer1986theory}
-Greitzer, E., and Moore, F., \enquote{A theory of post-stall transients in
-  axial compression systems: part II—application,} \emph{ASME J. Eng. Gas
-  Turbines Power}, Vol. 108, No.~2, 1986, pp. 231--239.
-
-\bibitem[{Stenning(1980)}]{stenning1980rotating}
-Stenning, A., \enquote{Rotating stall and surge,} \emph{Journal of Fluids
-  Engineering}, Vol. 102, No.~1, 1980, pp. 14--20.
-
-\bibitem[{Paduano et~al.(1991)Paduano, Epstein, Valavani, Longley, Greitzer,
-  and Guenette}]{paduano1991active}
-Paduano, J., Epstein, A., Valavani, L., Longley, J., Greitzer, E., and
-  Guenette, G., \enquote{Active control of rotating stall in a low speed axial
-  compressor,} \emph{ASME 1991 International Gas Turbine and Aeroengine
-  Congress and Exposition}, American Society of Mechanical Engineers, 1991, pp.
-  V001T01A036--V001T01A036.
-
-\bibitem[{DAY(1993)}]{day1993active}
-DAY, I., \enquote{Active Suppression of Rotating Stall and Surge in Axial
-  Compressors,} \emph{J. Turbomach.}, Vol. 115, 1993, pp. 40--47.
-
-\bibitem[{Paduano et~al.(2001)Paduano, Greitzer, and
-  Epstein}]{paduano2001compression}
-Paduano, J.~D., Greitzer, E., and Epstein, A., \enquote{Compression system
-  stability and active control,} \emph{Annual review of fluid mechanics},
-  Vol.~33, No.~1, 2001, pp. 491--517.
-
-\bibitem[{Day et~al.(1997)Day, Breuer, Escuret, Cherrett, and
-  Wilson}]{day1997stall}
-Day, I., Breuer, T., Escuret, J., Cherrett, M., and Wilson, A., \enquote{Stall
-  inception and the prospects for active control in four high speed
-  compressors,} \emph{ASME 1997 International Gas Turbine and Aeroengine
-  Congress and Exhibition}, American Society of Mechanical Engineers, 1997, pp.
-  V004T15A022--V004T15A022.
-
-\bibitem[{Amestoy et~al.(2000)Amestoy, Duff, L’Excellent, and
-  Koster}]{amestoy2000mumps}
-Amestoy, P.~R., Duff, I.~S., L’Excellent, J.-Y., and Koster, J.,
-  \enquote{MUMPS: a general purpose distributed memory sparse solver,}
-  \emph{International Workshop on Applied Parallel Computing}, Springer, 2000,
-  pp. 121--130.
-
-\bibitem[{Sorensen(1992)}]{sorensen1992implicit}
-Sorensen, D.~C., \enquote{Implicit application of polynomial filters in a
-  k-step Arnoldi method,} \emph{SIAM journal on matrix analysis and
-  applications}, Vol.~13, No.~1, 1992, pp. 357--385.
-
-\bibitem[{Lehoucq et~al.(1998)Lehoucq, Sorensen, and Yang}]{lehoucq1998arpack}
-Lehoucq, R.~B., Sorensen, D.~C., and Yang, C., \emph{ARPACK users' guide:
-  solution of large-scale eigenvalue problems with implicitly restarted Arnoldi
-  methods}, Vol.~6, SIAM, 1998.
-
-\bibitem[{Xu et~al.(2015)Xu, Radford, Meyer, and
-  M{\"u}ller}]{xu2015stabilisation}
-Xu, S., Radford, D., Meyer, M., and M{\"u}ller, J.-D., \enquote{Stabilisation
-  of discrete steady adjoint solvers,} \emph{Journal of Computational Physics},
-  Vol. 299, 2015, pp. 175--195.
-
-\bibitem[{Day(2016)}]{day2016stall}
-Day, I., \enquote{Stall, surge, and 75 years of research,} \emph{Journal of
-  Turbomachinery}, Vol. 138, No.~1, 2016, p. 011001.
-
-\bibitem[{Xu et~al.(2019)Xu, Mohanamuraly, Wang, and M\"uller}]{xu2019nk}
+\bibitem[{Xu et~al.(2019{\natexlab{b}})Xu, Mohanamuraly, Wang, and
+  M\"uller}]{xu2019nk}
 Xu, S., Mohanamuraly, P., Wang, D., and M\"uller, J.-D., \enquote{A parallel
   Newton--Krylov RANS solver for turbomachinery aerodynamic analysis at
-  off-design conditions,} \emph{submitted}, 2019.
+  off-design conditions,} \emph{submitted}, 2019{\natexlab{b}}.
 
 \bibitem[{Allmaras and Johnson(2012)}]{allmaras2012modifications}
 Allmaras, S.~R., and Johnson, F.~T., \enquote{Modifications and clarifications
@@ -140,6 +47,16 @@ Gebremedhin, A.~H., Nguyen, D., Patwary, M. M.~A., and Pothen, A.,
   \enquote{ColPack: Software for graph coloring and related problems in
   scientific computing,} \emph{ACM Transactions on Mathematical Software
   (TOMS)}, Vol.~40, No.~1, 2013, p.~1.
+
+\bibitem[{Sorensen(1992)}]{sorensen1992implicit}
+Sorensen, D.~C., \enquote{Implicit application of polynomial filters in a
+  k-step Arnoldi method,} \emph{SIAM journal on matrix analysis and
+  applications}, Vol.~13, No.~1, 1992, pp. 357--385.
+
+\bibitem[{Lehoucq et~al.(1998)Lehoucq, Sorensen, and Yang}]{lehoucq1998arpack}
+Lehoucq, R.~B., Sorensen, D.~C., and Yang, C., \emph{ARPACK users' guide:
+  solution of large-scale eigenvalue problems with implicitly restarted Arnoldi
+  methods}, Vol.~6, SIAM, 1998.
 
 \bibitem[{Parks et~al.(2006)Parks, de~Sturler, Mackey, Johnson, and
   Maiti}]{parks2006recycling}
