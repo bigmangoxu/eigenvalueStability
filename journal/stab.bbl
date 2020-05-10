@@ -1,4 +1,4 @@
-\begin{thebibliography}{16}
+\begin{thebibliography}{17}
 \newcommand{\enquote}[1]{``#1''}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
@@ -8,17 +8,10 @@
   \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
   \urlstyle{rm}\Url}\fi
 
-\bibitem[{Xu et~al.(2019{\natexlab{a}})Xu, Mohanamuraly, Wang, and
-  M{\"u}ller}]{xu2019newton}
+\bibitem[{Xu et~al.(2019)Xu, Mohanamuraly, Wang, and M{\"u}ller}]{xu2019newton}
 Xu, S., Mohanamuraly, P., Wang, D., and M{\"u}ller, J.-D.,
   \enquote{Newton--Krylov Solver for Robust Turbomachinery Aerodynamic
-  Analysis,} \emph{AIAA Journal}, 2019{\natexlab{a}}, pp. 1--17.
-
-\bibitem[{Xu et~al.(2019{\natexlab{b}})Xu, Mohanamuraly, Wang, and
-  M\"uller}]{xu2019nk}
-Xu, S., Mohanamuraly, P., Wang, D., and M\"uller, J.-D., \enquote{A parallel
-  Newton--Krylov RANS solver for turbomachinery aerodynamic analysis at
-  off-design conditions,} \emph{submitted}, 2019{\natexlab{b}}.
+  Analysis,} \emph{AIAA Journal}, 2019, pp. 1--17.
 
 \bibitem[{Allmaras and Johnson(2012)}]{allmaras2012modifications}
 Allmaras, S.~R., and Johnson, F.~T., \enquote{Modifications and clarifications
@@ -79,13 +72,25 @@ Xu, S., Timme, S., and Badcock, K., \enquote{Enabling off-design linearised
 Xu, S., and Timme, S., \enquote{Robust and efficient adjoint solver for complex
   flow conditions,} \emph{Computers \& Fluids}, Vol. 148, 2017, pp. 26--38.
 
-\bibitem[{Williamson(2003)}]{Williamson2003Vortex}
-Williamson, C. H.~K., \enquote{Vortex Dynamics in the Cylinder Wake,}
-  \emph{Annual Review of Fluid Mechanics}, Vol.~28, No.~1, 2003, pp. 477--539.
+\bibitem[{Crouch et~al.(2007)Crouch, Garbaruk, and
+  Magidov}]{Crouch2007Predicting}
+Crouch, J.~D., Garbaruk, A., and Magidov, D., \enquote{Predicting the onset of
+  flow unsteadiness based on global instability,} \emph{Journal of
+  Computational Physics}, Vol. 224, No.~2, 2007, pp. 924--940.
+
+\bibitem[{Williamson(1989)}]{C1989Oblique}
+Williamson, C. H.~K., \enquote{Oblique and parallel modes of the vortex
+  shedding in the wake of a circular cylinder at low Reynolds numbers. J Fluid
+  Mech 206: 579-627,} \emph{journal of fluid mechanics}, Vol. 206, No.~-1,
+  1989, pp. 579--627.
 
 \bibitem[{Barkley(2006)}]{barkley2006linear}
 Barkley, D., \enquote{Linear analysis of the cylinder wake mean flow,}
   \emph{Europhysics Letters}, Vol.~75, No.~5, 2006, p. 750.
+
+\bibitem[{Williamson(2003)}]{Williamson2003Vortex}
+Williamson, C. H.~K., \enquote{Vortex Dynamics in the Cylinder Wake,}
+  \emph{Annual Review of Fluid Mechanics}, Vol.~28, No.~1, 2003, pp. 477--539.
 
 \bibitem[{Strazisar et~al.(1989)Strazisar, Wood, Hathaway, and
   Suder}]{strazisar1989laser}
