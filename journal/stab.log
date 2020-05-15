@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.5.4)  10 MAY 2020 13:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.5.4)  10 MAY 2020 22:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1041,40 +1041,39 @@ LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 5.5pt on input line 292.
  [2] [3] [4]
-<cyl-std-conv.pdf, id=110, 520.40872pt x 517.95007pt>
+<cyl-std-conv.pdf, id=105, 520.40872pt x 517.95007pt>
 File: cyl-std-conv.pdf Graphic file (type pdf)
 <use cyl-std-conv.pdf>
 Package pdftex.def Info: cyl-std-conv.pdf  used on input line 839.
 (pdftex.def)             Requested size: 187.89914pt x 187.0072pt.
- [5 <./cyl-std-conv.pdf>]
-<cylinder-eigenvalue.png, id=121, 1066.7052pt x 501.072pt>
+<cylinder-eigenvalue.png, id=108, 1066.7052pt x 501.072pt>
 File: cylinder-eigenvalue.png Graphic file (type png)
 <use cylinder-eigenvalue.png>
 Package pdftex.def Info: cylinder-eigenvalue.png  used on input line 876.
 (pdftex.def)             Requested size: 366.40834pt x 172.1131pt.
-<cylinder-stab.png, id=127, 1092.7224pt x 501.072pt>
+ [5 <./cyl-std-conv.pdf>]
+<cylinder-stab.png, id=125, 1092.7224pt x 501.072pt>
 File: cylinder-stab.png Graphic file (type png)
 <use cylinder-stab.png>
 Package pdftex.def Info: cylinder-stab.png  used on input line 904.
 (pdftex.def)             Requested size: 375.80544pt x 172.31953pt.
-<cyl-flow.png, id=133, 1270.5066pt x 329.0694pt>
+<cyl-flow.png, id=131, 1270.5066pt x 329.0694pt>
 File: cyl-flow.png Graphic file (type png)
 <use cyl-flow.png>
 Package pdftex.def Info: cyl-flow.png  used on input line 937.
 (pdftex.def)             Requested size: 375.80544pt x 97.33572pt.
- [6 <./cylinder-eigenvalue.png>] [7 <./cylinder-stab.png> <./cyl-flow.png>]
-<frequency-shift.png, id=155, 928.9104pt x 440.3652pt>
+ [6 <./cylinder-eigenvalue.png> <./cylinder-stab.png>]
+<frequency-shift.png, id=142, 928.9104pt x 440.3652pt>
 File: frequency-shift.png Graphic file (type png)
 <use frequency-shift.png>
 Package pdftex.def Info: frequency-shift.png  used on input line 981.
 (pdftex.def)             Requested size: 375.80544pt x 178.15205pt.
-
-(./stab.bbl
+ (./stab.bbl
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 9.0pt on input line 1.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
 (Font)              scaled to size 9.0pt on input line 14.
- [8 <./frequency-shift.png>])
+ [7 <./cyl-flow.png>] [8 <./frequency-shift.png>])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1308.
  [9]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 1308.
@@ -1086,13 +1085,13 @@ Package rerunfilecheck Info: File `stab.out' has not changed.
 (rerunfilecheck)             Checksum: 22DFB0DA16172421A75EA7EEF10B91B4;808.
  ) 
 Here is how much of TeX's memory you used:
- 18423 strings out of 480608
- 318746 string characters out of 5907537
- 617403 words of memory out of 5000000
- 33741 multiletter control sequences out of 15000+600000
+ 18415 strings out of 480608
+ 318657 string characters out of 5907537
+ 616403 words of memory out of 5000000
+ 33738 multiletter control sequences out of 15000+600000
  636111 words of font info for 223 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 63i,12n,100p,823b,902s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 63i,12n,100p,823b,912s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2020/texmf-dist/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc}{c:/texlive
 /2020/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}{c:/texlive/2020/texmf-di
 st/fonts/enc/dvips/tex-gyre/q-ts1.enc}<c:/texlive/2020/texmf-dist/fonts/type1/p
@@ -1105,10 +1104,10 @@ c/newtx/txmiaX.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/newtx/txsys.p
 fb><c:/texlive/2020/texmf-dist/fonts/type1/public/newtx/ztmb.pfb><c:/texlive/20
 20/texmf-dist/fonts/type1/public/newtx/ztmr.pfb><c:/texlive/2020/texmf-dist/fon
 ts/type1/public/newtx/ztmri.pfb>
-Output written on stab.pdf (9 pages, 1071121 bytes).
+Output written on stab.pdf (9 pages, 1070787 bytes).
 PDF statistics:
- 224 PDF objects out of 1000 (max. 8388607)
- 189 compressed objects within 2 object streams
- 49 named destinations out of 1000 (max. 500000)
+ 218 PDF objects out of 1000 (max. 8388607)
+ 183 compressed objects within 2 object streams
+ 44 named destinations out of 1000 (max. 500000)
  36978 words of extra memory for PDF output out of 42996 (max. 10000000)
 
